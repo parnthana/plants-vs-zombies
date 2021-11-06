@@ -1,4 +1,4 @@
-<h1 align="center">(2110215 PROG METH Project: null)</h1>
+<h1 align="center">2110215 PROG METH Project: null</h1>
 
 <p align="center">
   <img width="200" height="200" src="https://github.com/JetBrains/logos/blob/master/web/intellij-idea/intellij-idea.svg">
