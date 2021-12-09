@@ -175,3 +175,6 @@ local.properties
 ### Personal ###
 # *.pdf
 *.iml
+
+# macOS
+.DS_Store
