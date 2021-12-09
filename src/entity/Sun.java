@@ -1,0 +1,66 @@
+package entity;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
+import logic.Sprites;
+
+public class Sun extends Entity {
+
+    // Fields
+    private final int timeout_time;
+
+    // Constructor
+    public Sun(int x, int y, boolean falling) {
+        super(x, y, 50, 50, "sun.png");
+        if (falling) {
+            timeout_time = 14000;
+        } else {
+            timeout_time = 5000;
+        }
+        disappear();
+    }
+
+    // Methods
+    public void disappear() {
+        new Thread(() -> {
+            try {
+                Thread.sleep(timeout_time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getImage().setVisible(false);
+            getImage().setDisable(true);
+
+        }).start();
+    }
+
+    @Override
+    public void buildImage(Pane pane) {
+        super.buildImage(pane);
+        getImage().setOnMouseClicked(mouseEvent -> {
+            getImage().setVisible(false);
+            getImage().setDisable(true);
+        });
+        // GamePlayController.updateSunCount(25);
+    }
+
+    public void sunMovement() {
+        if (getY() <= 550) {
+            setY(getY() + 1);
+        }
+    }
+
+    public void fallingSunAnimation() {
+        Timeline sun_animation = new Timeline(new KeyFrame(Duration.millis(12), actionEvent -> sunMovement()));
+        sun_animation.setCycleCount(550);
+        sun_animation.play();
+        // GameplayController.animationTimeLine.add(sun_animation);
+    }
+
+    @Override
+    public int getSymbol() {
+        return Sprites.SUN;
+    }
+}
