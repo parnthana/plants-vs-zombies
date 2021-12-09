@@ -7,12 +7,12 @@ import javafx.scene.layout.Pane;
 
 
 public abstract class Entity {
-    private int x;
-    private int y;
-    private int width;
-    private int height;
-    private ImageView image;
-    private String path;
+    protected int x;
+    protected int y;
+    protected int width;
+    protected int height;
+    protected ImageView image;
+    protected String path;
 
     public Entity(int x, int y, int width, int height, String path) {
         this.x = x;
@@ -24,7 +24,7 @@ public abstract class Entity {
 
     public abstract int getSymbol();
 
-    public void buildImage(Pane pane){
+    public void buildImage(Pane pane) {
         image = new ImageView();
         image.setImage(new Image(path));
         image.setX(x);
@@ -33,6 +33,7 @@ public abstract class Entity {
         image.setFitWidth(width);
         pane.getChildren().add(image);
     }
+
     public void remove() {
         //GameController.getCurrentMap().removeEntity(x,y);
     }
