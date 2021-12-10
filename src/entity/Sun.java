@@ -4,7 +4,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import logic.Sprites;
 
 public class Sun extends Entity {
 
@@ -12,9 +11,9 @@ public class Sun extends Entity {
     private final int timeout_time;
 
     // Constructor
-    public Sun(int x, int y, boolean falling) {
+    public Sun(int x, int y, boolean isFalling) {
         super(x, y, 50, 50, "sun.png");
-        if (falling) {
+        if (isFalling) {
             timeout_time = 14000;
         } else {
             timeout_time = 5000;
@@ -59,8 +58,4 @@ public class Sun extends Entity {
         // GameplayController.animationTimeLine.add(sun_animation);
     }
 
-    @Override
-    public int getSymbol() {
-        return Sprites.SUN;
-    }
 }
