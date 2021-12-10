@@ -52,7 +52,7 @@ public abstract class Zombie extends Entity implements Attackable {
             }
         }
         if (health <= 5) {
-            Image img = new Image(getClass().getResource("/gif/normalzombie.gif").toString();
+            Image img = new Image(getClass().getResource("/gif/normalzombie.gif").toString());
             image.setImage(img);
             image.setFitHeight(115);
             image.setFitWidth(65);
@@ -62,7 +62,7 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void burntZombie() {
-        Image img = new Image(getClass().getResource("/gif/burntZombie.gif").toString();
+        Image img = new Image(getClass().getResource("/gif/burntZombie.gif").toString());
         image.setImage(img);
         image.setFitHeight(115);
         image.setFitWidth(65);
@@ -116,6 +116,7 @@ public abstract class Zombie extends Entity implements Attackable {
             try {
                 attack();
             } catch (java.util.ConcurrentModificationException e) {
+                e.printStackTrace();
             }
             ReachedHouse();
         }
@@ -131,7 +132,7 @@ public abstract class Zombie extends Entity implements Attackable {
                     if (Math.abs(plant.getX() - image.getX()) <= 50) {
                         foundPlant = true;
 
-                        if (reachedPlant == false) {
+                        if (!reachedPlant) {
                             reachedPlant = true;
                             isEating = true;
                         }
@@ -144,18 +145,16 @@ public abstract class Zombie extends Entity implements Attackable {
                             GamePlayController.animationTimelines.add(eat);
                             isEating = false;
                         }
-                        if (foundPlant) {
-                            this.dx = 0;
-                            plant.setHealthpoint(plant.getHealthpoint() - this.attackPower);
-                            if (plant.getHealthpoint() <= 0) {
-                                plant.setHealthpoint(0);
-                                GamePlayController.allPlants.remove(plant);
-                                plant.image.setVisible(false);
-                                plant.image.setDisable(true);
-                                this.dx = -1;
-                                this.reachedPlant = false;
-                                this.eating.stop();
-                            }
+                        this.dx = 0;
+                        plant.setHealthpoint(plant.getHealthpoint() - this.attackPower);
+                        if (plant.getHealthpoint() <= 0) {
+                            plant.setHealthpoint(0);
+                            GamePlayController.allPlants.remove(plant);
+                            plant.image.setVisible(false);
+                            plant.image.setDisable(true);
+                            this.dx = -1;
+                            this.reachedPlant = false;
+                            this.eating.stop();
                         }
                     } else {
                         this.dx = -1;
