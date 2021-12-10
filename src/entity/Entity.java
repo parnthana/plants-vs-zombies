@@ -33,10 +33,6 @@ public class Entity {
         pane.getChildren().add(image);
     }
 
-    public void remove() {
-        //GameController.getCurrentMap().removeEntity(x,y);
-    }
-
     public int getX() {
         return x;
     }
