@@ -5,6 +5,7 @@ import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
 public abstract class Plant extends Entity implements Attackable {
 
@@ -41,9 +42,14 @@ public abstract class Plant extends Entity implements Attackable {
     }
 
     @Override
-    public abstract void attack();
+    public void attacking(){
+
+    }
 
     public void endAnimation(Timeline t){
         t.stop();
+    }
+
+    public void attack(Pane p){
     }
 }
