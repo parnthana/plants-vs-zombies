@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 
-public abstract class Entity {
+public class Entity {
     protected int x;
     protected int y;
     protected int width;
@@ -22,7 +22,6 @@ public abstract class Entity {
         this.path = path; //url of image
     }
 
-    public abstract int getSymbol();
 
     public void buildImage(Pane pane) {
         image = new ImageView();
