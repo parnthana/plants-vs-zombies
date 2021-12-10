@@ -1,6 +1,5 @@
 package entity;
 
-import logic.Sprites;
 
 public class BucketHeadZombie extends Zombie {
     public BucketHeadZombie(int x, int y, int lane) {
@@ -8,8 +7,4 @@ public class BucketHeadZombie extends Zombie {
         this.path = "/assets/bucketheadzombie.gif";
     }
 
-    @Override
-    public int getSymbol() {
-        return Sprites.BUCKETHEADZOMBIE;
-    }
 }

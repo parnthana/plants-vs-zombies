@@ -122,7 +122,7 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
-    public void attack() {
+    public void eatPlant() {
         boolean foundPlant = false;
         synchronized (GamePlayController.allPlants) {
             Iterator<Plant> plantItr = GamePlayController.allPlants.iterator();
