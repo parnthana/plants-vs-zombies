@@ -1,21 +1,17 @@
 package entity;
 
+import entity.base.Attackable;
 import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-import logic.Sprites;
 
 import java.util.Iterator;
 
 public abstract class Zombie extends Entity implements Attackable {
-    private int x;
-    private int y;
     private int health;
     private int attackPower;
     private int lane;
@@ -25,7 +21,7 @@ public abstract class Zombie extends Entity implements Attackable {
     private boolean reachedPlant = false;
     private boolean isEating = false;
 
-    public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path,) {
+    public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
         super(x, y, width, height, path);
         setHealth(health);
         this.attackPower = attackPower;
@@ -33,8 +29,6 @@ public abstract class Zombie extends Entity implements Attackable {
         this.dx = -1;
         this.eating = new Timeline();
     }
-
-    public abstract int getSymbol();
 
     public void setHealth(int health) {
         this.health = health;
@@ -127,7 +121,7 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
-    public void eatPlant() {
+    public void attack() {
         boolean foundPlant = false;
         synchronized (GamePlayController.allPlants) {
             Iterator<Plant> plantItr = GamePlayController.allPlants.iterator();
@@ -152,11 +146,11 @@ public abstract class Zombie extends Entity implements Attackable {
                         }
                         if (foundPlant) {
                             this.dx = 0;
-                            plant.setHealth(plant.getHealth() - this.attackPower);
-                            if (plant.getHealth() <= 0) {
-                                plant.setHealth(0);
+                            plant.setHealthpoint(plant.getHealthpoint() - this.attackPower);
+                            if (plant.getHealthpoint() <= 0) {
+                                plant.setHealthpoint(0);
                                 GamePlayController.allPlants.remove(plant);
-                                plant.image.Visible(false);
+                                plant.image.setVisible(false);
                                 plant.image.setDisable(true);
                                 this.dx = -1;
                                 this.reachedPlant = false;
