@@ -42,7 +42,7 @@ public abstract class Zombie extends Entity implements Attackable {
             }
             for (Zombie zombie : GamePlayController.allZombies) {
                 if (this == zombie) {
-                    Media yuckSound = new Media(getClass().getResource("/assets/sounds/yuck.wav").toString());
+                    Media yuckSound = new Media(getClass().getResource("/sounds/yuck.wav").toString());
                     MediaPlayer mediaPlayer = new MediaPlayer(yuckSound);
                     mediaPlayer.setAutoPlay(true);
                     mediaPlayer.play();
@@ -52,7 +52,7 @@ public abstract class Zombie extends Entity implements Attackable {
             }
         }
         if (health <= 5) {
-            Image img = new Image(getClass().getResource("/assets/normalzombie.gif").toString();
+            Image img = new Image(getClass().getResource("/gif/normalzombie.gif").toString();
             image.setImage(img);
             image.setFitHeight(115);
             image.setFitWidth(65);
@@ -62,7 +62,7 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void burntZombie() {
-        Image img = new Image(getClass().getResource("/assets/burntZombie.gif").toString();
+        Image img = new Image(getClass().getResource("/gif/burntZombie.gif").toString();
         image.setImage(img);
         image.setFitHeight(115);
         image.setFitWidth(65);
@@ -84,7 +84,7 @@ public abstract class Zombie extends Entity implements Attackable {
 
     public void ReachedHouse() {
         if (image.getX() <= 220) {
-            Media brainzSound = new Media(getClass().getResource("/assets/sounds/brainz.wav").toString());
+            Media brainzSound = new Media(getClass().getResource("/sounds/brainz.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(brainzSound);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
@@ -93,7 +93,7 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void chompPlant() {
-        Media chomp = new Media(getClass().getResource("/assets/sounds/chomp.wav").toString());
+        Media chomp = new Media(getClass().getResource("/sounds/chomp.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(chomp);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setStartTime(Duration.seconds(0));
@@ -114,7 +114,7 @@ public abstract class Zombie extends Entity implements Attackable {
         if (getX() > 220 && this.health > 0) {
             setX(getX() + this.dx);
             try {
-                eatPlant();
+                attack();
             } catch (java.util.ConcurrentModificationException e) {
             }
             ReachedHouse();
