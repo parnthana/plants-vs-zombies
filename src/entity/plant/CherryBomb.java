@@ -68,7 +68,7 @@ public class CherryBomb extends Plant {
                     }
                 }
             }
-            for (Plant plant : GameController.allPlants) {
+            for (Object plant : GameController.allPlants) {
                 if (this == plant) {
                     GameController.allPlants.remove(plant);
                     break;

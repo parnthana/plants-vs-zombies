@@ -55,9 +55,9 @@ public class ChilliPepper extends Plant {
                 fires[i].setVisible(true);
             }
             synchronized (GameController.allZombies) {
-                for (Zombie zombie : GameController.allZombies) {
-                    if (row == zombie.getLane()) {
-                        zombie.burntZombie();
+                for (Object zombie : GameController.allZombies) {
+                    if (row == ((Zombie) zombie).getLane()) {
+                        ((Zombie) zombie).burntZombie();
                     }
                 }
             }
