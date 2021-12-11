@@ -1,6 +1,9 @@
 package logic;
 
 import entity.*;
+import entity.plant.CherryBomb;
+import entity.plant.ChilliPepper;
+import entity.plant.SunFlower;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
