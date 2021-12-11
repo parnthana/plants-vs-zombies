@@ -61,7 +61,7 @@ public class Shooter extends Plant {
         return lane;
     }
 
-    public void checkHp() {
+    public void checkHealthPoint() {
         if (getHealthpoint() <= 0) {
             endAnimation(shooterTimeline);
         }
