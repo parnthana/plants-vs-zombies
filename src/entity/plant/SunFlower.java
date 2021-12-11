@@ -24,10 +24,18 @@ public class SunFlower extends Plant {
         produceSun(pane);
     }
 
+<<<<<<< HEAD:src/entity/SunFlower.java
+    @Override
+    public void attack(Pane pane) {
+    }
+
+||||||| c7b9742:src/entity/SunFlower.java
+=======
     @Override
     public void attacking() {
     }
 
+>>>>>>> 408b8a7c61c8626e058c43f3be2de6f1c898abae:src/entity/plant/SunFlower.java
     public void produceSun(Pane pane) {
         Timeline stopShine = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             Glow shine = new Glow();
