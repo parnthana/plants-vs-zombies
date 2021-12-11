@@ -45,7 +45,7 @@ public abstract class Zombie extends Entity implements Attackable {
             if (this.eating != null) {
                 this.eating.stop();
             }
-            for (Zombie zombie : GameController.allZombies) {
+            for (Object zombie : GameController.allZombies) {
                 if (this == zombie) {
                     Media yuckSound = new Media(getClass().getResource("/assets/sounds/yuck.wav").toString());
                     MediaPlayer mediaPlayer = new MediaPlayer(yuckSound);
@@ -139,9 +139,10 @@ public abstract class Zombie extends Entity implements Attackable {
     public void eatPlant() {
         boolean foundPlant = false;
         synchronized (GameController.allPlants) {
-            for (Plant plant : GameController.allPlants) {
+            for (Object p : GameController.allPlants) {
+                Plant plant = (Plant) p;
                 if (plant.getRow() == getLane()) {
-                    if (Math.abs(plant.getX() - image.getX()) <= 50) {
+                    if (Math.abs(((Plant) plant).getX() - image.getX()) <= 50) {
                         foundPlant = true;
                         if (!reachedPlant) {
                             reachedPlant = true;
