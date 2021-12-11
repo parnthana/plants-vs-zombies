@@ -1,6 +1,5 @@
 package entity;
 
-import entity.Entity;
 import entity.base.Attackable;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
