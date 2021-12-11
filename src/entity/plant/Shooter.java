@@ -31,14 +31,15 @@ public class Shooter extends Plant {
             @Override
             public void handle(ActionEvent event) {
                 synchronized (GameController.allZombies) {
-                    for (Zombie z : (Iterable<Zombie>) GameController.allZombies) {
+                    for (Object zombie : GameController.allZombies) {
+                        Zombie z = (Zombie) zombie;
                         if (z.getLane() == getShooterLane() && getX() <= z.getX()) {
                             int peaStartX = getX() + 50;
                             int peaStartY = getY() + 25;
                             Pea p = new Pea(peaStartX, peaStartY, getX() + 50, row);
                             p.buildImage(pane);
                             p.shootPea();
-                            checkHp();
+                            checkHealthPoint();
                         }
                     }
                 }
