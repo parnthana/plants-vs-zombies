@@ -1,10 +1,7 @@
 package logic;
 
 import entity.*;
-import entity.plant.CherryBomb;
-import entity.plant.ChilliPepper;
-import entity.plant.Shooter;
-import entity.plant.SunFlower;
+import entity.plant.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -22,6 +19,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -339,7 +337,8 @@ public class GameController {
                 mediaPlayer.setAutoPlay(true);
                 mediaPlayer.play();
                 synchronized (allPlants) {
-                    for (Plant plant : (Iterable<Plant>) allPlants) {
+                    for (Object p : allPlants) {
+                        Plant plant = (Plant) p;
                         if (plant.getColumn() == colIndex && plant.getRow() == rowIndex) {
                             plant.getImage().setVisible(false);
                             plant.getImage().setDisable(true);
@@ -358,8 +357,9 @@ public class GameController {
             if (colIndex != null && rowIndex != null) {
                 boolean flag = true;
                 synchronized (allPlants) {
-                    for (Plant p : (Iterable<Plant>) allPlants) {
-                        if (p.col == colIndex && p.row == rowIndex) {
+                    for (Object plant : allPlants) {
+                        Plant p = (Plant) plant;
+                        if (p.getColumn() == colIndex && p.getRow() == rowIndex) {
                             flag = false;
                             break;
                         }
@@ -389,37 +389,37 @@ public class GameController {
                 plant = new SunFlower(x, y, row, col);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
-                plant.attack(GamePlayRoot);
+                plant.attacking(GamePlayRoot);
             }
             case 2 -> {
                 plant = new PeaShooter(x, y, row, col);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
-                plant.attack(GamePlayRoot);
+                plant.attacking(GamePlayRoot);
             }
             case 3 -> {
                 plant = new Wallnut(x, y, row, col);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
-                plant.attack(GamePlayRoot);
+                plant.attacking(GamePlayRoot);
             }
             case 4 -> {
                 plant = new CherryBomb(x, y, row, col);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
-                plant.attack(GamePlayRoot);
+                plant.attacking(GamePlayRoot);
             }
             case 5 -> {
                 plant = new Repeater(x, y, row, col);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
-                plant.attack(GamePlayRoot);
+                plant.attacking(GamePlayRoot);
             }
             case 6 -> {
                 plant = new ChilliPepper(x, y, row, col);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
-                plant.attack(GamePlayRoot);
+                plant.attacking(GamePlayRoot);
             }
         }
     }
