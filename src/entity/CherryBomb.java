@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,7 +15,7 @@ public class CherryBomb extends Plant {
     private ArrayList<Zombie> roastedZombies;
 
     public CherryBomb(int x, int y, int row, int col) {
-        super(x, y, "/assets/anim_cherrybomb.gif", 4, 90, 68, row, col);
+        super(x, y, 68, 90, "/assets/anim_cherrybomb.gif", 4, row, col);
         this.path = "/assets/anim_cherrybomb.gif";
     }
 
@@ -91,5 +92,9 @@ public class CherryBomb extends Plant {
             cherry.setVisible(false);
         }).start();
         this.setHealthpoint(0);
+    }
+
+    public ArrayList<Zombie> getRoastedZombies() {
+        return roastedZombies;
     }
 }
