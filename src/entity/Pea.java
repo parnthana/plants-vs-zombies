@@ -1,16 +1,11 @@
 package entity;
 
-import entity.Entity;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import logic.GameController;
-
-import java.io.File;
-import java.util.Iterator;
 
 public class Pea extends Entity {
     private int lane;
