@@ -63,7 +63,7 @@ public class GameController {
     public static final int LANE3 = 250;
     public static final int LANE4 = 350;
     public static final int LANE5 = 450;
-    private static Level level;
+    private static GameEntity level;
     public static List allZombies;
     public static List allPlants;
     public static ArrayList<Integer> zombieList1;
@@ -94,7 +94,7 @@ public class GameController {
         wonGame = 0;
         Random rand = new Random();
         this.levelNumber = levelNumber;
-        level = new Level(levelNumber);
+        level = new GameEntity(levelNumber);
         zombieList1 = dataTable.getZombieList1();
         zombieList2 = dataTable.getZombieList2();
         allPlants = dataTable.getAllPlants();
@@ -127,7 +127,7 @@ public class GameController {
         synchronized (allPlants) {
             for (Plant plant : (Iterable<Plant>) allPlants) {
                 plant.buildImage(lawn_grid);
-                plant.attack(GamePlayRoot);
+                plant.attacking(GamePlayRoot);
             }
         }
         synchronized (allZombies) {
@@ -262,15 +262,15 @@ public class GameController {
                 lane = LANE5;
             try {
                 if (zombieList1.get(0) == 0) {
-                    Level.spawnNormalZombie(GamePlayRoot, lane, laneNumber);
+                    GameEntity.spawnDefaultZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
                     updateSpawnedZombies();
                 } else if (zombieList1.get(0) == 1) {
-                    Level.spawnConeZombie(GamePlayRoot, lane, laneNumber);
+                    GameEntity.spawnFunnelHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
                     updateSpawnedZombies();
                 } else if (zombieList1.get(0) == 2) {
-                    Level.spawnBucketZombie(GamePlayRoot, lane, laneNumber);
+                    GameEntity.spawnBucketHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
                     updateSpawnedZombies();
                 }
@@ -301,15 +301,15 @@ public class GameController {
                 lane = LANE5;
             try {
                 if (zombieList2.get(0) == 0) {
-                    Level.spawnNormalZombie(GamePlayRoot, lane, laneNumber);
+                    GameEntity.spawnDefaultZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
                     updateSpawnedZombies();
                 } else if (zombieList2.get(0) == 1) {
-                    Level.spawnConeZombie(GamePlayRoot, lane, laneNumber);
+                    GameEntity.spawnFunnelHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
                     updateSpawnedZombies();
                 } else if (zombieList2.get(0) == 2) {
-                    Level.spawnBucketZombie(GamePlayRoot, lane, laneNumber);
+                    GameEntity.spawnBucketHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
                     updateSpawnedZombies();
                 }
