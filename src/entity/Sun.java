@@ -51,7 +51,7 @@ public class Sun extends Entity {
         }
     }
 
-    public void fallingSunAnimation() {
+    public void fallingSun() {
         Timeline sun_animation = new Timeline(new KeyFrame(Duration.millis(12), actionEvent -> sunMovement()));
         sun_animation.setCycleCount(550);
         sun_animation.play();

@@ -54,4 +54,12 @@ public abstract class Plant extends Entity implements Attackable {
     }
 
     public abstract void attack(Pane pane);
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
 }

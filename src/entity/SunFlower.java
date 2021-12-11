@@ -19,6 +19,10 @@ public class SunFlower extends Plant {
         produceSun(pane);
     }
 
+    @Override
+    public void attack(Pane pane) {
+    }
+
     public void produceSun(Pane pane) {
         Timeline stopShine = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             Glow shine = new Glow();
