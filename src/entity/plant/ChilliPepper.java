@@ -1,31 +1,35 @@
-package entity;
+package entity.plant;
 
-import javafx.application.Platform;
+import entity.Plant;
+import entity.Zombie;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import logic.GameController;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ChilliPepper extends Plant {
+
+    // Fields
     private ArrayList<Zombie> roastedZombies;
     private ImageView[] fires;
 
+    // Constructor
     public ChilliPepper(int x, int y, int row, int col) {
-        super(x, y, 100, 100, "/res/jalapeno.gif", 4, row, col);
-        this.path = "/assets/jalapeno.gif";
+        super(x, y, 100, 100, "/assets/gif/jalapeno.gif", 4, row, col);
         fires = new ImageView[9];
     }
 
+    // Methods
     @Override
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
         for (int i = 0; i < 9; i++) {
-            fires[i] = new ImageView(new Image(getClass().getResource("/res/jalapenoFire.gif").toString(), 100, 100, false, false));
+            fires[i] = new ImageView(new Image(getClass().getResource("/assets/gif/jalapenoFire.gif").toString(), 100, 100, false, false));
             fires[i].setDisable(true);
             fires[i].setVisible(false);
             lawn.add(fires[i], i, this.row, 1, 1);
@@ -43,31 +47,25 @@ public class ChilliPepper extends Plant {
             }
             image.setVisible(false);
             image.setDisable(true);
-            Media blast = new Media(getClass().getResource("/res/sounds/jalapeno.wav").toString());
+            Media blast = new Media(getClass().getResource("/assets/sounds/jalapeno.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(blast);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
             for (int i = 0; i < 9; i++) {
                 fires[i].setVisible(true);
             }
-            synchronized (GamePlayController.allZombies) {
-                Iterator<Zombie> zombieIterator = GamePlayController.allZombies.iterator();
-                while (zombieIterator.hasNext()) {
-                    Zombie zombie = zombieIterator.next();
+            synchronized (GameController.allZombies) {
+                for (Zombie zombie : GameController.allZombies) {
                     if (row == zombie.getLane()) {
                         zombie.burntZombie();
                     }
                 }
             }
-            for (Plant plant : GamePlayController.allPlants) {
-                if (this == plant) {
-                    GamePlayController.allPlants.remove(plant);
-                }
-            }
-            for (int i = 0; i < this.roastedZombies.size(); i++) {
-                for (int j = 0; j < GamePlayController.allZombies.size(); j++) {
-                    if (roastedZombies.get(i) == GamePlayController.allZombies.get(j)) {
-                        GamePlayController.allZombies.remove(j);
+            GameController.allPlants.removeIf(plant -> this == plant);
+            for (Zombie roastedZombie : this.roastedZombies) {
+                for (int j = 0; j < GameController.allZombies.size(); j++) {
+                    if (roastedZombie == GameController.allZombies.get(j)) {
+                        GameController.allZombies.remove(j);
                     }
                 }
             }
@@ -76,7 +74,7 @@ public class ChilliPepper extends Plant {
     }
 
     @Override
-    public void attack(Pane pane) {
+    public void attacking() {
     }
 
     public void removeFire() {
@@ -98,7 +96,4 @@ public class ChilliPepper extends Plant {
         return roastedZombies;
     }
 
-    @Override
-    public void attacking() {
-    }
 }
