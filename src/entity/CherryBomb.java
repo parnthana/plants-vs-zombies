@@ -38,7 +38,7 @@ public class CherryBomb extends Plant {
     }
 
     @Override
-    public void attack(Pane pane) {
+    public void attacking(Pane pane) {
         pane.getChildren().add(cherry);
         new Thread(() -> {
             try {
@@ -80,6 +80,10 @@ public class CherryBomb extends Plant {
             }
             removeCherry();
         }).start();
+    }
+
+    @Override
+    public void attack(Pane pane) {
     }
 
     public void removeCherry() {

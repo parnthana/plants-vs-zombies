@@ -43,13 +43,15 @@ public abstract class Plant extends Entity implements Attackable {
 
     @Override
     public void attacking(){
-
     }
 
     public void endAnimation(Timeline t){
         t.stop();
     }
 
-    public void attack(Pane p){
+    @Override
+    public void attacking(Pane pane) {
     }
+
+    public abstract void attack(Pane pane);
 }

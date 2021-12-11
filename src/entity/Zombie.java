@@ -5,6 +5,7 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -120,6 +121,15 @@ public abstract class Zombie extends Entity implements Attackable {
             }
             ReachedHouse();
         }
+    }
+
+    @Override
+    public void attacking(Pane pane) {
+    }
+
+    @Override
+    public void attacking() {
+        eatPlant();
     }
 
     public void eatPlant() {

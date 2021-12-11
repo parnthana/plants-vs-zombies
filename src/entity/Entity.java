@@ -1,11 +1,12 @@
 package entity;
 
+import entity.base.Attackable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 
-public class Entity {
+public abstract class Entity implements Attackable {
     protected int x;
     protected int y;
     protected int width;
@@ -58,5 +59,13 @@ public class Entity {
 
     public String getPath() {
         return path;
+    }
+
+    @Override
+    public void attacking(Pane pane) {
+    }
+
+    @Override
+    public void attacking() {
     }
 }

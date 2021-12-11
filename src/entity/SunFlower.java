@@ -15,7 +15,7 @@ public class SunFlower extends Plant {
     }
 
     @Override
-    public void attack(Pane pane) {
+    public void attacking(Pane pane) {
         produceSun(pane);
     }
 
@@ -56,5 +56,9 @@ public class SunFlower extends Plant {
 
     public Timeline getSunProducer() {
         return sunProducer;
+    }
+
+    @Override
+    public void attacking() {
     }
 }

@@ -34,7 +34,7 @@ public class ChilliPepper extends Plant {
     }
 
     @Override
-    public void attack(Pane pane) {
+    public void attacking(Pane pane) {
         new Thread(() -> {
             try {
                 Thread.sleep(1700);
@@ -75,6 +75,10 @@ public class ChilliPepper extends Plant {
         }).start();
     }
 
+    @Override
+    public void attack(Pane pane) {
+    }
+
     public void removeFire() {
         new Thread(() -> {
             try {
@@ -96,6 +100,5 @@ public class ChilliPepper extends Plant {
 
     @Override
     public void attacking() {
-        super.attacking();
     }
 }

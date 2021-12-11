@@ -1,6 +1,8 @@
 package entity;
 
 
+import javafx.scene.layout.Pane;
+
 public class FunnelHeadZombie extends Zombie{
 
     public FunnelHeadZombie(int x, int y, int lane) {
@@ -8,9 +10,12 @@ public class FunnelHeadZombie extends Zombie{
         this.path = "/assets/coneheadzombie.gif";
     }
 
+    @Override
+    public void attacking(Pane pane) {
+    }
 
     @Override
-    public void eatPlant() {
-        super.eatPlant();
+    public void attacking() {
+        super.attacking();
     }
 }
