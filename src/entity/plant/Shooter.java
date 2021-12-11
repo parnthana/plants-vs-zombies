@@ -1,5 +1,6 @@
 package entity.plant;
 
+import entity.Pea;
 import entity.Plant;
 
 import entity.Zombie;
