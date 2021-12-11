@@ -4,6 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import logic.GameController;
 
 public class Sun extends Entity {
 
@@ -12,7 +13,7 @@ public class Sun extends Entity {
 
     // Constructor
     public Sun(int x, int y, boolean isFalling) {
-        super(x, y, 50, 50, "sun.png");
+        super(x, y, 50, 50, "/assets/images/sun.png");
         if (isFalling) {
             timeout_time = 14000;
         } else {
@@ -42,7 +43,7 @@ public class Sun extends Entity {
             getImage().setVisible(false);
             getImage().setDisable(true);
         });
-        // GamePlayController.updateSunCount(25);
+        GameController.updateSunCount(25);
     }
 
     public void sunMovement() {
@@ -51,11 +52,11 @@ public class Sun extends Entity {
         }
     }
 
-    public void fallingSunAnimation() {
+    public void fallingSun() {
         Timeline sun_animation = new Timeline(new KeyFrame(Duration.millis(12), actionEvent -> sunMovement()));
         sun_animation.setCycleCount(550);
         sun_animation.play();
-        // GameplayController.animationTimeLine.add(sun_animation);
+        GameController.animationTimelines.add(sun_animation);
     }
 
 }

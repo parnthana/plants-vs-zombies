@@ -1,24 +1,29 @@
-package entity;
+package entity.plant;
 
+import entity.Plant;
+import entity.Zombie;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import logic.GameController;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class CherryBomb extends Plant {
+
+    // Fields
     protected ImageView cherry;
     private ArrayList<Zombie> roastedZombies;
 
+    // Constructor
     public CherryBomb(int x, int y, int row, int col) {
-        super(x, y, 68, 90, "/res/anim_cherrybomb.gif", 4, row, col);
-        this.path = "/assets/anim_cherrybomb.gif";
+        super(x, y, 68, 90, "/assets/gif/anim_cherrybomb.gif", 4, row, col);
     }
 
+    // Methods
     @Override
     public void attacking() {
     }
@@ -26,7 +31,7 @@ public class CherryBomb extends Plant {
     @Override
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
-        Image img = new Image("/res/powie.gif");
+        Image img = new Image("/assets/gif/powie.gif");
         cherry = new ImageView(img);
         cherry.setFitHeight(180);
         cherry.setFitWidth(160);
@@ -34,7 +39,7 @@ public class CherryBomb extends Plant {
         cherry.setY(y - 20);
         cherry.setVisible(false);
         cherry.setDisable(true);
-        roastedZombies = new ArrayList<Zombie>();
+        roastedZombies = new ArrayList<>();
     }
 
     @Override
@@ -46,17 +51,15 @@ public class CherryBomb extends Plant {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Media blast = new Media(getClass().getResource("/res/sounds/cherrybomb.wav").toString());
+            Media blast = new Media(getClass().getResource("/assets/sounds/cherrybomb.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(blast);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
             image.setVisible(false);
             image.setDisable(true);
             cherry.setVisible(true);
-            synchronized (GamePlayController.allZombies) {
-                Iterator<Zombie> itr = GamePlayController.allZombies.iterator();
-                while (itr.hasNext()) {
-                    Zombie x = itr.next();
+            synchronized (GameController.allZombies) {
+                for (Zombie x : (Iterable<Zombie>) GameController.allZombies) {
                     if (x.getX() <= (getX() + 250) && x.getX() >= (getX() - 150)) {
                         if (x.getY() <= (getY() + 250) && x.getY() >= (getY() - 150)) {
                             roastedZombies.add(x);
@@ -65,25 +68,21 @@ public class CherryBomb extends Plant {
                     }
                 }
             }
-            for (Plant plant : GamePlayController.allPlants) {
+            for (Plant plant : GameController.allPlants) {
                 if (this == plant) {
-                    GamePlayController.allPlants.remove(plant);
+                    GameController.allPlants.remove(plant);
                     break;
                 }
             }
-            for (int roastzombie = 0; roastzombie < roastedZombies.size(); roastzombie++) {
-                for (int allzombie = 0; allzombie < GamePlayController.allZombies.size(); allzombie++) {
-                    if (this.roastedZombies.get(roastzombie) == GamePlayController.allZombies.get(allzombie)) {
-                        GamePlayController.allZombies.remove(allzombie);
+            for (Zombie roastedZombie : roastedZombies) {
+                for (int i = 0; i < GameController.allZombies.size(); i++) {
+                    if (roastedZombie == GameController.allZombies.get(i)) {
+                        GameController.allZombies.remove(i);
                     }
                 }
             }
             removeCherry();
         }).start();
-    }
-
-    @Override
-    public void attack(Pane pane) {
     }
 
     public void removeCherry() {

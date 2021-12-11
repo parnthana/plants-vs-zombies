@@ -9,10 +9,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
+import logic.GameController;
 
-import java.util.Iterator;
 
 public abstract class Zombie extends Entity implements Attackable {
+
+    // Fields
     private int health;
     private int attackPower;
     private int lane;
@@ -22,6 +24,7 @@ public abstract class Zombie extends Entity implements Attackable {
     private boolean reachedPlant = false;
     private boolean isEating = false;
 
+    // Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
         super(x, y, width, height, path);
         setHealth(health);
@@ -31,29 +34,30 @@ public abstract class Zombie extends Entity implements Attackable {
         this.eating = new Timeline();
     }
 
+    // Methods
     public void setHealth(int health) {
         this.health = health;
-        if (health <= 0) { //death
-            ++GamePlayController.numZombiesKilled;
+        if (health <= 0) {
+            ++GameController.numZombiesKilled;
             this.image.setVisible(false);
             this.image.setDisable(true);
             this.zombieAnimation.stop();
             if (this.eating != null) {
                 this.eating.stop();
             }
-            for (Zombie zombie : GamePlayController.allZombies) {
+            for (Zombie zombie : GameController.allZombies) {
                 if (this == zombie) {
-                    Media yuckSound = new Media(getClass().getResource("/sounds/yuck.wav").toString());
+                    Media yuckSound = new Media(getClass().getResource("/assets/sounds/yuck.wav").toString());
                     MediaPlayer mediaPlayer = new MediaPlayer(yuckSound);
                     mediaPlayer.setAutoPlay(true);
                     mediaPlayer.play();
-                    GamePlayController.allZombies.remove(zombie);
+                    GameController.allZombies.remove(zombie);
                     break;
                 }
             }
         }
         if (health <= 5) {
-            Image img = new Image(getClass().getResource("/gif/normalzombie.gif").toString());
+            Image img = new Image(getClass().getResource("/assets/gif/normalzombie.gif").toString());
             image.setImage(img);
             image.setFitHeight(115);
             image.setFitWidth(65);
@@ -63,14 +67,14 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void burntZombie() {
-        Image img = new Image(getClass().getResource("/gif/burntZombie.gif").toString());
+        Image img = new Image(getClass().getResource("/assets/gif/burntZombie.gif").toString());
         image.setImage(img);
         image.setFitHeight(115);
         image.setFitWidth(65);
         this.dx = 0;
         this.health = 0;
         this.eating.stop();
-        ++GamePlayController.numZombiesKilled;
+        ++GameController.numZombiesKilled;
         new Thread(() -> {
             try {
                 Thread.sleep(4500);
@@ -85,16 +89,16 @@ public abstract class Zombie extends Entity implements Attackable {
 
     public void ReachedHouse() {
         if (image.getX() <= 220) {
-            Media brainzSound = new Media(getClass().getResource("/sounds/brainz.wav").toString());
+            Media brainzSound = new Media(getClass().getResource("/assets/sounds/brainz.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(brainzSound);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
-            GamePlayController.wonGame -= 1;
+            GameController.wonGame -= 1;
         }
     }
 
     public void chompPlant() {
-        Media chomp = new Media(getClass().getResource("/sounds/chomp.wav").toString());
+        Media chomp = new Media(getClass().getResource("/assets/sounds/chomp.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(chomp);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setStartTime(Duration.seconds(0));
@@ -108,7 +112,7 @@ public abstract class Zombie extends Entity implements Attackable {
         animation.setCycleCount(Animation.INDEFINITE);
         animation.play();
         this.zombieAnimation = animation;
-        GamePlayController.animationTimelines.add(animation);
+        GameController.animationTimelines.add(animation);
     }
 
     public void zombieWalk() {
@@ -134,14 +138,11 @@ public abstract class Zombie extends Entity implements Attackable {
 
     public void eatPlant() {
         boolean foundPlant = false;
-        synchronized (GamePlayController.allPlants) {
-            Iterator<Plant> plantItr = GamePlayController.allPlants.iterator();
-            while (plantItr.hasNext()) {
-                Plant plant = plantItr.next();
-                if (plant.row == getLane()) {
+        synchronized (GameController.allPlants) {
+            for (Plant plant : GameController.allPlants) {
+                if (plant.getRow() == getLane()) {
                     if (Math.abs(plant.getX() - image.getX()) <= 50) {
                         foundPlant = true;
-
                         if (!reachedPlant) {
                             reachedPlant = true;
                             isEating = true;
@@ -152,16 +153,16 @@ public abstract class Zombie extends Entity implements Attackable {
                             eat.play();
                             this.dx = 0;
                             this.eating = eat;
-                            GamePlayController.animationTimelines.add(eat);
+                            GameController.animationTimelines.add(eat);
                             isEating = false;
                         }
                         this.dx = 0;
                         plant.setHealthpoint(plant.getHealthpoint() - this.attackPower);
                         if (plant.getHealthpoint() <= 0) {
                             plant.setHealthpoint(0);
-                            GamePlayController.allPlants.remove(plant);
-                            plant.image.setVisible(false);
-                            plant.image.setDisable(true);
+                            GameController.allPlants.remove(plant);
+                            plant.getImage().setVisible(false);
+                            plant.getImage().setDisable(true);
                             this.dx = -1;
                             this.reachedPlant = false;
                             this.eating.stop();

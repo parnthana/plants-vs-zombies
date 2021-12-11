@@ -1,22 +1,31 @@
-package entity;
+package entity.plant;
 
+import entity.Plant;
+import entity.Sun;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import logic.GameController;
 
 public class SunFlower extends Plant {
+
+    // Field
     private Timeline sunProducer;
 
+    // Constructor
     public SunFlower(int x, int y, int row, int col) {
-        super(x, y, 100, 73, "/res/sunflower.gif", 70, row, col);
-        this.path = "/res/sunflower.gif";
+        super(x, y, 100, 73, "/assets/gif/sunflower.gif", 70, row, col);
     }
 
     @Override
     public void attacking(Pane pane) {
         produceSun(pane);
+    }
+
+    @Override
+    public void attacking() {
     }
 
     public void produceSun(Pane pane) {
@@ -43,9 +52,9 @@ public class SunFlower extends Plant {
         startShine.setCycleCount(Timeline.INDEFINITE);
         startShine.play();
         this.sunProducer = sunProducer;
-        GamePlayController.animationTimelines.add(sunProducer);
-        GamePlayController.animationTimelines.add(startShine);
-        GamePlayController.animationTimelines.add(stopShine);
+        GameController.animationTimelines.add(sunProducer);
+        GameController.animationTimelines.add(startShine);
+        GameController.animationTimelines.add(stopShine);
     }
 
     public void checkHealthPoint() {
@@ -58,7 +67,4 @@ public class SunFlower extends Plant {
         return sunProducer;
     }
 
-    @Override
-    public void attacking() {
-    }
 }
