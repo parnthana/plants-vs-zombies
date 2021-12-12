@@ -3,6 +3,7 @@ package entity;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
 
+//singleton class
 public class Shovel extends Entity {
     private static boolean isDisabled = true;
     private static Shovel shovel;

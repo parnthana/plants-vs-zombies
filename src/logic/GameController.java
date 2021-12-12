@@ -76,7 +76,7 @@ public class GameController {
     public static String theme = "day";
     private Shovel shovel;
 
-    public GameController(int levelNumber) {
+    public GameController() {
         Media wave = new Media(getClass().getResource("/assets/sounds/zombies_are_coming.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(wave);
         mediaPlayer.setAutoPlay(true);
@@ -88,14 +88,12 @@ public class GameController {
         allPlants = Collections.synchronizedList(new ArrayList<Plant>());
 
         wonGame = 0;
-        this.levelNumber = levelNumber;
-        level = new GameEntity(levelNumber);
         animationTimelines = new ArrayList<Timeline>();
         sunCountDisplay.setText(String.valueOf(sunCount));
     }
 
     @FXML
-    public void initializeData(DataTable dataTable) {
+    public void initializeData(int levelNumber, DataTable dataTable) {
         zombieList1 = dataTable.getZombieList1();
         zombieList2 = dataTable.getZombieList2();
         allPlants = dataTable.getAllPlants();
@@ -103,8 +101,10 @@ public class GameController {
         sunCount = dataTable.getSunCount();
         timeElapsed = dataTable.getTimeElapsed();
         LevelMenuController.status = dataTable.getStatus();
+        this.levelNumber = levelNumber;
+        level = new GameEntity(levelNumber);
         Random rand = new Random();
-        startAnimations(rand);
+        startAnimations();
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
         GameController.dataTable = dataTable;
@@ -123,7 +123,7 @@ public class GameController {
         }
     }
 
-    public void startAnimations(Random rand) {
+    public void startAnimations() {
         synchronized (allPlants) {
             for (Plant plant : (Iterable<Plant>) allPlants) {
                 plant.buildImage(lawn_grid);
@@ -149,7 +149,7 @@ public class GameController {
                     numZombiesKilled = 0;
                     endAnimations();
                     gameLost();
-                } else if (wonGame == 0 && allZombies.size() == 0 && l.getTotalZombies() == spawnedZombies) {
+                } else if (wonGame == 0 && allZombies.size() == 0 && level.getTotalZombies() == spawnedZombies) {
                     numZombiesKilled = 0;
                     endAnimations();
                     gameWon();
