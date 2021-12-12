@@ -26,6 +26,10 @@ public class ChilliPepper extends Plant {
 
     // Methods
     @Override
+    public void attacking() {
+    }
+
+    @Override
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
         for (int i = 0; i < 9; i++) {
@@ -71,10 +75,6 @@ public class ChilliPepper extends Plant {
             }
             removeFire();
         }).start();
-    }
-
-    @Override
-    public void attacking() {
     }
 
     public void removeFire() {

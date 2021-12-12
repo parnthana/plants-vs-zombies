@@ -25,16 +25,6 @@ import java.util.*;
 
 public class GameController {
     @FXML
-    private Label sunCountLabel;
-    @FXML
-    private ImageView GameMenuLoaderButton;
-    @FXML
-    private ProgressBar progressBar;
-    @FXML
-    private int levelNumber;
-    @FXML
-    private GridPane lawn_grid;
-    @FXML
     private ImageView peaShooterBuy;
     @FXML
     private ImageView repeaterBuy;
@@ -50,63 +40,73 @@ public class GameController {
     private AnchorPane GamePlayRoot;
     @FXML
     private ImageView lawnImage;
+    @FXML
+    private Label sunCountLabel;
+    @FXML
+    private ImageView GameMenuLoaderButton;
+    @FXML
+    private ProgressBar progressBar;
+    @FXML
+    private int levelNumber;
+    @FXML
+    private GridPane lawn_grid;
 
-    public static boolean gameStatus;
+    public static boolean gameStatus = true;
     public static Timeline sunTimeline;
     public static Timeline spawnZombies1;
     public static Timeline spawnZombies2;
-    private static Label sunCountDisplay;
-    private static double timeElapsed;
-    private static int sunCount;
+    private Label sunCountDisplay;
+    private double timeElapsed;
+    private int sunCount;
     public static final int LANE1 = 50;
     public static final int LANE2 = 150;
     public static final int LANE3 = 250;
     public static final int LANE4 = 350;
     public static final int LANE5 = 450;
-    private static GameEntity level;
+    private GameEntity level;
     public static List allZombies;
     public static List allPlants;
     public static ArrayList<Integer> zombieList1;
     public static ArrayList<Integer> zombieList2;
-    private static DataTable dataTable;
+    private DataTable dataTable;
     public static int wonGame = 0;
-    private volatile int spawnedZombies = 0;
+    private int spawnedZombies = 0;
     public static double numZombiesKilled = 0;
     public static ArrayList<Timeline> animationTimelines;
     public static String theme = "day";
     private Shovel shovel;
 
-    public void initialize() {
+    public GameController(int levelNumber) {
         Media wave = new Media(getClass().getResource("/assets/sounds/zombies_are_coming.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(wave);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setStartTime(Duration.seconds(0));
         mediaPlayer.setStopTime(Duration.seconds(5));
         mediaPlayer.play();
-        gameStatus = true;
         sunCountDisplay = sunCountLabel;
         allZombies = Collections.synchronizedList(new ArrayList<Zombie>());
         allPlants = Collections.synchronizedList(new ArrayList<Plant>());
+
+        wonGame = 0;
+        this.levelNumber = levelNumber;
+        level = new GameEntity(levelNumber);
+        animationTimelines = new ArrayList<Timeline>();
+        sunCountDisplay.setText(String.valueOf(sunCount));
     }
 
     @FXML
-    public void initializeData(int levelNumber, DataTable dataTable) {
-        wonGame = 0;
-        Random rand = new Random();
-        this.levelNumber = levelNumber;
-        level = new GameEntity(levelNumber);
+    public void initializeData(DataTable dataTable) {
         zombieList1 = dataTable.getZombieList1();
         zombieList2 = dataTable.getZombieList2();
         allPlants = dataTable.getAllPlants();
         allZombies = dataTable.getAllZombie();
         sunCount = dataTable.getSunCount();
         timeElapsed = dataTable.getTimeElapsed();
-        animationTimelines = new ArrayList<Timeline>();
         LevelMenuController.status = dataTable.getStatus();
+        Random rand = new Random();
         startAnimations(rand);
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
-        sunCountDisplay.setText(String.valueOf(sunCount));
         GameController.dataTable = dataTable;
         SidebarElement.getSideBarElements(levelNumber, GamePlayRoot);
         gameProgress();
@@ -115,7 +115,7 @@ public class GameController {
             zombieSpawner1(rand, 15);
             zombieSpawner2(rand, 30);
         } else {
-            String lawnPath = getClass().getResource("/res/lawn_night.png").toString();
+            String lawnPath = "/res/lawn_night.png";
             Image lawn = new Image(lawnPath, 1024, 600, false, false);
             lawnImage.setImage(lawn);
             zombieSpawner1(rand, 25);

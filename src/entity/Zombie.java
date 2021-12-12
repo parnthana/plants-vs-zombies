@@ -71,9 +71,9 @@ public abstract class Zombie extends Entity implements Attackable {
         image.setImage(img);
         image.setFitHeight(115);
         image.setFitWidth(65);
-        this.dx = 0;
         this.health = 0;
         this.eating.stop();
+        this.dx = 0;
         ++GameController.numZombiesKilled;
         new Thread(() -> {
             try {
