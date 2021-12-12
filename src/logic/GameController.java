@@ -51,7 +51,7 @@ public class GameController {
     @FXML
     private GridPane lawn_grid;
 
-    public static boolean gameStatus = true;
+    public static boolean gameStatus;
     public static Timeline sunTimeline;
     public static Timeline spawnZombies1;
     public static Timeline spawnZombies2;
@@ -86,7 +86,7 @@ public class GameController {
         sunCountDisplay = sunCountLabel;
         allZombies = Collections.synchronizedList(new ArrayList<Zombie>());
         allPlants = Collections.synchronizedList(new ArrayList<Plant>());
-
+        gameStatus = true;
         wonGame = 0;
         animationTimelines = new ArrayList<Timeline>();
         sunCountDisplay.setText(String.valueOf(sunCount));
@@ -141,11 +141,11 @@ public class GameController {
     }
 
     public void gameProgress() {
-        Timeline gameStatus = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+        Timeline timelineStatus = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             try {
                 timeElapsed = (numZombiesKilled / level.getTotalZombies());
                 progressBar.setProgress(timeElapsed);
-                if (wonGame == (-1)) {
+                if (wonGame == -1) {
                     numZombiesKilled = 0;
                     endAnimations();
                     gameLost();
@@ -163,9 +163,9 @@ public class GameController {
                 e.printStackTrace();
             }
         }));
-        gameStatus.setCycleCount(Timeline.INDEFINITE);
-        gameStatus.play();
-        animationTimelines.add(gameStatus);
+        timelineStatus.setCycleCount(Timeline.INDEFINITE);
+        timelineStatus.play();
+        animationTimelines.add(timelineStatus);
     }
 
     public void gameLost() throws IOException {
