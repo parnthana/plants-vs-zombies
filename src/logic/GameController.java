@@ -107,7 +107,7 @@ public class GameController {
         startAnimations();
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
-        GameController.dataTable = GameData;
+        this.dataTable = GameData;
         SidebarElement.getSideBarElements(levelNumber, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {

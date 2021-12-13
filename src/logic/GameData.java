@@ -39,7 +39,7 @@ public class GameData {
         this.zombieList2 = zombieList2;
     }
 
-    public String LeveltoString() {
+    public String LevelToString() {
         return ("Level: " + Level);
     }
 
@@ -59,7 +59,7 @@ public class GameData {
         return zombieList2;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
