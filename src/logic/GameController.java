@@ -55,9 +55,9 @@ public class GameController {
     public static Timeline sunTimeline;
     public static Timeline spawnZombies1;
     public static Timeline spawnZombies2;
-    private Label sunCountDisplay;
+    private static Label sunCountDisplay;
     private double timeElapsed;
-    private int sunCount;
+    private static int sunCount;
     public static final int LANE1 = 50;
     public static final int LANE2 = 150;
     public static final int LANE3 = 250;
@@ -170,18 +170,18 @@ public class GameController {
 
     public void gameLost() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
+        EndGameController endController = fxmlLoader.<EndGameController>getController();
+        endController.initializeData(levelNumber, false, dataTable);
         AnchorPane Apane = fxmlLoader.load();
-        EndGameController controller = fxmlLoader.<EndGameController>getController();
-        controller.initializeData(levelNumber, false, dataTable);
         GamePlayRoot.getChildren().setAll(Apane);
 
     }
 
     public void gameWon() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
-        AnchorPane Apane = fxmlLoader.load();
         EndGameController controller = fxmlLoader.<EndGameController>getController();
         controller.initializeData(levelNumber, true, dataTable);
+        AnchorPane Apane = fxmlLoader.load();
         GamePlayRoot.getChildren().setAll(Apane);
 
     }
@@ -192,7 +192,7 @@ public class GameController {
         }
     }
 
-    public synchronized void updateSpawnedZombies() {
+    public void updateSpawnedZombies() {
         this.spawnedZombies += 1;
     }
 
@@ -233,17 +233,17 @@ public class GameController {
         allZombies.remove(zombie);
     }
 
-    public void fallingSuns(Random rand) {
+    public void fallingSuns(Random ran) {
         Timeline sunDrop = new Timeline(new KeyFrame(Duration.seconds(12), event -> {
-            int sunPosition = rand.nextInt(850) + 100;
+            int sunPosition = ran.nextInt(950);
             Sun sun = new Sun(sunPosition, 0, true);
             sun.buildImage(GamePlayRoot);
             sun.fallingSun();
         }));
         sunDrop.setCycleCount(Timeline.INDEFINITE);
         sunDrop.play();
-        animationTimelines.add(sunDrop);
         sunTimeline = sunDrop;
+        animationTimelines.add(sunDrop);
     }
 
     public void zombieSpawner1(Random rand, double time) {
@@ -261,15 +261,15 @@ public class GameController {
             else
                 lane = LANE5;
             try {
-                if (zombieList1.get(0) == 0) {
+                if (zombieList1.get(0) == 1) {
                     GameEntity.spawnDefaultZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
                     updateSpawnedZombies();
-                } else if (zombieList1.get(0) == 1) {
+                } else if (zombieList1.get(0) == 2) {
                     GameEntity.spawnFunnelHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
                     updateSpawnedZombies();
-                } else if (zombieList1.get(0) == 2) {
+                } else if (zombieList1.get(0) == 3) {
                     GameEntity.spawnBucketHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
                     updateSpawnedZombies();
@@ -281,8 +281,8 @@ public class GameController {
 
         spawnZombie1.setCycleCount(Timeline.INDEFINITE);
         spawnZombie1.play();
-        animationTimelines.add(spawnZombie1);
         spawnZombies1 = spawnZombie1;
+        animationTimelines.add(spawnZombie1);
     }
 
     public void zombieSpawner2(Random rand, double time) {
@@ -300,15 +300,15 @@ public class GameController {
             else
                 lane = LANE5;
             try {
-                if (zombieList2.get(0) == 0) {
+                if (zombieList2.get(0) == 1) {
                     GameEntity.spawnDefaultZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
                     updateSpawnedZombies();
-                } else if (zombieList2.get(0) == 1) {
+                } else if (zombieList2.get(0) == 2) {
                     GameEntity.spawnFunnelHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
                     updateSpawnedZombies();
-                } else if (zombieList2.get(0) == 2) {
+                } else if (zombieList2.get(0) == 3) {
                     GameEntity.spawnBucketHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
                     updateSpawnedZombies();
@@ -327,9 +327,9 @@ public class GameController {
     @FXML
     void getGridPosition(MouseEvent event) {
         Node source = (Node) event.getSource();
-        Integer colIndex = lawn_grid.getColumnIndex(source);
         Integer rowIndex = lawn_grid.getRowIndex(source);
-        if (!shovel.isIsDisabled()) {
+        Integer colIndex = lawn_grid.getColumnIndex(source);
+        if (!shovel.IsDisabled()) {
             shovel.disable();
             if (colIndex != null && rowIndex != null) {
                 Media jostle = new Media(getClass().getResource("/assets/sounds/plant.wav").toString());

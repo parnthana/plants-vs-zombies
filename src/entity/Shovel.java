@@ -13,7 +13,7 @@ public class Shovel extends Entity {
         this.path = getClass().getResource("/assets/images/Shovel.png").toString();
     }
 
-    public boolean isIsDisabled() {
+    public boolean IsDisabled() {
         return isDisabled;
     }
 
