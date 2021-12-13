@@ -69,9 +69,9 @@ public class GameController {
     public static ArrayList<Integer> zombieList1;
     public static ArrayList<Integer> zombieList2;
     private DataTable dataTable;
-    public static int wonGame = 0;
+    public static int wonGame;
     private int spawnedZombies = 0;
-    public static double numZombiesKilled = 0;
+    public static double numKilledZombies    = 0;
     public static ArrayList<Timeline> animationTimelines;
     public static String theme = "day";
     private Shovel shovel;
@@ -136,21 +136,21 @@ public class GameController {
                 zombie.moveZombie();
             }
         }
-        numZombiesKilled = level.getTotalZombies() * timeElapsed;
+        numKilledZombies = level.getTotalZombies() * timeElapsed;
         progressBar.setProgress(timeElapsed);
     }
 
     public void gameProgress() {
         Timeline timelineStatus = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             try {
-                timeElapsed = (numZombiesKilled / level.getTotalZombies());
+                timeElapsed = (numKilledZombies / level.getTotalZombies());
                 progressBar.setProgress(timeElapsed);
                 if (wonGame == -1) {
-                    numZombiesKilled = 0;
+                    numKilledZombies = 0;
                     endAnimations();
                     gameLost();
                 } else if (wonGame == 0 && allZombies.size() == 0 && level.getTotalZombies() == spawnedZombies) {
-                    numZombiesKilled = 0;
+                    numKilledZombies = 0;
                     endAnimations();
                     gameWon();
                 } else if (progressBar.getProgress() >= 1) {
@@ -220,7 +220,7 @@ public class GameController {
     }
 
     public static Label getSunCountLabel() {
-        return (sunCountDisplay);
+        return sunCountDisplay;
     }
 
     public static void removePlant(Plant plant) {
@@ -355,17 +355,17 @@ public class GameController {
         }
         if (SidebarElement.getCardSelected() != -1) {
             if (colIndex != null && rowIndex != null) {
-                boolean flag = true;
+                boolean drop = true;
                 synchronized (allPlants) {
-                    for (Object plant : allPlants) {
-                        Plant p = (Plant) plant;
-                        if (p.getColumn() == colIndex && p.getRow() == rowIndex) {
-                            flag = false;
+                    for (Object p : allPlants) {
+                        Plant plant = (Plant) p;
+                        if (plant.getColumn() == colIndex && plant.getRow() == rowIndex) {
+                            drop = false;
                             break;
                         }
                     }
                 }
-                if (flag) {
+                if (drop) {
                     if (SidebarElement.getElement(SidebarElement.getCardSelected()).getCost() <= sunCount) {
                         dropPlant(SidebarElement.getCardSelected(), (int) (source.getLayoutX() + source.getParent().getLayoutX()), (int) (source.getLayoutY() + source.getParent().getLayoutY()), colIndex, rowIndex);
                         updateSunCount((-1) * SidebarElement.getElement(SidebarElement.getCardSelected()).getCost());
@@ -422,6 +422,7 @@ public class GameController {
                 plant.attacking(GamePlayRoot);
             }
         }
+
     }
 
 }
