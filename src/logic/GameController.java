@@ -70,11 +70,11 @@ public class GameController {
     public static ArrayList<Integer> zombieList2;
     private DataTable dataTable;
     public static int wonGame;
-    private int spawnedZombies = 0;
-    public static double numKilledZombies    = 0;
+    public static double numKilledZombies = 0;
     public static ArrayList<Timeline> animationTimelines;
     public static String theme = "day";
     private Shovel shovel;
+    private int spawnedZombies = 0;
 
     public GameController() {
         Media wave = new Media(getClass().getResource("/assets/sounds/zombies_are_coming.wav").toString());
@@ -192,10 +192,6 @@ public class GameController {
         }
     }
 
-    public void updateSpawnedZombies() {
-        this.spawnedZombies += 1;
-    }
-
     public void endZombieSpawn1() {
         spawnZombies1.stop();
     }
@@ -264,15 +260,15 @@ public class GameController {
                 if (zombieList1.get(0) == 1) {
                     GameEntity.spawnDefaultZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
-                    updateSpawnedZombies();
+                    this.spawnedZombies += 1;
                 } else if (zombieList1.get(0) == 2) {
                     GameEntity.spawnFunnelHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
-                    updateSpawnedZombies();
+                    this.spawnedZombies += 1;
                 } else if (zombieList1.get(0) == 3) {
                     GameEntity.spawnBucketHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList1.remove(0);
-                    updateSpawnedZombies();
+                    this.spawnedZombies += 1;
                 }
             } catch (IndexOutOfBoundsException e) {
                 endZombieSpawn1();
@@ -303,15 +299,15 @@ public class GameController {
                 if (zombieList2.get(0) == 1) {
                     GameEntity.spawnDefaultZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
-                    updateSpawnedZombies();
+                    this.spawnedZombies += 1;
                 } else if (zombieList2.get(0) == 2) {
                     GameEntity.spawnFunnelHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
-                    updateSpawnedZombies();
+                    this.spawnedZombies += 1;
                 } else if (zombieList2.get(0) == 3) {
                     GameEntity.spawnBucketHeadZombie(GamePlayRoot, lane, laneNumber);
                     zombieList2.remove(0);
-                    updateSpawnedZombies();
+                    this.spawnedZombies += 1;
                 }
             } catch (IndexOutOfBoundsException e) {
                 endZombieSpawn2();
