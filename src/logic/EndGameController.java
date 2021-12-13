@@ -31,7 +31,7 @@ public class EndGameController {
     private Button mainMenuButton;
 
     @FXML
-    void goToMainMenu() throws IOException {
+    void ToMainMenu() throws IOException {
         AnchorPane Apane = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         endGame.getChildren().setAll(Apane);
     }
