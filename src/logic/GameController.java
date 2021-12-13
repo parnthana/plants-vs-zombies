@@ -68,7 +68,7 @@ public class GameController {
     public static List allPlants;
     public static ArrayList<Integer> zombieList1;
     public static ArrayList<Integer> zombieList2;
-    private DataTable dataTable;
+    private GameData dataTable;
     public static int wonGame;
     public static double numKilledZombies = 0;
     public static ArrayList<Timeline> animationTimelines;
@@ -93,21 +93,21 @@ public class GameController {
     }
 
     @FXML
-    public void initializeData(int levelNumber, DataTable dataTable) {
-        zombieList1 = dataTable.getZombieList1();
-        zombieList2 = dataTable.getZombieList2();
-        allPlants = dataTable.getAllPlants();
-        allZombies = dataTable.getAllZombie();
-        sunCount = dataTable.getSunCount();
-        timeElapsed = dataTable.getTimeElapsed();
-        LevelMenuController.status = dataTable.getStatus();
+    public void initializeData(int levelNumber, GameData GameData) {
+        zombieList1 = GameData.getZombieList1();
+        zombieList2 = GameData.getZombieList2();
+        allPlants = GameData.getAllPlants();
+        allZombies = GameData.getAllZombie();
+        sunCount = GameData.getSunCount();
+        timeElapsed = GameData.getTimeElapsed();
+        LevelMenuController.status = GameData.getStatus();
         this.levelNumber = levelNumber;
         level = new GameEntity(levelNumber);
         Random rand = new Random();
         startAnimations();
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
-        GameController.dataTable = dataTable;
+        GameController.dataTable = GameData;
         SidebarElement.getSideBarElements(levelNumber, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {

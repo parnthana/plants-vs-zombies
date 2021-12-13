@@ -19,9 +19,9 @@ public class GameEntity {
 
     public GameEntity(int level) {
         this.level = level;
-        this.zombieList1 = new ArrayList<Integer>();
-        this.zombieList2 = new ArrayList<Integer>();
-        this.availableZombies = new ArrayList<Integer>();
+        this.zombieList1 = new ArrayList<>();
+        this.zombieList2 = new ArrayList<>();
+        this.availableZombies = new ArrayList<>();
         if (level >= 5) {
             this.totalZombies = 30;
             this.numDefaultZombie = 12;
@@ -118,5 +118,9 @@ public class GameEntity {
 
     public int getTotalZombies() {
         return totalZombies;
+    }
+
+    public ArrayList<Integer> getAvailableZombies() {
+        return availableZombies;
     }
 }
