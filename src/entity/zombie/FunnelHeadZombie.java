@@ -18,6 +18,6 @@ public class FunnelHeadZombie extends Zombie {
 
     @Override
     public void attacking() {
-        super.attacking();
+        super.eatPlant();
     }
 }

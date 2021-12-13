@@ -119,7 +119,7 @@ public abstract class Zombie extends Entity implements Attackable {
         if (getX() > 220 && this.health > 0) {
             setX(getX() + this.dx);
             try {
-                eatPlant();
+                attacking();
             } catch (java.util.ConcurrentModificationException e) {
                 e.printStackTrace();
             }
@@ -127,14 +127,6 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
-    @Override
-    public void attacking(Pane pane) {
-    }
-
-    @Override
-    public void attacking() {
-        eatPlant();
-    }
 
     public void eatPlant() {
         boolean foundPlant = false;
