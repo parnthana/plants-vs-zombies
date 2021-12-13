@@ -12,7 +12,7 @@ public class Pea extends Entity {
     private int plantPosition;
     transient private Timeline peaAnimation;
     private static int peaID = 0;
-    private boolean flag;
+    private boolean bombed;
     private int thispea;
 
     public Pea(int x, int y, int plantPosition, int lane) {
@@ -21,7 +21,7 @@ public class Pea extends Entity {
         this.plantPosition = plantPosition;
         this.lane = lane;
         thispea = peaID++;
-        this.flag = false;
+        this.bombed = false;
     }
 
     public void movePea() {
@@ -48,9 +48,9 @@ public class Pea extends Entity {
         synchronized (GameController.allZombies) {
             for (Object zombie : GameController.allZombies) {
                 Zombie z = (Zombie) zombie;
-                if (z.getLane() == lane && !flag) {
-                    if (Math.abs(z.getX() - getX()) <= 3 && !flag) {
-                        this.flag = true;
+                if (z.getLane() == lane && !bombed) {
+                    if (Math.abs(z.getX() - getX()) <= 3 && !bombed) {
+                        this.bombed = true;
                         z.setHealth(z.getHealth() - 1);
                         image.setVisible(false);
                         image.setDisable(true);
