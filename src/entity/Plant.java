@@ -48,12 +48,6 @@ public abstract class Plant extends Entity implements Attackable {
         t.stop();
     }
 
-    @Override
-    public abstract void attacking(Pane pane);
-
-    @Override
-    public abstract void attacking();
-
     public int getRow() {
         return row;
     }
