@@ -10,17 +10,14 @@ import logic.GameController;
 public class Pea extends Entity {
     private int lane;
     private int plantPosition;
-    transient private Timeline peaAnimation;
-    private static int peaID = 0;
+    private Timeline peaAnimation;
     private boolean bombed;
-    private int thispea;
 
     public Pea(int x, int y, int plantPosition, int lane) {
         super(x, y, 20, 20, "/assets/images/pea.png");
         this.path = getClass().getResource("/assets/pea.png").toString();
         this.plantPosition = plantPosition;
         this.lane = lane;
-        thispea = peaID++;
         this.bombed = false;
     }
 
