@@ -87,13 +87,13 @@ public class GameController {
         allZombies = Collections.synchronizedList(new ArrayList<Zombie>());
         allPlants = Collections.synchronizedList(new ArrayList<Plant>());
         gameStatus = true;
-        wonGame = 0;
-        animationTimelines = new ArrayList<Timeline>();
-        sunCountDisplay.setText(String.valueOf(sunCount));
     }
 
     @FXML
     public void initializeData(int levelNumber, GameData GameData) {
+        wonGame = 0;
+        animationTimelines = new ArrayList<Timeline>();
+        sunCountDisplay.setText(String.valueOf(sunCount));
         zombieList1 = GameData.getZombieList1();
         zombieList2 = GameData.getZombieList2();
         allPlants = GameData.getAllPlants();
@@ -171,7 +171,7 @@ public class GameController {
     public void gameLost() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
         EndGameController endController = fxmlLoader.<EndGameController>getController();
-        endController.initializeData(levelNumber, false, dataTable);
+        endController.endGameUI(levelNumber, false);
         AnchorPane Apane = fxmlLoader.load();
         GamePlayRoot.getChildren().setAll(Apane);
 
@@ -180,7 +180,7 @@ public class GameController {
     public void gameWon() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
         EndGameController controller = fxmlLoader.<EndGameController>getController();
-        controller.initializeData(levelNumber, true, dataTable);
+        controller.endGameUI(levelNumber, true);
         AnchorPane Apane = fxmlLoader.load();
         GamePlayRoot.getChildren().setAll(Apane);
 

@@ -45,7 +45,7 @@ public class GameMenuController {
     private static ArrayList<Integer> zombieList2;
 
     @FXML
-    public void initData(AnchorPane gamePlayRoot, int levelNumber, GameData d, int sCount, List<Plant> allPlant, List<Zombie> allZombie, double timeElapsed, ArrayList<Integer> zL1, ArrayList<Integer> zL2) {
+    public void initializeData(AnchorPane gamePlayRoot, int levelNumber, GameData d, int sCount, List<Plant> allPlant, List<Zombie> allZombie, double timeElapsed, ArrayList<Integer> zL1, ArrayList<Integer> zL2) {
         this.GamePlayRoot = gamePlayRoot;
         this.levelNumber = levelNumber;
         this.data = d;
