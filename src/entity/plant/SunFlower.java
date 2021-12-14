@@ -45,12 +45,14 @@ public class SunFlower extends Plant {
             }
             stopShine.play();
         }));
+
         Timeline startShine = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
             Glow shines = new Glow();
             image.setEffect(shines);
-            shines.setLevel(0.5);
+            shines.setLevel(0.7);
             sunProducer.play();
         }));
+
         startShine.setCycleCount(Timeline.INDEFINITE);
         startShine.play();
         this.sunProducer = sunProducer;
