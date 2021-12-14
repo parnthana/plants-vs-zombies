@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Inlevelmenu.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="114.0" fitWidth="372.0" layoutX="121.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Button2.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="206.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Menu">
+         <font>
+            <Font name="Comic Sans MS Bold" size="33.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="81.0" fitWidth="171.0" layoutX="211.0" layoutY="171.0" onMouseClicked="#restartGame" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/buttonrestart.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="86.0" fitWidth="95.0" layoutX="253.0" layoutY="273.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/buttonHome.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
