@@ -77,7 +77,7 @@ public class GameController {
     private int spawnedZombies = 0;
 
     public GameController() {
-        Media wave = new Media(getClass().getResource("/assets/sounds/zombies_are_coming.wav").toString());
+        Media wave = new Media(getClass().getResource("/sounds/zombies_are_coming.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(wave);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setStartTime(Duration.seconds(0));
@@ -108,14 +108,14 @@ public class GameController {
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
         this.dataTable = GameData;
-        SidebarElement.getSideBarElements(levelNumber, GamePlayRoot);
+        SideElement.getSideElements(levelNumber, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {
             fallingSuns(rand);
             zombieSpawner1(rand, 15);
             zombieSpawner2(rand, 30);
         } else {
-            String lawnPath = "/res/lawn_night.png";
+            String lawnPath = "/image/lawn_night.png";
             Image lawn = new Image(lawnPath, 1024, 600, false, false);
             lawnImage.setImage(lawn);
             zombieSpawner1(rand, 25);
@@ -328,7 +328,7 @@ public class GameController {
         if (!shovel.IsDisabled()) {
             shovel.disable();
             if (colIndex != null && rowIndex != null) {
-                Media jostle = new Media(getClass().getResource("/assets/sounds/plant.wav").toString());
+                Media jostle = new Media(getClass().getResource("/sounds/plant.wav").toString());
                 MediaPlayer mediaPlayer = new MediaPlayer(jostle);
                 mediaPlayer.setAutoPlay(true);
                 mediaPlayer.play();
@@ -349,7 +349,7 @@ public class GameController {
                 }
             }
         }
-        if (SidebarElement.getCardSelected() != -1) {
+        if (SideElement.getCardSelected() != -1) {
             if (colIndex != null && rowIndex != null) {
                 boolean drop = true;
                 synchronized (allPlants) {
@@ -362,21 +362,21 @@ public class GameController {
                     }
                 }
                 if (drop) {
-                    if (SidebarElement.getElement(SidebarElement.getCardSelected()).getCost() <= sunCount) {
-                        dropPlant(SidebarElement.getCardSelected(), (int) (source.getLayoutX() + source.getParent().getLayoutX()), (int) (source.getLayoutY() + source.getParent().getLayoutY()), colIndex, rowIndex);
-                        updateSunCount((-1) * SidebarElement.getElement(SidebarElement.getCardSelected()).getCost());
-                        SidebarElement.getElement(SidebarElement.getCardSelected()).setDisabledOn(GamePlayRoot);
+                    if (SideElement.getElement(SideElement.getCardSelected()).getCost() <= sunCount) {
+                        dropPlant(SideElement.getCardSelected(), (int) (source.getLayoutX() + source.getParent().getLayoutX()), (int) (source.getLayoutY() + source.getParent().getLayoutY()), colIndex, rowIndex);
+                        updateSunCount((-1) * SideElement.getElement(SideElement.getCardSelected()).getCost());
+                        SideElement.getElement(SideElement.getCardSelected()).setDisabledOn(GamePlayRoot);
                     }
                 }
             }
-            SidebarElement.setCardSelectedToNull();
+            SideElement.setCardSelectedToNull();
         }
 
     }
 
     public void dropPlant(int value, int x, int y, int row, int col) {
         Plant plant;
-        Media plantSound = new Media(getClass().getResource("/assets/sounds/plant.wav").toString());
+        Media plantSound = new Media(getClass().getResource("/sounds/plant.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(plantSound);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.play();

@@ -10,9 +10,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Main extends Application {
+
+    // Fields
     public static MediaPlayer mediaPlayer;
     private static int maxLevel;
 
+    // Methods
     @Override
     public void start(Stage primaryStage) throws Exception {
         addMusic();
@@ -25,7 +28,7 @@ public class Main extends Application {
 
 
     public void addMusic() {
-        Media sound = new Media(getClass().getResource("/assets/background.wav").toString());
+        Media sound = new Media(getClass().getResource("/sounds/background.wav").toString());
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);

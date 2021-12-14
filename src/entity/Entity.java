@@ -5,6 +5,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class Entity {
+
+    // Fields
     protected int x;
     protected int y;
     protected int width;
@@ -12,6 +14,7 @@ public class Entity {
     protected ImageView image;
     protected String path;
 
+    // Constructor
     public Entity(int x, int y, int width, int height, String path) {
         this.x = x;
         this.y = y;
@@ -20,7 +23,7 @@ public class Entity {
         this.path = path; // Url of image
     }
 
-
+    // Methods
     public void buildImage(Pane pane) {
         image = new ImageView();
         image.setImage(new Image(path));

@@ -8,19 +8,23 @@ import javafx.util.Duration;
 import logic.GameController;
 
 public class Pea extends Entity {
+
+    // Fields
     private int lane;
     private int plantPosition;
     private Timeline peaAnimation;
     private boolean bombed;
 
+    // Constructor
     public Pea(int x, int y, int plantPosition, int lane) {
-        super(x, y, 20, 20, "/assets/images/pea.png");
-        this.path = getClass().getResource("/assets/pea.png").toString();
+        super(x, y, 20, 20, "/images/pea.png");
+        this.path = getClass().getResource("/images/pea.png").toString();
         this.plantPosition = plantPosition;
         this.lane = lane;
         this.bombed = false;
     }
 
+    // Methods
     public void movePea() {
         if (x <= 1050) {
             setX(getX() + 1);
@@ -52,7 +56,7 @@ public class Pea extends Entity {
                         image.setVisible(false);
                         image.setDisable(true);
                         peaAnimation.stop();
-                        Media splat = new Media(getClass().getResource("/assets/sounds/splat3.wav").toString());
+                        Media splat = new Media(getClass().getResource("/sounds/splat3.wav").toString());
                         MediaPlayer mediaPlayer = new MediaPlayer(splat);
                         mediaPlayer.setAutoPlay(true);
                         mediaPlayer.play();

@@ -20,7 +20,7 @@ public class CherryBomb extends Plant {
 
     // Constructor
     public CherryBomb(int x, int y, int row, int col) {
-        super(x, y, 68, 90, "/assets/gif/anim_cherrybomb.gif", 4, row, col);
+        super(x, y, 68, 90, "/gif/anim_cherrybomb.gif", 4, row, col);
     }
 
     // Methods
@@ -31,7 +31,7 @@ public class CherryBomb extends Plant {
     @Override
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
-        Image img = new Image("/assets/gif/powie.gif");
+        Image img = new Image("/gif/powie.gif");
         cherry = new ImageView(img);
         cherry.setFitHeight(180);
         cherry.setFitWidth(160);
@@ -51,7 +51,7 @@ public class CherryBomb extends Plant {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Media blast = new Media(getClass().getResource("/assets/sounds/cherrybomb.wav").toString());
+            Media blast = new Media(getClass().getResource("/sounds/cherrybomb.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(blast);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();

@@ -13,8 +13,8 @@ public class Repeater extends Shooter {
 
     // Constructor
     public Repeater(int x, int y, int row, int col) {
-        super(x, y, "/assets/repeater.gif", 150, 60, 62, row, col);
-        this.path = getClass().getResource("/assets/repeater.gif").toString();
+        super(x, y, "/gif/repeater.gif", 150, 60, 62, row, col);
+        this.path = getClass().getResource("/gif/repeater.gif").toString();
 
     }
 

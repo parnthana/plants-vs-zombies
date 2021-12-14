@@ -2,17 +2,22 @@ package entity;
 
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
+import logic.SideElement;
 
-//singleton class
+// Singleton class
 public class Shovel extends Entity {
+
+    // Fields
     private static boolean isDisabled = true;
     private static Shovel shovel;
 
+    // Singleton class Constructor
     private Shovel() {
-        super(500, 10, 60, 60, "/assets/images/Shovel.png");
-        this.path = getClass().getResource("/assets/images/Shovel.png").toString();
+        super(500, 10, 60, 60, "/images/Shovel.png");
+        this.path = getClass().getResource("/images/Shovel.png").toString();
     }
 
+    // Methods
     public boolean IsDisabled() {
         return isDisabled;
     }
@@ -31,7 +36,7 @@ public class Shovel extends Entity {
         shovel.image.setOnMouseClicked(e -> {
             isDisabled = false;
             shovel.enable();
-            SidebarElement.setCardSelectedToNull();
+            SideElement.setCardSelectedToNull();
         });
     }
 

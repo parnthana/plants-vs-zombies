@@ -13,7 +13,7 @@ public class Sun extends Entity {
 
     // Constructor
     public Sun(int x, int y, boolean isFalling) {
-        super(x, y, 50, 50, "/assets/images/sun.png");
+        super(x, y, 50, 50, "/images/sun.png");
         if (isFalling) {
             timeout_time = 14000;
         } else {
