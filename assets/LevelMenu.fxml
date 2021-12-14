@@ -4,45 +4,50 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="levelRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="833.0" fitWidth="1058.0" layoutX="-19.0" layoutY="-187.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/menu3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="173.0" fitWidth="176.0" layoutX="67.0" layoutY="170.0" onMouseClicked="#startLevel1" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="nightTheme" fitHeight="600.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/menu_dark_mode.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="level1button" fitHeight="173.0" fitWidth="176.0" layoutX="67.0" layoutY="170.0" onMouseClicked="#startLevel1" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Level1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="173.0" fitWidth="157.0" layoutX="253.0" layoutY="170.0" onMouseClicked="#startLevel2" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level2button" fitHeight="173.0" fitWidth="157.0" layoutX="253.0" layoutY="170.0" onMouseClicked="#startLevel2" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Level2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="173.0" fitWidth="157.0" layoutX="448.0" layoutY="170.0" onMouseClicked="#startLevel3" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level3button" fitHeight="173.0" fitWidth="157.0" layoutX="448.0" layoutY="170.0" onMouseClicked="#startLevel3" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Level3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="173.0" fitWidth="157.0" layoutX="638.0" layoutY="170.0" onMouseClicked="#startLevel4" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level4button" fitHeight="173.0" fitWidth="157.0" layoutX="638.0" layoutY="170.0" onMouseClicked="#startLevel4" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Level4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="173.0" fitWidth="164.0" layoutX="831.0" layoutY="170.0" onMouseClicked="#startLevel5" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level5button" fitHeight="173.0" fitWidth="164.0" layoutX="831.0" layoutY="170.0" onMouseClicked="#startLevel5" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Level5.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="165.0" fitWidth="164.0" layoutX="746.0" layoutY="437.0" onMouseClicked="#changeGameTheme" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="nightMode" fitHeight="165.0" fitWidth="164.0" layoutX="746.0" layoutY="437.0" onMouseClicked="#changeGameTheme" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/night_mode.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="72.0" fitWidth="71.0" layoutX="675.0" layoutY="516.0" onMouseClicked="#PrevMenuLoader" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="dayMode" fitHeight="165.0" fitWidth="164.0" layoutX="749.0" layoutY="434.0" onMouseClicked="#changeGameTheme" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="backbutton" fitHeight="72.0" fitWidth="71.0" layoutX="675.0" layoutY="516.0" onMouseClicked="#PrevMenuLoader" onMouseEntered="#shineImage" onMouseExited="#stopShining" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/buttonHome.png" />
          </image>

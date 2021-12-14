@@ -6,10 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="GameMenuRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="502.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Inlevelmenu.png" />
          </image>
@@ -24,12 +23,12 @@
             <Font name="Comic Sans MS Bold" size="33.0" />
          </font>
       </Text>
-      <ImageView fitHeight="81.0" fitWidth="171.0" layoutX="211.0" layoutY="171.0" onMouseClicked="#restartGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="restartGameButton" fitHeight="81.0" fitWidth="171.0" layoutX="211.0" layoutY="171.0" onMouseClicked="#restartGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/buttonrestart.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="86.0" fitWidth="95.0" layoutX="253.0" layoutY="273.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToMainMenuButton" fitHeight="86.0" fitWidth="95.0" layoutX="253.0" layoutY="273.0" onMouseClicked="#showMainMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/buttonHome.png" />
          </image>
