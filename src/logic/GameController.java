@@ -90,7 +90,7 @@ public class GameController {
     }
 
     @FXML
-    public void initializeData(int levelNumber, GameData GameData) {
+    public void initializeData(int level, GameData GameData) {
         wonGame = 0;
         animationTimelines = new ArrayList<>();
         sunCountDisplay.setText(String.valueOf(sunCount));
@@ -101,14 +101,14 @@ public class GameController {
         sunCount = GameData.getSunCount();
         timeElapsed = GameData.getTimeElapsed();
         LevelMenuController.status = GameData.getStatus();
-        this.levelNumber = levelNumber;
-        level = new GameEntity(levelNumber);
+        this.levelNumber = level;
+        this.level = new GameEntity(level);
         Random rand = new Random();
         startAnimations();
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
         this.data = GameData;
-        SideElement.getSideElements(levelNumber, GamePlayRoot);
+        SideElement.getSideElements(level, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {
             fallingSuns(rand);
