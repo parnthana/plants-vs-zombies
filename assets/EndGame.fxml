@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="endGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="endGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.EndGameController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1024.0" layoutX="-106.0" layoutY="-19.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -30,12 +30,12 @@
             <Image url="@../../../../youwin-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="nextLevelButton" fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="131.0" onMouseClicked="#goToNextLevel" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="131.0">
+      <ImageView fx:id="nextLevelButton" fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="131.0" onMouseClicked="#ToNextLevel" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="131.0">
          <image>
             <Image url="@../../../../nextlevel.png" />
          </image>
       </ImageView>
-      <Button fx:id="mainMenuButton" layoutX="420.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#goToMainMenu" prefHeight="37.0" prefWidth="160.0" text="Main Menu" textFill="#025117">
+      <Button fx:id="mainMenuButton" layoutX="420.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#ToMainMenu" prefHeight="37.0" prefWidth="160.0" text="Main Menu" textFill="#025117">
          <font>
             <Font size="20.0" />
          </font>

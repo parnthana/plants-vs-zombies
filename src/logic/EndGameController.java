@@ -30,13 +30,13 @@ public class EndGameController {
 
 
     @FXML
-    void ToMainMenu(MouseEvent event) throws IOException {
+    void ToMainMenu() throws IOException {
         AnchorPane Apane = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         endGame.getChildren().setAll(Apane);
     }
 
     @FXML
-    void ToNextLevel(MouseEvent event) throws IOException {
+    void ToNextLevel() throws IOException {
         AnchorPane Apane = FXMLLoader.load(getClass().getResource("LevelMenu.fxml"));
         endGame.getChildren().setAll(Apane);
     }
