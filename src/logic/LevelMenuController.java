@@ -14,11 +14,6 @@ import java.util.Objects;
 
 public class LevelMenuController {
     @FXML
-    public ImageView nightMode;
-    @FXML
-    public ImageView dayMode;
-    public static boolean status = true;
-    @FXML
     private AnchorPane levelRoot;
     @FXML
     private ImageView level1button;
@@ -42,6 +37,11 @@ public class LevelMenuController {
     private ImageView backbutton;
     @FXML
     private ImageView nightTheme;
+    @FXML
+    public ImageView nightMode;
+    @FXML
+    public ImageView dayMode;
+    public static boolean status = true;
 
     public LevelMenuController() {
         if (status) {

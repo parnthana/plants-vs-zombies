@@ -13,31 +13,18 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GameMenuController {
     @FXML
     private AnchorPane GamePlayRoot;
-
-    @FXML
-    private AnchorPane GameMenuRoot;
-
-    @FXML
-    private ImageView returnToMainMenuButton;
-
-    @FXML
-    private ImageView saveGameButton;
-
     @FXML
     private ImageView restartGameButton;
-
-    @FXML
-    private Label GameMenuMessage;
 
     @FXML
     private int levelNumber;
     private GameData data;
     public static List<Plant> allPlants;
-    //    private static List<LawnMower> allMowers;
     private static int sunCount;
     private static List<Zombie> allZombies;
     private static double time;
@@ -76,7 +63,7 @@ public class GameMenuController {
     void showMainMenu(MouseEvent event) throws IOException {
         GameController.gameStatus = false;
         GameController.endAnimations();
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml")));
         GamePlayRoot.getChildren().setAll(pane);
         Stage stage = (Stage) restartGameButton.getScene().getWindow();
         stage.close();
