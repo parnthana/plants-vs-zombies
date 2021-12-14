@@ -27,12 +27,12 @@
       </Label>
       <ImageView fx:id="youWon" fitHeight="500.0" fitWidth="500.0" layoutX="50.0" layoutY="-36.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../../youwin-removebg-preview.png" />
+            <Image url="@images/youwin.png" />
          </image>
       </ImageView>
       <ImageView fx:id="nextLevelButton" fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="131.0" onMouseClicked="#ToNextLevel" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="131.0">
          <image>
-            <Image url="@../../../../nextlevel.png" />
+            <Image url="@images/nextlevel.png" />
          </image>
       </ImageView>
       <Button fx:id="mainMenuButton" layoutX="420.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#ToMainMenu" prefHeight="37.0" prefWidth="160.0" text="Main Menu" textFill="#025117">
