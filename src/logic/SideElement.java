@@ -12,7 +12,7 @@ public class SideElement extends Entity {
 
     // Fields
     private static int cardSelected = -1;
-    private int timeoutTime;
+    private int cooldownTime;
     private boolean isDisabled = false;
     private static ImageView selectedBorder;
     private static HashMap<Integer, SideElement> allElements;
@@ -42,7 +42,7 @@ public class SideElement extends Entity {
             y = 79;
             SideElement sunflowerCard = new SideElement(x, y, path, width, height, 50);
             sunflowerCard.buildImage(pane);
-            sunflowerCard.timeoutTime = 5000;
+            sunflowerCard.cooldownTime = 5000;
             SideElement.allElements.put(1, sunflowerCard);
             sunflowerCard.image.setOnMouseClicked(e -> {
                 handler(sunflowerCard, 1);
@@ -54,7 +54,7 @@ public class SideElement extends Entity {
             y = 147;
             SideElement peashooterCard = new SideElement(x, y, path, width, height, 100);
             peashooterCard.buildImage(pane);
-            peashooterCard.timeoutTime = 6000;
+            peashooterCard.cooldownTime = 6000;
             SideElement.allElements.put(2, peashooterCard);
             peashooterCard.image.setOnMouseClicked(e -> {
                 handler(peashooterCard, 2);
@@ -65,7 +65,7 @@ public class SideElement extends Entity {
             y = 217;
             SideElement wallnutCard = new SideElement(x, y, path, width, height, 50);
             wallnutCard.buildImage(pane);
-            wallnutCard.timeoutTime = 7000;
+            wallnutCard.cooldownTime = 7000;
             SideElement.allElements.put(3, wallnutCard);
             wallnutCard.image.setOnMouseClicked(e -> {
                 handler(wallnutCard, 3);
@@ -76,7 +76,7 @@ public class SideElement extends Entity {
             y = 284;
             SideElement cherrybombCard = new SideElement(x, y, path, width, height, 150);
             cherrybombCard.buildImage(pane);
-            cherrybombCard.timeoutTime = 15000;
+            cherrybombCard.cooldownTime = 15000;
             SideElement.allElements.put(4, cherrybombCard);
             cherrybombCard.image.setOnMouseClicked(e -> {
                 handler(cherrybombCard, 4);
@@ -88,7 +88,7 @@ public class SideElement extends Entity {
             y = 352;
             SideElement repeaterCard = new SideElement(x, y, path, width, height, 200);
             repeaterCard.buildImage(pane);
-            repeaterCard.timeoutTime = 10000;
+            repeaterCard.cooldownTime = 10000;
             SideElement.allElements.put(5, repeaterCard);
             repeaterCard.image.setOnMouseClicked(e -> {
                 handler(repeaterCard, 5);
@@ -100,7 +100,7 @@ public class SideElement extends Entity {
             y = 420;
             SideElement chilliPepperCard = new SideElement(x, y, path, width, height, 125);
             chilliPepperCard.buildImage(pane);
-            chilliPepperCard.timeoutTime = 12000;
+            chilliPepperCard.cooldownTime = 12000;
             SideElement.allElements.put(6, chilliPepperCard);
             chilliPepperCard.image.setOnMouseClicked(e -> {
                 handler(chilliPepperCard, 6);
@@ -149,7 +149,7 @@ public class SideElement extends Entity {
         pane.getChildren().add(im);
         Thread t = new Thread(() -> {
             try {
-                Thread.sleep(this.timeoutTime);
+                Thread.sleep(this.cooldownTime);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
