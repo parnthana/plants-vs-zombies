@@ -153,7 +153,7 @@ public class LevelMenuController {
 
     @FXML
     void PrevMenuLoader() throws IOException {
-        AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml")));
+        AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         levelRoot.getChildren().setAll(Apane);
     }
 
