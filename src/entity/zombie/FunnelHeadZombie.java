@@ -8,7 +8,7 @@ public class FunnelHeadZombie extends Zombie {
 
     // Constructor
     public FunnelHeadZombie(int x, int y, int lane) {
-        super(12, 2, x, y, 134, 124, lane, "/assets/gif/coneheadzombie.gif");
+        super(12, 2, x, y, 134, 124, lane, "/gif/funnelheadzombie.gif");
     }
 
     // Methods

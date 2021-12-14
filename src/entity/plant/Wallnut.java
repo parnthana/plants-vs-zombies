@@ -5,13 +5,14 @@ import javafx.scene.layout.Pane;
 import logic.GameController;
 
 public class Wallnut extends Plant {
+
     // Constructor
     public Wallnut(int x, int y, int row, int col) {
-        super(x, y, 60, 75, "/assets/walnut_full_life.gif", 400, row, col);
-        this.path = getClass().getResource("/assets/walnut_full_life.gif").toString();
+        super(x, y, 60, 75, "/gif/walnut_full_life.gif", 400, row, col);
+        this.path = getClass().getResource("/gif/walnut_full_life.gif").toString();
     }
 
-    // Method
+    // Methods
     public void checkHealthPoint() {
         if (getHealthpoint() <= 0) {
             setHealthpoint(0);

@@ -16,9 +16,10 @@ public class SunFlower extends Plant {
 
     // Constructor
     public SunFlower(int x, int y, int row, int col) {
-        super(x, y, 100, 73, "/assets/gif/sunflower.gif", 70, row, col);
+        super(x, y, 100, 73, "/gif/sunflower.gif", 70, row, col);
     }
 
+    // Methods
     @Override
     public void attacking(Pane pane) {
         produceSun(pane);

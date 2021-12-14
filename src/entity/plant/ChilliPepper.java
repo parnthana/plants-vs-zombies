@@ -20,7 +20,7 @@ public class ChilliPepper extends Plant {
 
     // Constructor
     public ChilliPepper(int x, int y, int row, int col) {
-        super(x, y, 100, 100, "/assets/gif/jalapeno.gif", 4, row, col);
+        super(x, y, 100, 100, "/gif/chillipepper.gif", 4, row, col);
         fires = new ImageView[9];
     }
 
@@ -33,7 +33,7 @@ public class ChilliPepper extends Plant {
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
         for (int i = 0; i < 9; i++) {
-            fires[i] = new ImageView(new Image(getClass().getResource("/assets/gif/jalapenoFire.gif").toString(), 100, 100, false, false));
+            fires[i] = new ImageView(new Image(getClass().getResource("/gif/chillipepperFire.gif").toString(), 100, 100, false, false));
             fires[i].setDisable(true);
             fires[i].setVisible(false);
             lawn.add(fires[i], i, this.row, 1, 1);
@@ -51,7 +51,7 @@ public class ChilliPepper extends Plant {
             }
             image.setVisible(false);
             image.setDisable(true);
-            Media blast = new Media(getClass().getResource("/assets/sounds/jalapeno.wav").toString());
+            Media blast = new Media(getClass().getResource("/sounds/chillipepper.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(blast);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();

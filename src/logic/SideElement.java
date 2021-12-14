@@ -9,6 +9,8 @@ import javafx.scene.layout.Pane;
 import java.util.HashMap;
 
 public class SideElement extends Entity {
+
+    // Fields
     private static int cardSelected = -1;
     private int timeoutTime;
     private boolean isDisabled = false;
@@ -16,11 +18,13 @@ public class SideElement extends Entity {
     private static HashMap<Integer, SideElement> allElements;
     private final int cost;
 
+    // Constructor
     public SideElement(int x, int y, String path, int width, int height, int cost) {
         super(x, y, width, height, path);
         this.cost = cost;
     }
 
+    // Methods
     public int getCost() {
         return this.cost;
     }
@@ -33,7 +37,7 @@ public class SideElement extends Entity {
         int height = 58;
         SideElement.allElements = new HashMap<>();
         if (level >= 1) {
-            path = "/assets/sunflowerCard.png";
+            path = "/images/sunflowerCard.png";
             x = 24;
             y = 79;
             SideElement sunflowerCard = new SideElement(x, y, path, width, height, 50);
@@ -41,57 +45,45 @@ public class SideElement extends Entity {
             sunflowerCard.timeoutTime = 5000;
             SideElement.allElements.put(1, sunflowerCard);
             sunflowerCard.image.setOnMouseClicked(e -> {
-                if (!sunflowerCard.isDisabled) {
-                    setCardSelected(1);
-                    Shovel.getInstance().disable();
-                }
+                handler(sunflowerCard, 1);
             });
         }
         x = 22;
         if (level >= 1) {
-            path = "/assets/peashooterCard.png";
+            path = "/images/peashooterCard.png";
             y = 147;
             SideElement peashooterCard = new SideElement(x, y, path, width, height, 100);
             peashooterCard.buildImage(pane);
             peashooterCard.timeoutTime = 6000;
             SideElement.allElements.put(2, peashooterCard);
             peashooterCard.image.setOnMouseClicked(e -> {
-                if (!peashooterCard.isDisabled) {
-                    setCardSelected(2);
-                    Shovel.getInstance().disable();
-                }
+                handler(peashooterCard, 2);
             });
         }
         if (level >= 2) {
-            path = "/assets/wallnutCard.png";
+            path = "/images/wallnutCard.png";
             y = 217;
             SideElement wallnutCard = new SideElement(x, y, path, width, height, 50);
             wallnutCard.buildImage(pane);
             wallnutCard.timeoutTime = 7000;
             SideElement.allElements.put(3, wallnutCard);
             wallnutCard.image.setOnMouseClicked(e -> {
-                if (!wallnutCard.isDisabled) {
-                    setCardSelected(3);
-                    Shovel.getInstance().disable();
-                }
+                handler(wallnutCard, 3);
             });
         }
         if (level >= 3) {
-            path = "/assets/cherrybombCard.png";
+            path = "/images/cherrybombCard.png";
             y = 284;
             SideElement cherrybombCard = new SideElement(x, y, path, width, height, 150);
             cherrybombCard.buildImage(pane);
             cherrybombCard.timeoutTime = 15000;
             SideElement.allElements.put(4, cherrybombCard);
             cherrybombCard.image.setOnMouseClicked(e -> {
-                if (!cherrybombCard.isDisabled) {
-                    setCardSelected(4);
-                    Shovel.getInstance().disable();
-                }
+                handler(cherrybombCard, 4);
             });
         }
         if (level >= 4) {
-            path = "/assets/repeaterCard.png";
+            path = "/images/repeaterCard.png";
             x = 23;
             y = 352;
             SideElement repeaterCard = new SideElement(x, y, path, width, height, 200);
@@ -99,14 +91,11 @@ public class SideElement extends Entity {
             repeaterCard.timeoutTime = 10000;
             SideElement.allElements.put(5, repeaterCard);
             repeaterCard.image.setOnMouseClicked(e -> {
-                if (!repeaterCard.isDisabled) {
-                    setCardSelected(5);
-                    Shovel.getInstance().disable();
-                }
+                handler(repeaterCard, 5);
             });
         }
         if (level >= 5) {
-            path = "/assets/jalapenoCard.png";
+            path = "/images/chilliPepperCard.png";
             x = 24;
             y = 420;
             SideElement chilliPepperCard = new SideElement(x, y, path, width, height, 125);
@@ -114,18 +103,22 @@ public class SideElement extends Entity {
             chilliPepperCard.timeoutTime = 12000;
             SideElement.allElements.put(6, chilliPepperCard);
             chilliPepperCard.image.setOnMouseClicked(e -> {
-                if (!chilliPepperCard.isDisabled) {
-                    setCardSelected(6);
-                    Shovel.getInstance().disable();
-                }
+                handler(chilliPepperCard, 6);
             });
 
         }
-        String border_path = SideElement.class.getResource("/assets/selectedCardBorder.png").toString();
+        String border_path = SideElement.class.getResource("/images/selectedCardBorder.png").toString();
         selectedBorder = new ImageView(new Image(border_path, 110.0, 72.0, false, false));
         pane.getChildren().add(selectedBorder);
         selectedBorder.setVisible(false);
         selectedBorder.setDisable(true);
+    }
+
+    public static void handler(SideElement sideElement, int cardSelected) {
+        if (!sideElement.isDisabled) {
+            setCardSelected(cardSelected);
+            Shovel.getInstance().disable();
+        }
     }
 
     public static int getCardSelected() {
@@ -145,16 +138,12 @@ public class SideElement extends Entity {
     }
 
     public static SideElement getElement(int x) {
-        if (allElements.containsKey(x)) {
-            return allElements.get(x);
-        } else {
-            return null;
-        }
+        return allElements.getOrDefault(x, null);
     }
 
     public void setDisabledOn(Pane pane) {
         this.isDisabled = true;
-        ImageView im = new ImageView(new Image(getClass().getResource("/assets/lock.png").toString(), 50.0, 50.0, false, false));
+        ImageView im = new ImageView(new Image(getClass().getResource("/images/lock.png").toString(), 50.0, 50.0, false, false));
         im.setX(this.getX() + 20);
         im.setY(this.getY());
         pane.getChildren().add(im);
