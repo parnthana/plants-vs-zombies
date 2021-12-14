@@ -108,7 +108,7 @@ public class GameController {
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
         this.dataTable = GameData;
-        SidebarElement.getSideBarElements(levelNumber, GamePlayRoot);
+        SideElement.getSideElements(levelNumber, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {
             fallingSuns(rand);
@@ -349,7 +349,7 @@ public class GameController {
                 }
             }
         }
-        if (SidebarElement.getCardSelected() != -1) {
+        if (SideElement.getCardSelected() != -1) {
             if (colIndex != null && rowIndex != null) {
                 boolean drop = true;
                 synchronized (allPlants) {
@@ -362,14 +362,14 @@ public class GameController {
                     }
                 }
                 if (drop) {
-                    if (SidebarElement.getElement(SidebarElement.getCardSelected()).getCost() <= sunCount) {
-                        dropPlant(SidebarElement.getCardSelected(), (int) (source.getLayoutX() + source.getParent().getLayoutX()), (int) (source.getLayoutY() + source.getParent().getLayoutY()), colIndex, rowIndex);
-                        updateSunCount((-1) * SidebarElement.getElement(SidebarElement.getCardSelected()).getCost());
-                        SidebarElement.getElement(SidebarElement.getCardSelected()).setDisabledOn(GamePlayRoot);
+                    if (SideElement.getElement(SideElement.getCardSelected()).getCost() <= sunCount) {
+                        dropPlant(SideElement.getCardSelected(), (int) (source.getLayoutX() + source.getParent().getLayoutX()), (int) (source.getLayoutY() + source.getParent().getLayoutY()), colIndex, rowIndex);
+                        updateSunCount((-1) * SideElement.getElement(SideElement.getCardSelected()).getCost());
+                        SideElement.getElement(SideElement.getCardSelected()).setDisabledOn(GamePlayRoot);
                     }
                 }
             }
-            SidebarElement.setCardSelectedToNull();
+            SideElement.setCardSelectedToNull();
         }
 
     }
