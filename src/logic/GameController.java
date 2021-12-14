@@ -206,7 +206,7 @@ public class GameController {
         Stage stage = new Stage();
         stage.setScene(new Scene(fxmlLoader.load()));
         GameMenuController controller = fxmlLoader.<GameMenuController>getController();
-        controller.initializeData(GamePlayRoot, levelNumber, d, sunCount, allPlants, allZombies, timeElapsed, level.getZombieList1(), level.getZombieList2());
+        controller.initializeData(GamePlayRoot, levelNumber, dataTable, sunCount, allPlants, allZombies, timeElapsed, level.getZombieList1(), level.getZombieList2());
         stage.show();
     }
 
