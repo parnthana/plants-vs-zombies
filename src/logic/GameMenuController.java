@@ -63,7 +63,7 @@ public class GameMenuController {
     void showMainMenu(MouseEvent event) throws IOException {
         GameController.gameStatus = false;
         GameController.endAnimations();
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml")));
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         GamePlayRoot.getChildren().setAll(pane);
         Stage stage = (Stage) restartGameButton.getScene().getWindow();
         stage.close();
