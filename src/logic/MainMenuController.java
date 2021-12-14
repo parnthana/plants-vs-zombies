@@ -20,18 +20,7 @@ import java.util.ResourceBundle;
 public class MainMenuController {
     @FXML
     private AnchorPane mainRoot;
-    @FXML
-    private Button startGame;
-    @FXML
-    private ImageView startgame;
-    @FXML
-    private Button startGame1;
-    @FXML
-    private ImageView selectLevel;
-    @FXML
-    private ImageView loadGame;
-    @FXML
-    private ImageView exitGame;
+
 
     @FXML
     void exitGame() {

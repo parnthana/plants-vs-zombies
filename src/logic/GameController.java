@@ -92,7 +92,7 @@ public class GameController {
     @FXML
     public void initializeData(int levelNumber, GameData GameData) {
         wonGame = 0;
-        animationTimelines = new ArrayList<Timeline>();
+        animationTimelines = new ArrayList<>();
         sunCountDisplay.setText(String.valueOf(sunCount));
         zombieList1 = GameData.getZombieList1();
         zombieList2 = GameData.getZombieList2();
