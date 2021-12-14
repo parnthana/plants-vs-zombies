@@ -68,7 +68,7 @@ public class GameController {
     public static List allPlants;
     public static ArrayList<Integer> zombieList1;
     public static ArrayList<Integer> zombieList2;
-    private GameData dataTable;
+    private GameData data;
     public static int wonGame;
     public static double numKilledZombies = 0;
     public static ArrayList<Timeline> animationTimelines;
@@ -107,7 +107,7 @@ public class GameController {
         startAnimations();
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
-        this.dataTable = GameData;
+        this.data = GameData;
         SideElement.getSideElements(levelNumber, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {
@@ -206,7 +206,7 @@ public class GameController {
         Stage stage = new Stage();
         stage.setScene(new Scene(fxmlLoader.load()));
         GameMenuController controller = fxmlLoader.<GameMenuController>getController();
-        controller.initializeData(GamePlayRoot, levelNumber, dataTable, sunCount, allPlants, allZombies, timeElapsed, level.getZombieList1(), level.getZombieList2());
+        controller.initializeData(GamePlayRoot, levelNumber, data, sunCount, allPlants, allZombies, timeElapsed, level.getZombieList1(), level.getZombieList2());
         stage.show();
     }
 

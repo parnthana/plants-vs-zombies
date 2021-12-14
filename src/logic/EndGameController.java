@@ -27,8 +27,7 @@ public class EndGameController {
     private ImageView plantImage;
     @FXML
     private Label plantName;
-    @FXML
-    private Button mainMenuButton;
+
 
     @FXML
     void ToMainMenu() throws IOException {
