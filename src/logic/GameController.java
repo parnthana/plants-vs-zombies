@@ -25,18 +25,6 @@ import java.util.*;
 
 public class GameController {
     @FXML
-    private ImageView peaShooterBuy;
-    @FXML
-    private ImageView repeaterBuy;
-    @FXML
-    private ImageView cherryBombBuy;
-    @FXML
-    private ImageView jalapenoBuy;
-    @FXML
-    private ImageView wallnutBuy;
-    @FXML
-    private ImageView sunBuy;
-    @FXML
     private AnchorPane GamePlayRoot;
     @FXML
     private ImageView lawnImage;
