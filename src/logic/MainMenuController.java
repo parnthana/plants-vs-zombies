@@ -19,7 +19,7 @@ public class MainMenuController {
 
     @FXML
     void showLevelMenu() throws Exception {
-        AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("logic/LevelMenu.fxml")));
+        AnchorPane Apane = FXMLLoader.load(getClass().getResource("LevelMenu.fxml"));
         mainRoot.getChildren().setAll(Apane);
     }
 

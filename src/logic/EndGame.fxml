@@ -11,12 +11,12 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="1024.0" layoutX="-106.0" layoutY="-19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../assets/images/Lawn.jpg" />
+            <Image url="@../assets/images/Lawn.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="zombiesAteYourBrains" fitHeight="298.0" fitWidth="318.0" layoutX="199.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="199.0" AnchorPane.topAnchor="77.0">
          <image>
-            <Image url="@../../assets/images/you-lose.png" />
+            <Image url="@../assets/images/you-lose.png" />
          </image>
       </ImageView>
       <ImageView fx:id="plantImage" fitHeight="280.0" fitWidth="280.0" layoutX="246.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="95.0" />
@@ -27,12 +27,12 @@
       </Label>
       <ImageView fx:id="youWon" fitHeight="500.0" fitWidth="500.0" layoutX="50.0" layoutY="-36.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../assets/images/youwin.png" />
+            <Image url="@../assets/images/youwin.png" />
          </image>
       </ImageView>
       <ImageView fx:id="nextLevelButton" fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="131.0" onMouseClicked="#ToNextLevel" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="131.0">
          <image>
-            <Image url="@../../assets/images/nextlevel.png" />
+            <Image url="@../assets/images/nextlevel.png" />
          </image>
       </ImageView>
       <Button fx:id="mainMenuButton" layoutX="420.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#ToMainMenu" prefHeight="37.0" prefWidth="160.0" text="Main Menu" textFill="#025117">
@@ -42,7 +42,7 @@
       </Button>
       <ImageView fx:id="youAteZombiesBrains" fitHeight="228.0" fitWidth="337.0" layoutX="174.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="112.0">
          <image>
-            <Image url="@../../assets/images/congrat.png" />
+            <Image url="@../assets/images/congrat.png" />
          </image>
       </ImageView>
    </children>
