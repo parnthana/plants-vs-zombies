@@ -2,7 +2,7 @@
 
   
 <p align="center">
-  <img width="200" height="200" src="../assets/images/Plants-vs-Zombies.jpg">
+  <img width="200" height="200" src="./assets/images/Plants-vs-Zombies.jpg">
 </p>
 
 #### Detail
