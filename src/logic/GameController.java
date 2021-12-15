@@ -78,24 +78,24 @@ public class GameController {
     }
 
     @FXML
-    public void initializeData(int level, GameData GameData) {
+    public void initializeData(int level, GameData gameData) {
         wonGame = 0;
         animationTimelines = new ArrayList<>();
-        zombieList1 = GameData.getZombieList1();
-        zombieList2 = GameData.getZombieList2();
-        allPlants = GameData.getAllPlants();
-        allZombies = GameData.getAllZombie();
-        sunCount = GameData.getSunCount();
-        timeElapsed = GameData.getTimeElapsed();
-        LevelMenuController.status = GameData.getStatus();
-        this.levelNumber = level;
+        zombieList1 =  gameData.getZombieList1();
+        zombieList2 =  gameData.getZombieList2();
+        allPlants =  gameData.getAllPlants();
+        allZombies =  gameData.getAllZombie();
+        sunCount =  gameData.getSunCount();
+        timeElapsed =  gameData.getTimeElapsed();
+        LevelMenuController.status =  gameData.getStatus();
+        levelNumber = level;
         this.level = new GameEntity(level);
         Random rand = new Random();
         startAnimations();
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
         sunCountDisplay.setText(String.valueOf(sunCount));
-        this.data = GameData;
+        this.data =  gameData;
         SideElement.getSideElements(level, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {
@@ -193,7 +193,7 @@ public class GameController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameMenu.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(fxmlLoader.load()));
-        GameMenuController controller = fxmlLoader.<GameMenuController>getController();
+        GameMenuController controller = fxmlLoader.getController();
         controller.initializeData(GamePlayRoot, levelNumber, data, sunCount, allPlants, allZombies, timeElapsed, level.getZombieList1(), level.getZombieList2());
         stage.show();
     }
@@ -321,8 +321,7 @@ public class GameController {
                 mediaPlayer.setAutoPlay(true);
                 mediaPlayer.play();
                 synchronized (allPlants) {
-                    for (Object p : allPlants) {
-                        Plant plant = (Plant) p;
+                    for (Plant plant : (Iterable<Plant>)allPlants) {
                         if (plant.getColumn() == colIndex && plant.getRow() == rowIndex) {
                             plant.getImage().setVisible(false);
                             plant.getImage().setDisable(true);
@@ -341,8 +340,7 @@ public class GameController {
             if (colIndex != null && rowIndex != null) {
                 boolean drop = true;
                 synchronized (allPlants) {
-                    for (Object p : allPlants) {
-                        Plant plant = (Plant) p;
+                    for (Plant plant : (Iterable<Plant>)allPlants) {
                         if (plant.getColumn() == colIndex && plant.getRow() == rowIndex) {
                             drop = false;
                             break;
@@ -362,7 +360,7 @@ public class GameController {
 
     }
 
-    public void dropPlant(int value, int x, int y, int row, int col) {
+    public void dropPlant(int value, int x, int y, int col, int row) {
         Plant plant;
         Media plantSound = new Media(getClass().getResource("/sounds/plant.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(plantSound);
@@ -370,37 +368,37 @@ public class GameController {
         mediaPlayer.play();
         switch (value) {
             case 1 -> {
-                plant = new SunFlower(x, y, row, col);
+                plant = new SunFlower(x, y,col, row);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
                 plant.attacking(GamePlayRoot);
             }
             case 2 -> {
-                plant = new PeaShooter(x, y, row, col);
+                plant = new PeaShooter(x, y, col, row);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
                 plant.attacking(GamePlayRoot);
             }
             case 3 -> {
-                plant = new Wallnut(x, y, row, col);
+                plant = new Wallnut(x, y, col, row);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
                 plant.attacking(GamePlayRoot);
             }
             case 4 -> {
-                plant = new CherryBomb(x, y, row, col);
+                plant = new CherryBomb(x, y, col, row);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
                 plant.attacking(GamePlayRoot);
             }
             case 5 -> {
-                plant = new Repeater(x, y, row, col);
+                plant = new Repeater(x, y, col, row);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
                 plant.attacking(GamePlayRoot);
             }
             case 6 -> {
-                plant = new ChilliPepper(x, y, row, col);
+                plant = new ChilliPepper(x, y, col, row);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
                 plant.attacking(GamePlayRoot);
