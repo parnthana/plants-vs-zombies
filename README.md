@@ -1,4 +1,4 @@
-<h1 align="center">**Plants VS. Zombies **
+<h1 align="center">Plants VS. Zombies
 
   
 <p align="center">
