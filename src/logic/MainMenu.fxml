@@ -8,17 +8,17 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/menu3-01.png" />
+            <Image url="@../../assets/images/menu3-01.png" />
          </image>
       </ImageView>
       <ImageView fx:id="startGame" fitHeight="181.0" fitWidth="357.0" layoutX="334.0" layoutY="140.0" onMouseClicked="#showLevelMenu" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/buttonPlay.png" />
+            <Image url="@../../assets/images/buttonPlay.png" />
          </image>
       </ImageView>
       <ImageView fx:id="exitGame" fitHeight="95.0" fitWidth="213.0" layoutX="406.0" layoutY="320.0" onMouseClicked="#exitGame" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/buttinExit.png" />
+            <Image url="@../../assets/images/buttinExit.png" />
          </image>
       </ImageView>
    </children>

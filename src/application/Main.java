@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         addMusic();
-        Parent mainPage = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        Parent mainPage = FXMLLoader.load(getClass().getResource("/logic/MainMenu.fxml"));
         Scene scene = new Scene(mainPage, 1024, 600);
         primaryStage.setTitle("Plants VS Zombies");
         primaryStage.setScene(scene);

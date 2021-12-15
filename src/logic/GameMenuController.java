@@ -4,7 +4,6 @@ import entity.Plant;
 import entity.Zombie;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -63,7 +62,7 @@ public class GameMenuController {
     void showMainMenu(MouseEvent event) throws IOException {
         GameController.gameStatus = false;
         GameController.endAnimations();
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("logic/MainMenu.fxml")));
         GamePlayRoot.getChildren().setAll(pane);
         Stage stage = (Stage) restartGameButton.getScene().getWindow();
         stage.close();
