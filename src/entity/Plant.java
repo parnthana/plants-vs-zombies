@@ -28,7 +28,7 @@ public abstract class Plant extends Entity implements Attackable {
         image = new ImageView();
         Image image1 = new Image(path, width, height, false, false);
         image.setImage(image1);
-        lawn.add(image, column, row, 1, 1);
+        lawn.add(image, row, column, 1, 1);
     }
 
     public int getHealthpoint() {
