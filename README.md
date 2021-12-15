@@ -5,9 +5,11 @@
 
 #### Create by **[Thanaphum Thepwan](https://www.github.com/tnptw)** and **[Akkharawat Burachokviwat](https://www.github.com/EarthAkkharawat)**.
 
+This is a clone of the strategy of Plants VS. Zombies, video game which originally developed by PopCap Games.
+
 Made as a part of project in 2110215 PROG METH I, Academic Year 2021.
 
-## Game details
+## Game Features
 - 2 Themes: Night, Day
 - 5 Levels
 - Plants Available: Sunflower, Pea Shooter, Walnut, Cherry Bomb, Repeater, Chili Pepper
