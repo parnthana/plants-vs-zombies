@@ -1,6 +1,6 @@
 <h1 align="center">Plants VS. Zombies
 
-  
+<\br>
 <p align="center">
   <img width="500" src="./assets/images/Plants-vs-Zombies.jpg">
 </p>
