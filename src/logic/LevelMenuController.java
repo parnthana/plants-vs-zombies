@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.effect.Glow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -43,7 +44,10 @@ public class LevelMenuController {
     public ImageView dayMode;
     public static boolean status = true;
 
-    public LevelMenuController() {
+    public void initialize() {
+        nightTheme = new ImageView(new Image("/images/menu_dark_mode.png"));
+        levelRoot.getChildren().add(nightTheme);
+        nightTheme.setDisable(true);
         if (status) {
             nightTheme.setVisible(false);
             nightMode.setVisible(false);
