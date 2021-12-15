@@ -11,6 +11,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import logic.GameController;
 
+import java.util.Objects;
+
 
 public abstract class Zombie extends Entity implements Attackable {
 
@@ -27,7 +29,7 @@ public abstract class Zombie extends Entity implements Attackable {
     // Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
         super(x, y, width, height, path);
-        setHealth(health);
+        this.health = health;
         this.attackPower = attackPower;
         this.lane = lane;
         this.dx = -1;
@@ -36,7 +38,6 @@ public abstract class Zombie extends Entity implements Attackable {
 
     // Methods
     public void setHealth(int health) {
-        this.health = health;
         if (health <= 0) {
             ++GameController.numKilledZombies;
             this.image.setVisible(false);
@@ -57,7 +58,7 @@ public abstract class Zombie extends Entity implements Attackable {
             }
         }
         if (health <= 5) {
-            Image img = new Image(getClass().getResource("/gif/normalzombie.gif").toString());
+            Image img = new Image(Objects.requireNonNull(getClass().getResource("/gif/defaultzombie.gif")).toString());
             image.setImage(img);
             image.setFitHeight(115);
             image.setFitWidth(65);

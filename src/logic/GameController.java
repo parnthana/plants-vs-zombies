@@ -81,7 +81,6 @@ public class GameController {
     public void initializeData(int level, GameData GameData) {
         wonGame = 0;
         animationTimelines = new ArrayList<>();
-        sunCountDisplay.setText(String.valueOf(sunCount));
         zombieList1 = GameData.getZombieList1();
         zombieList2 = GameData.getZombieList2();
         allPlants = GameData.getAllPlants();
@@ -95,6 +94,7 @@ public class GameController {
         startAnimations();
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
+        sunCountDisplay.setText(String.valueOf(sunCount));
         this.data = GameData;
         SideElement.getSideElements(level, GamePlayRoot);
         gameProgress();
