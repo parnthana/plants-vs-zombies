@@ -15,8 +15,8 @@ public class SunFlower extends Plant {
     private Timeline sunProducer;
 
     // Constructor
-    public SunFlower(int x, int y, int col, int row) {
-        super(x, y, 73, 74, "/gif/sunflower.gif", 100, col, row);
+    public SunFlower(int x, int y, int column, int row) {
+        super(x, y, 73, 74, "/gif/sunflower.gif", 100, column, row);
     }
 
     // Methods
@@ -33,7 +33,7 @@ public class SunFlower extends Plant {
     public void produceSun(Pane pane) {
         Timeline stopShine = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             Glow shine = new Glow();
-            image.setEffect(shine);
+            getImage().setEffect(shine);
             shine.setLevel(0.0);
         }));
 
@@ -48,7 +48,7 @@ public class SunFlower extends Plant {
 
         Timeline startShine = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
             Glow shines = new Glow();
-            image.setEffect(shines);
+            getImage().setEffect(shines);
             shines.setLevel(0.7);
             sunProducer.play();
         }));

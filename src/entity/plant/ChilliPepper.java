@@ -19,8 +19,8 @@ public class ChilliPepper extends Plant {
     private ImageView[] fires;
 
     // Constructor
-    public ChilliPepper(int x, int y, int col, int row) {
-        super(x, y, 100, 100, "/gif/chillipepper.gif", 4, col, row);
+    public ChilliPepper(int x, int y, int column, int row) {
+        super(x, y, 100, 100, "/gif/chillipepper.gif", 4, column, row);
         fires = new ImageView[9];
     }
 
@@ -66,7 +66,7 @@ public class ChilliPepper extends Plant {
                 }
             }
             GameController.allPlants.removeIf(plant -> this == plant);
-            for (Zombie roastedZombie : roastedZombies) {
+            for (Zombie roastedZombie : getRoastedZombies()) {
                 for (int j = 0; j < GameController.allZombies.size(); j++) {
                     if (roastedZombie == GameController.allZombies.get(j)) {
                         GameController.allZombies.remove(j);

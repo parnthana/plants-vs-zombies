@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
-import java.util.Objects;
-
 public class MainMenuController {
     @FXML
     private AnchorPane mainRoot;
@@ -28,7 +26,7 @@ public class MainMenuController {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
         AnchorPane Apane = gamePlayfxml.load();
         GameController controller = gamePlayfxml.getController();
-        controller.initializeData(Main.getMaxLevel(),new GameData(Main.getMaxLevel()));
+        controller.initializeData(Main.getMaxLevel(), new GameData(Main.getMaxLevel()));
         mainRoot.getChildren().setAll(Apane);
     }
 

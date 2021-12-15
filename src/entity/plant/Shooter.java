@@ -46,7 +46,7 @@ public class Shooter extends Plant {
         }));
         peaShooter.setCycleCount(Timeline.INDEFINITE);
         peaShooter.play();
-        this.shooterTimeline = peaShooter;
+        shooterTimeline = peaShooter;
         GameController.animationTimelines.add(peaShooter);
     }
 

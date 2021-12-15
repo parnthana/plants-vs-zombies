@@ -21,6 +21,7 @@ public class Main extends Application {
         addMusic();
         Parent mainPage = FXMLLoader.load(getClass().getResource("/logic/MainMenu.fxml"));
         Scene scene = new Scene(mainPage, 1024, 600);
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Plants VS Zombies");
         primaryStage.setScene(scene);
         primaryStage.show();

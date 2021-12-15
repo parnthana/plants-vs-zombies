@@ -3,15 +3,16 @@ package logic;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import entity.Plant;
 import entity.Zombie;
 
 public class GameData {
-    private  List<Zombie> allZombie;
-    private  List<Plant> allPlants;
-    private  ArrayList<Integer> zombieList1;
-    private  ArrayList<Integer> zombieList2;
-    private  boolean status;
+    private List<Zombie> allZombie;
+    private List<Plant> allPlants;
+    private ArrayList<Integer> zombieList1;
+    private ArrayList<Integer> zombieList2;
+    private boolean status;
     private double timeElapsed;
     private int Level;
     private int sunCount;

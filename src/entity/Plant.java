@@ -39,8 +39,8 @@ public abstract class Plant extends Entity implements Attackable {
         this.healthpoint = healthpoint;
         if (this.healthpoint <= 0) {
             GameController.allPlants.remove(this);
-            image.setVisible(false);
-            image.setDisable(true);
+            getImage().setVisible(false);
+            getImage().setDisable(true);
         }
     }
     public abstract void checkHealthPoint();

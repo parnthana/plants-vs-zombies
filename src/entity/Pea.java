@@ -23,7 +23,7 @@ public class Pea extends Entity {
         this.path = getClass().getResource("/images/pea.png").toString();
         this.plantPosition = plantPosition;
         this.lane = lane;
-        this.bombed = false;
+        bombed = false;
     }
 
     // Methods
@@ -31,11 +31,7 @@ public class Pea extends Entity {
         if (x <= 1050) {
             setX(getX() + 1);
         }
-        if (this.plantPosition > getX()) {
-            image.setVisible(false);
-        } else {
-            image.setVisible(true);
-        }
+        image.setVisible(plantPosition <= getX());
         checkZombieCollision();
     }
 
@@ -49,11 +45,11 @@ public class Pea extends Entity {
 
     public void checkZombieCollision() {
         synchronized (GameController.allZombies) {
-            for (Zombie z : (Iterable<Zombie>) GameController.allZombies) {
-                if (z.getLane() == lane && !bombed) {
-                    if (Math.abs(z.getX() - getX()) <= 3 && !bombed) {
-                        this.bombed = true;
-                        z.setHealth(z.getHealth() - 1);
+            for (Zombie zombie : (Iterable<Zombie>) GameController.allZombies) {
+                if (zombie.getLane() == lane && !bombed) {
+                    if (Math.abs(zombie.getX() - getX()) <= 3 && !bombed) {
+                        bombed = true;
+                        zombie.setHealth(zombie.getHealth() - 1);
                         image.setVisible(false);
                         image.setDisable(true);
                         peaAnimation.stop();

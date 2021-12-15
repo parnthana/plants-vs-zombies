@@ -14,7 +14,6 @@ public class Shovel extends Entity {
     // Singleton class Constructor
     private Shovel() {
         super(680, 10, 58, 58, "/images/Shovel.png");
-        this.path = getClass().getResource("/images/Shovel.png").toString();
     }
 
     // Methods
@@ -32,7 +31,7 @@ public class Shovel extends Entity {
     @Override
     public void buildImage(Pane p) {
         super.buildImage(p);
-        shovel.image.setOnMouseClicked(e -> {
+        shovel.getImage().setOnMouseClicked(e -> {
             isDisabled = false;
             shovel.enable();
             SideElement.setCardSelectedToNull();
@@ -41,13 +40,13 @@ public class Shovel extends Entity {
 
     public void enable() {
         Glow glow = new Glow();
-        shovel.image.setEffect(glow);
+        shovel.getImage().setEffect(glow);
         glow.setLevel(0.4);
     }
 
     public void disable() {
         if (!isDisabled) {
-            Glow glow = (Glow) shovel.image.getEffect();
+            Glow glow = (Glow) shovel.getImage().getEffect();
             glow.setLevel(0.0);
             isDisabled = true;
         }

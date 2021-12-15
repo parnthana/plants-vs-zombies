@@ -9,7 +9,6 @@ public class Wallnut extends Plant {
     // Constructor
     public Wallnut(int x, int y, int row, int col) {
         super(x, y, 60, 75, "/gif/walnut_full_life.gif", 400, row, col);
-        this.path = getClass().getResource("/gif/walnut_full_life.gif").toString();
     }
 
     // Methods
@@ -17,8 +16,8 @@ public class Wallnut extends Plant {
         if (getHealthpoint() <= 0) {
             setHealthpoint(0);
             GameController.allPlants.remove(this);
-            image.setVisible(false);
-            image.setDisable(true);
+            getImage().setVisible(false);
+            getImage().setDisable(true);
         }
     }
 
