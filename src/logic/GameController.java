@@ -317,7 +317,7 @@ public class GameController {
     }
 
     @FXML
-    void getGridPosition(MouseEvent event) {
+    public void getGridPosition(MouseEvent event) {
         Node source = (Node) event.getSource();
         Integer rowIndex = lawn_grid.getRowIndex(source);
         Integer colIndex = lawn_grid.getColumnIndex(source);
