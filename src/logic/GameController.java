@@ -189,7 +189,7 @@ public class GameController {
     }
 
     @FXML
-    void GameMenuLoader(MouseEvent event) throws IOException {
+    void GameMenuLoader() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameMenu.fxml"));
         Stage stage = new Stage();
         stage.setResizable(false);
