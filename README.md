@@ -1,8 +1,8 @@
-<h1 align="center">2110215 PROG METH Project: PlantsVSZomvies Cloned
+<h1 align="center">**Plants VS. Zombies **
 
   
 <p align="center">
-  <img width="200" height="200" src="https://github.com/JetBrains/logos/blob/master/web/intellij-idea/intellij-idea.svg">
+  <img width="200" height="200" src="../assets/images/Plants-vs-Zombies.jpg">
 </p>
 
 #### Detail
