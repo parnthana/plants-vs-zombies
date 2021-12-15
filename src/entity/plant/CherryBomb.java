@@ -19,8 +19,8 @@ public class CherryBomb extends Plant {
     private ArrayList<Zombie> roastedZombies;
 
     // Constructor
-    public CherryBomb(int x, int y, int col, int row) {
-        super(x, y, 90, 68, "/gif/anim_cherrybomb.gif", 4,col,row);
+    public CherryBomb(int x, int y, int column, int row) {
+        super(x, y, 90, 68, "/gif/anim_cherrybomb.gif", 4, column, row);
     }
 
     // Methods
@@ -31,7 +31,7 @@ public class CherryBomb extends Plant {
     @Override
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
-        cherry = new ImageView(new Image("/gif/powie.gif",180,160,false,false));
+        cherry = new ImageView(new Image("/gif/powie.gif", 180, 160, false, false));
         cherry.setX(x - 40);
         cherry.setY(y - 20);
         cherry.setVisible(false);
@@ -59,7 +59,7 @@ public class CherryBomb extends Plant {
                 for (Zombie x : (Iterable<Zombie>) GameController.allZombies) {
                     if (x.getX() <= (getX() + 250) && x.getX() >= (getX() - 150)) {
                         if (x.getY() <= (getY() + 250) && x.getY() >= (getY() - 150)) {
-                            roastedZombies.add(x);
+                            getRoastedZombies().add(x);
                             x.burntZombie();
                         }
                     }
@@ -71,7 +71,7 @@ public class CherryBomb extends Plant {
                     break;
                 }
             }
-            for (Zombie roastedZombie : roastedZombies) {
+            for (Zombie roastedZombie : getRoastedZombies()) {
                 for (int i = 0; i < GameController.allZombies.size(); i++) {
                     if (roastedZombie == GameController.allZombies.get(i)) {
                         GameController.allZombies.remove(i);

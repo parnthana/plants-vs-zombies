@@ -12,10 +12,8 @@ import logic.GameController;
 public class Repeater extends Shooter {
 
     // Constructor
-    public Repeater(int x, int y, int row, int col) {
-        super(x, y, "/gif/repeater.gif", 150, 60, 62, row, col);
-        this.path = getClass().getResource("/gif/repeater.gif").toString();
-
+    public Repeater(int x, int y, int column, int row) {
+        super(x, y, "/gif/repeater.gif", 150, 60, 62, column, row);
     }
 
     // Methods

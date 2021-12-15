@@ -4,6 +4,7 @@ import entity.zombie.BucketHeadZombie;
 import entity.zombie.DefaultZombie;
 import entity.zombie.FunnelHeadZombie;
 import javafx.scene.layout.Pane;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -27,26 +28,22 @@ public class GameEntity {
             this.numDefaultZombie = 12;
             this.numFunnelHeadZombie = 10;
             this.numBucketHeadZombie = 8;
-        }
-        else if (level >= 4) {
+        } else if (level >= 4) {
             this.totalZombies = 25;
             this.numDefaultZombie = 12;
             this.numFunnelHeadZombie = 9;
             this.numBucketHeadZombie = 4;
-        }
-        else if (level >= 3) {
+        } else if (level >= 3) {
             this.totalZombies = 20;
             this.numDefaultZombie = 10;
             this.numFunnelHeadZombie = 8;
             this.numBucketHeadZombie = 2;
-        }
-        else if (level >= 2) {
+        } else if (level >= 2) {
             this.totalZombies = 15;
             this.numDefaultZombie = 10;
             this.numFunnelHeadZombie = 5;
             this.numBucketHeadZombie = 0;
-        }
-        else {
+        } else {
             this.totalZombies = 10;
             this.numDefaultZombie = 10;
             this.numFunnelHeadZombie = 0;

@@ -64,7 +64,7 @@ public class GameController {
     private Shovel shovel;
     private int spawnedZombies = 0;
 
-    public void initialize() throws Exception {
+    public void initialize() {
         Media wave = new Media(getClass().getResource("/sounds/zombies_are_coming.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(wave);
         mediaPlayer.setAutoPlay(true);
@@ -192,6 +192,7 @@ public class GameController {
     void GameMenuLoader(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameMenu.fxml"));
         Stage stage = new Stage();
+        stage.setResizable(false);
         stage.setScene(new Scene(fxmlLoader.load()));
         GameMenuController controller = fxmlLoader.getController();
         controller.initializeData(GamePlayRoot, levelNumber, data, sunCount, allPlants, allZombies, timeElapsed, level.getZombieList1(), level.getZombieList2());
@@ -407,5 +408,7 @@ public class GameController {
         }
 
     }
+
+
 
 }
