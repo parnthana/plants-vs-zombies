@@ -13,7 +13,7 @@ public class Shovel extends Entity {
 
     // Singleton class Constructor
     private Shovel() {
-        super(500, 10, 60, 60, "/images/Shovel.png");
+        super(680, 10, 58, 58, "/images/Shovel.png");
         this.path = getClass().getResource("/images/Shovel.png").toString();
     }
 
