@@ -4,4 +4,5 @@
 </p>
 
 #### Detail
-- This project was created in collaboration with **[Thanaphum Thepwan](https://www.github.com/tnptw)** and **[Akkharawat Burachokviwat](https://www.github.com/EarthAkkharawat)**.
+This project was created in collaboration with **[Thanaphum Thepwan](https://www.github.com/tnptw)** and **[Akkharawat Burachokviwat](https://www.github.com/EarthAkkharawat)**.
+Made as a part of project in 2110215 PROG METH I, Academic Year 2021.
