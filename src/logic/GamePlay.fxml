@@ -59,51 +59,51 @@
           <RowConstraints maxHeight="158.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" />
-            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-            <Region layoutX="96.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" />
-            <Region layoutX="343.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-            <Region layoutX="96.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Region layoutX="176.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Region layoutX="260.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Region layoutX="343.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Region layoutX="425.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Region layoutX="503.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <Region layoutX="580.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Region layoutX="580.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Region layoutX="343.0" layoutY="394.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <Region layoutX="343.0" layoutY="394.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-            <Region layoutX="10.0" layoutY="10.0" onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="0"/>
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Region onMouseClicked="#getGridPosition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>
