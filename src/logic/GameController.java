@@ -64,7 +64,7 @@ public class GameController {
     private Shovel shovel;
     private int spawnedZombies = 0;
 
-    public GameController() {
+    public void initialize() throws Exception {
         Media wave = new Media(getClass().getResource("/sounds/zombies_are_coming.wav").toString());
         MediaPlayer mediaPlayer = new MediaPlayer(wave);
         mediaPlayer.setAutoPlay(true);
