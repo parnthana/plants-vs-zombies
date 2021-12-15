@@ -7,40 +7,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="endGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.EndGameController">
+<AnchorPane fx:id="endGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.EndGameController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1024.0" layoutX="-106.0" layoutY="-19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="717.0" fitWidth="1473.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../assets/images/Lawn.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="zombiesAteYourBrains" fitHeight="298.0" fitWidth="318.0" layoutX="199.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="199.0" AnchorPane.topAnchor="77.0">
+      <ImageView fx:id="zombiesAteYourBrains" fitHeight="298.0" fitWidth="318.0" layoutX="199.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="199.0" AnchorPane.topAnchor="77.0">
          <image>
             <Image url="@../assets/images/you-lose.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="plantImage" fitHeight="280.0" fitWidth="280.0" layoutX="246.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="95.0" />
-      <Label fx:id="plantName" layoutX="333.0" layoutY="260.0" prefHeight="58.0" prefWidth="227.0" text="Label" textFill="#fbff00" visible="false" AnchorPane.leftAnchor="333.0" AnchorPane.topAnchor="260.0">
+      <ImageView fx:id="plantImage" fitHeight="228.0" fitWidth="219.0" layoutX="518.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="129.0" AnchorPane.leftAnchor="518.0" AnchorPane.rightAnchor="287.0" AnchorPane.topAnchor="243.0" />
+      <Label fx:id="plantName" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="3.0" layoutX="541.0" layoutY="378.0" prefHeight="35.0" prefWidth="168.0" text="Label" textAlignment="CENTER" textFill="#fbff00" visible="false" AnchorPane.leftAnchor="541.0" AnchorPane.topAnchor="378.0">
          <font>
-            <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
          </font>
       </Label>
-      <ImageView fx:id="youWon" fitHeight="500.0" fitWidth="500.0" layoutX="50.0" layoutY="-36.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="youWon" fitHeight="437.0" fitWidth="439.0" layoutX="390.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/youwin.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="nextLevelButton" fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="131.0" onMouseClicked="#ToNextLevel" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="131.0">
+      <ImageView fx:id="nextLevelButton" fitHeight="150.0" fitWidth="200.0" layoutX="818.0" layoutY="49.0" onMouseClicked="#ToNextLevel" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="818.0" AnchorPane.topAnchor="49.0">
          <image>
             <Image url="@../assets/images/nextlevel.png" />
          </image>
       </ImageView>
-      <Button fx:id="mainMenuButton" layoutX="420.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#ToMainMenu" prefHeight="37.0" prefWidth="160.0" text="Main Menu" textFill="#025117">
+      <Button fx:id="mainMenuButton" layoutX="827.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#ToMainMenu" prefHeight="37.0" prefWidth="160.0" text="Main Menu" textFill="#025117">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <ImageView fx:id="youAteZombiesBrains" fitHeight="228.0" fitWidth="337.0" layoutX="174.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="112.0">
+      <ImageView fx:id="youAteZombiesBrains" fitHeight="358.0" fitWidth="522.0" layoutX="390.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="152.0">
          <image>
             <Image url="@../assets/images/congrat.png" />
          </image>
