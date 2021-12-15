@@ -2,6 +2,7 @@ package logic;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class EndGameController {
+    @FXML
+    public Button mainMenuButton;
     @FXML
     private AnchorPane endGame;
     @FXML
@@ -51,7 +54,7 @@ public class EndGameController {
 
     @FXML
     public void endGameUI(int level, boolean gameWin) {
-        if (!gameWin) {
+        if (gameWin) {
             zombiesAteYourBrains.setVisible(true);
         } else {
             if (level == 5) {
