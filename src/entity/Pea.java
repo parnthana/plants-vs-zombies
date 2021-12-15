@@ -7,6 +7,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import logic.GameController;
 
+import java.util.Iterator;
+
 public class Pea extends Entity {
 
     // Fields
@@ -47,8 +49,7 @@ public class Pea extends Entity {
 
     public void checkZombieCollision() {
         synchronized (GameController.allZombies) {
-            for (Object zombie : GameController.allZombies) {
-                Zombie z = (Zombie) zombie;
+            for (Zombie z : (Iterable<Zombie>) GameController.allZombies) {
                 if (z.getLane() == lane && !bombed) {
                     if (Math.abs(z.getX() - getX()) <= 3 && !bombed) {
                         this.bombed = true;

@@ -25,7 +25,6 @@ public class Shovel extends Entity {
     public static Shovel getInstance() {
         if (shovel == null) {
             shovel = new Shovel();
-
         }
         return shovel;
     }

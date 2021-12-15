@@ -30,8 +30,8 @@ public class Sun extends Entity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            getImage().setVisible(false);
-            getImage().setDisable(true);
+            image.setVisible(false);
+            image.setDisable(true);
 
         }).start();
     }
@@ -39,11 +39,11 @@ public class Sun extends Entity {
     @Override
     public void buildImage(Pane pane) {
         super.buildImage(pane);
-        getImage().setOnMouseClicked(mouseEvent -> {
-            getImage().setVisible(false);
-            getImage().setDisable(true);
+        image.setOnMouseClicked(mouseEvent -> {
+            image.setVisible(false);
+            image.setDisable(true);
+            GameController.updateSunCount(25);
         });
-        GameController.updateSunCount(25);
     }
 
     public void sunMovement() {

@@ -20,17 +20,15 @@ public class Entity {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.path = path; // Url of image
+        this.path = getClass().getResource(path).toString(); // Url of image
     }
 
     // Methods
     public void buildImage(Pane pane) {
         image = new ImageView();
-        image.setImage(new Image(path));
+        image.setImage(new Image(path,width,height,false,false));
         image.setX(x);
         image.setY(y);
-        image.setFitHeight(height);
-        image.setFitWidth(width);
         pane.getChildren().add(image);
     }
 
@@ -40,6 +38,7 @@ public class Entity {
 
     public void setX(int x) {
         this.x = x;
+        image.setX(x);
     }
 
     public int getY() {
@@ -48,6 +47,7 @@ public class Entity {
 
     public void setY(int y) {
         this.y = y;
+        image.setY(y);
     }
 
     public ImageView getImage() {

@@ -32,19 +32,20 @@ public abstract class Zombie extends Entity implements Attackable {
         this.health = health;
         this.attackPower = attackPower;
         this.lane = lane;
-        this.dx = -1;
-        this.eating = new Timeline();
+        dx = -1;
+        eating = new Timeline();
     }
 
     // Methods
     public void setHealth(int health) {
+        this.health = health;
         if (health <= 0) {
             ++GameController.numKilledZombies;
-            this.image.setVisible(false);
-            this.image.setDisable(true);
-            this.zombieAnimation.stop();
-            if (this.eating != null) {
-                this.eating.stop();
+            image.setVisible(false);
+            image.setDisable(true);
+            zombieAnimation.stop();
+            if (eating != null) {
+                eating.stop();
             }
             for (Object zombie : GameController.allZombies) {
                 if (this == zombie) {
@@ -57,28 +58,22 @@ public abstract class Zombie extends Entity implements Attackable {
                 }
             }
         }
-        if (health <= 5) {
-            Image img = new Image(Objects.requireNonNull(getClass().getResource("/gif/defaultzombie.gif")).toString());
-            image.setImage(img);
-            image.setFitHeight(115);
-            image.setFitWidth(65);
-            this.width = 65;
-            this.height = 115;
+        if (health <= 7) {
+            image.setImage( new Image(Objects.requireNonNull(getClass().getResource("/gif/defaultzombie.gif")).toString(),65,115,false,false));
+            width = 65;
+            height = 115;
         }
     }
 
     public void burntZombie() {
-        Image img = new Image(getClass().getResource("/gif/burntZombie.gif").toString());
-        image.setImage(img);
-        image.setFitHeight(115);
-        image.setFitWidth(65);
-        this.health = 0;
-        this.eating.stop();
-        this.dx = 0;
+        image.setImage( new Image(getClass().getResource("/gif/burntZombie.gif").toString(),65,115,false,false));
+        health = 0;
+        dx = 0;
+        eating.stop();
         ++GameController.numKilledZombies;
         new Thread(() -> {
             try {
-                Thread.sleep(4500);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -90,11 +85,11 @@ public abstract class Zombie extends Entity implements Attackable {
 
     public void ReachedHouse() {
         if (image.getX() <= 220) {
+            GameController.wonGame = -1;
             Media brainzSound = new Media(getClass().getResource("/sounds/brainz.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(brainzSound);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
-            GameController.wonGame -= 1;
         }
     }
 
@@ -109,7 +104,7 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void moveZombie() {
-        Timeline animation = new Timeline(new KeyFrame(Duration.millis(75), e -> zombieWalk()));
+        Timeline animation = new Timeline(new KeyFrame(Duration.millis(70), e -> zombieWalk()));
         animation.setCycleCount(Animation.INDEFINITE);
         animation.play();
         this.zombieAnimation = animation;
@@ -117,8 +112,8 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void zombieWalk() {
-        if (getX() > 220 && this.health > 0) {
-            setX(getX() + this.dx);
+        if (getX() > 220 && health > 0) {
+            setX(getX() + dx);
             try {
                 attacking();
             } catch (java.util.ConcurrentModificationException e) {
@@ -127,7 +122,6 @@ public abstract class Zombie extends Entity implements Attackable {
             ReachedHouse();
         }
     }
-
 
     public void eatPlant() {
         boolean foundPlant = false;
@@ -151,34 +145,34 @@ public abstract class Zombie extends Entity implements Attackable {
                             isEating = false;
                         }
                         this.dx = 0;
-                        plant.setHealthpoint(plant.getHealthpoint() - this.attackPower);
+                        plant.setHealthpoint(plant.getHealthpoint() - attackPower);
                         if (plant.getHealthpoint() <= 0) {
                             plant.setHealthpoint(0);
                             GameController.allPlants.remove(plant);
-                            plant.getImage().setVisible(false);
-                            plant.getImage().setDisable(true);
+                            plant.image.setVisible(false);
+                            plant.image.setDisable(true);
                             this.dx = -1;
                             this.reachedPlant = false;
                             this.eating.stop();
                         }
                     } else {
-                        this.dx = -1;
-                        this.reachedPlant = false;
-                        if (this.eating != null) {
-                            this.eating.stop();
+                        dx = -1;
+                        reachedPlant = false;
+                        if (eating != null) {
+                            eating.stop();
                         }
                     }
                 } else {
-                    this.dx = -1;
+                    dx = -1;
                 }
             }
         }
         if (!foundPlant) {
-            this.dx = -1;
-            if (this.eating != null) {
-                this.eating.stop();
+            dx = -1;
+            if (eating != null) {
+                eating.stop();
             }
-            this.reachedPlant = false;
+            reachedPlant = false;
         }
     }
 
