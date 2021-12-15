@@ -27,19 +27,16 @@ public class Shooter extends Plant {
     // Methods
     @Override
     public void attacking(Pane pane) {
-        Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                synchronized (GameController.allZombies) {
-                    for (Zombie z : (Iterable<Zombie>)GameController.allZombies) {
-                        if (z.getLane() == getShooterLane() && getX() <= z.getX()) {
-                            int peaStartX = getX() + 50;
-                            int peaStartY = getY() + 25;
-                            Pea p = new Pea(peaStartX, peaStartY, getX() + 50, row);
-                            p.buildImage(pane);
-                            p.shootPea();
-                            checkHealthPoint();
-                        }
+        Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+            synchronized (GameController.allZombies) {
+                for (Zombie z : (Iterable<Zombie>)GameController.allZombies) {
+                    if (z.getLane() == getShooterLane() && getX() <= z.getX()) {
+                        int peaStartX = getX() + 50;
+                        int peaStartY = getY() + 25;
+                        Pea p = new Pea(peaStartX, peaStartY, getX() + 50, row);
+                        p.buildImage(pane);
+                        p.shootPea();
+                        checkHealthPoint();
                     }
                 }
             }
