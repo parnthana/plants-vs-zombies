@@ -158,18 +158,18 @@ public class GameController {
 
     public void gameLost() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
-        EndGameController endController = fxmlLoader.<EndGameController>getController();
-        endController.endGameUI(levelNumber, false);
         AnchorPane Apane = fxmlLoader.load();
+        EndGameController endController = fxmlLoader.getController();
+        endController.endGameUI(levelNumber, false);
         GamePlayRoot.getChildren().setAll(Apane);
 
     }
 
     public void gameWon() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EndGame.fxml"));
-        EndGameController controller = fxmlLoader.<EndGameController>getController();
-        controller.endGameUI(levelNumber, true);
         AnchorPane Apane = fxmlLoader.load();
+        EndGameController controller = fxmlLoader.getController();
+        controller.endGameUI(levelNumber, true);
         GamePlayRoot.getChildren().setAll(Apane);
 
     }

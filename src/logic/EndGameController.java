@@ -54,7 +54,7 @@ public class EndGameController {
 
     @FXML
     public void endGameUI(int level, boolean gameWin) {
-        if (gameWin) {
+        if (!gameWin) {
             zombiesAteYourBrains.setVisible(true);
         } else {
             if (level == 5) {

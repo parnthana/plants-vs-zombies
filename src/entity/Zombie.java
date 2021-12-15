@@ -88,11 +88,11 @@ public abstract class Zombie extends Entity implements Attackable {
 
     public void ReachedHouse() {
         if (image.getX() <= 220) {
-            GameController.wonGame = -1;
             Media brainzSound = new Media(getClass().getResource("/sounds/brainz.wav").toString());
             MediaPlayer mediaPlayer = new MediaPlayer(brainzSound);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
+            GameController.wonGame = -1;
         }
     }
 

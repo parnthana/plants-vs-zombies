@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="endGame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.EndGameController">
    <children>
-      <ImageView fitHeight="717.0" fitWidth="1473.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fitHeight="717.0" fitWidth="1473.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/Lawn.jpg" />
          </image>
