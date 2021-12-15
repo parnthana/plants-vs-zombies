@@ -8,7 +8,7 @@
 Made as a part of project in 2110215 PROG METH I, Academic Year 2021.
 
 ## Game details
-- 2 Themes (Night/Day)
+- 2 Themes: Night, Day
 - 5 Levels
-- Plants Available: Sunflower, Pea Shooter, Cherry Bomb, Walnut, Repeater, Chili Pepper
+- Plants Available: Sunflower, Pea Shooter, Walnut, Cherry Bomb, Repeater, Chili Pepper
 - Zombies Available: Normal Zombie, Funnelhead Zombie and Buckethead Zombie
