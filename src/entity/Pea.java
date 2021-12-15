@@ -21,9 +21,9 @@ public class Pea extends Entity {
     public Pea(int x, int y, int plantPosition, int lane) {
         super(x, y, 20, 20, "/images/pea.png");
         this.path = getClass().getResource("/images/pea.png").toString();
-        this.plantPosition = plantPosition;
-        this.lane = lane;
-        bombed = false;
+        setPlantPosition(plantPosition);
+        setLane(lane);
+        setBombed(false);
     }
 
     // Methods
@@ -63,5 +63,16 @@ public class Pea extends Entity {
         }
     }
 
+    public void setLane(int lane) {
+        this.lane = lane;
+    }
+
+    public void setPlantPosition(int plantPosition) {
+        this.plantPosition = plantPosition;
+    }
+
+    public void setBombed(boolean bombed) {
+        this.bombed = bombed;
+    }
 }
 

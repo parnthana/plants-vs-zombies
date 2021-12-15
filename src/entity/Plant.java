@@ -56,4 +56,5 @@ public abstract class Plant extends Entity implements Attackable {
     public int getColumn() {
         return column;
     }
+
 }

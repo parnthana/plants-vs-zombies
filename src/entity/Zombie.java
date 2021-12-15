@@ -31,9 +31,9 @@ public abstract class Zombie extends Entity implements Attackable {
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
         super(x, y, width, height, path);
         this.health = health;
-        this.attackPower = attackPower;
-        this.lane = lane;
-        dx = -1;
+        setAttackPower(attackPower);
+        setLane(lane);
+        setDx(-1);
         eating = new Timeline();
     }
 
@@ -193,6 +193,14 @@ public abstract class Zombie extends Entity implements Attackable {
 
     public void setLane(int lane) {
         this.lane = lane;
+    }
+
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public void setDx(int dx) {
+        this.dx = dx;
     }
 
     public Timeline getZombieAnimation() {
