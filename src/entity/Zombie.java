@@ -4,6 +4,7 @@ import entity.base.Attackable;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -39,25 +40,27 @@ public abstract class Zombie extends Entity implements Attackable {
     // Methods
     public void setHealth(int health) {
         this.health = health;
-        if (health <= 0) {
-            ++GameController.numKilledZombies;
-            image.setVisible(false);
-            image.setDisable(true);
-            zombieAnimation.stop();
-            if (eating != null) {
-                eating.stop();
-            }
-            for (Object zombie : GameController.allZombies) {
-                if (this == zombie) {
-                    Media yuckSound = new Media(getClass().getResource("/sounds/yuck.wav").toString());
-                    MediaPlayer mediaPlayer = new MediaPlayer(yuckSound);
-                    mediaPlayer.setAutoPlay(true);
-                    mediaPlayer.play();
-                    GameController.allZombies.remove(zombie);
-                    break;
+        Platform.runLater(()-> {
+            if (health <= 0) {
+                ++GameController.numKilledZombies;
+                image.setVisible(false);
+                image.setDisable(true);
+                zombieAnimation.stop();
+                if (eating != null) {
+                    eating.stop();
+                }
+                for (Object zombie : GameController.allZombies) {
+                    if (this == zombie) {
+                        Media yuckSound = new Media(getClass().getResource("/sounds/yuck.wav").toString());
+                        MediaPlayer mediaPlayer = new MediaPlayer(yuckSound);
+                        mediaPlayer.setAutoPlay(true);
+                        mediaPlayer.play();
+                        GameController.allZombies.remove(zombie);
+                        break;
+                    }
                 }
             }
-        }
+        });
         if (health <= 7) {
             image.setImage( new Image(Objects.requireNonNull(getClass().getResource("/gif/defaultzombie.gif")).toString(),65,115,false,false));
             width = 65;
@@ -75,7 +78,7 @@ public abstract class Zombie extends Entity implements Attackable {
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
             image.setVisible(false);
             image.setDisable(true);
@@ -117,7 +120,7 @@ public abstract class Zombie extends Entity implements Attackable {
             try {
                 attacking();
             } catch (java.util.ConcurrentModificationException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
             ReachedHouse();
         }
@@ -129,7 +132,7 @@ public abstract class Zombie extends Entity implements Attackable {
             for (Object p : GameController.allPlants) {
                 Plant plant = (Plant) p;
                 if (plant.getRow() == getLane()) {
-                    if (Math.abs(((Plant) plant).getX() - image.getX()) <= 50) {
+                    if (Math.abs(plant.getX() - image.getX()) <= 50) {
                         foundPlant = true;
                         if (!reachedPlant) {
                             reachedPlant = true;
