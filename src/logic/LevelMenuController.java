@@ -27,14 +27,6 @@ public class LevelMenuController {
     @FXML
     private ImageView level5button;
     @FXML
-    private ImageView lock2;
-    @FXML
-    private ImageView lock3;
-    @FXML
-    private ImageView lock4;
-    @FXML
-    private ImageView lock5;
-    @FXML
     private ImageView backbutton;
     @FXML
     private ImageView nightTheme;
@@ -61,31 +53,6 @@ public class LevelMenuController {
             dayMode.setVisible(false);
             dayMode.setDisable(true);
             GameController.theme = "night";
-        }
-        int level = Main.getMaxLevel();
-        level2button.setDisable(true);
-        level3button.setDisable(true);
-        level4button.setDisable(true);
-        level5button.setDisable(true);
-        if (level >= 2) {
-            level2button.setDisable(false);
-            lock2.setVisible(false);
-            lock2.setDisable(true);
-        }
-        if (level >= 3) {
-            level3button.setDisable(false);
-            lock3.setVisible(false);
-            lock3.setDisable(true);
-        }
-        if (level >= 4) {
-            level4button.setDisable(false);
-            lock4.setVisible(false);
-            lock4.setDisable(true);
-        }
-        if (level >= 5) {
-            level5button.setDisable(false);
-            lock5.setVisible(false);
-            lock5.setDisable(true);
         }
 
     }
