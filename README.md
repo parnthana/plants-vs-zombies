@@ -3,6 +3,7 @@
   <img width="500" src="./assets/images/Plants-vs-Zombies.jpg">
 </p>
 
+## Details
 #### Create by **[Thanaphum Thepwan](https://www.github.com/tnptw)** and **[Akkharawat Burachokviwat](https://www.github.com/EarthAkkharawat)**.
 
 This is a clone of the strategy of Plants VS. Zombies, video game which originally developed by PopCap Games.
