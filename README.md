@@ -16,3 +16,13 @@ Made as a part of project in 2110215 PROG METH I, Academic Year 2021.
 - Plants Available: Sunflower, Pea Shooter, Walnut, Cherry Bomb, Repeater, Chili Pepper
 - Zombies Available: Normal Zombie, Funnelhead Zombie and Buckethead Zombie
 - Shovel
+- Cool sounds like original game
+
+## Related content Topics 
+Using Java, JavaFX
+- Object Oriented Programming (OOP)
+- Inheritance
+- Abstract
+- Interface
+- Graphical User Interface (GUI)
+- Threads
