@@ -24,10 +24,11 @@ Use Java, JavaFX
 
 ## How to Play
 ### Executing JAR file.
-  1. Clone this repository using `git clone https://github.com/parntt/prog-meth-project.git`
-  2. `cd` into the directory.
-  3. Use the command `java -jar --module-path "path_to_fx/lib" --add-modules javafx.controls,javafx.media,javafx.fxml`
-  4. Have Fun :D 
+  1. Make sure you have downloaded lastest version of [Java](oracle.com/java/technologies/downloads/) and [JavaFX](https://gluonhq.com/products/javafx/).
+  2. Clone this repository using `git clone https://github.com/parntt/prog-meth-project.git`
+  3. `cd` into the directory.
+  4. Use the command `java -jar --module-path "path_to_fx/lib" --add-modules javafx.controls,javafx.media,javafx.fxml`
+  5. Have Fun :D 
 
 
 ## Related content Topics 
