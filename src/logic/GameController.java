@@ -100,8 +100,8 @@ public class GameController {
         gameProgress();
         if (LevelMenuController.status) {
             fallingSuns(rand);
-            zombieSpawner1(rand, 15);
-            zombieSpawner2(rand, 30);
+            zombieSpawner1(rand, 25);
+            zombieSpawner2(rand, 40);
         } else {
             String lawnPath = "/image/lawn_night.png";
             Image lawn = new Image(lawnPath, 1024, 600, false, false);
