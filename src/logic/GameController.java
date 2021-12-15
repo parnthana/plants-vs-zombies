@@ -103,8 +103,8 @@ public class GameController {
             zombieSpawner1(rand, 25);
             zombieSpawner2(rand, 40);
         } else {
-            String lawnPath = "/image/lawn_night.png";
-            Image lawn = new Image(lawnPath, 1024, 600, false, false);
+            String lawnPath = getClass().getResource( "/images/lawn_night.png").toString();
+            Image lawn = new Image(lawnPath, 1068, 600, false, false);
             lawnImage.setImage(lawn);
             zombieSpawner1(rand, 25);
             zombieSpawner2(rand, 40);

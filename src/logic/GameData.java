@@ -20,8 +20,8 @@ public class GameData {
         this.sunCount = 50;
         this.zombieList1 = new ArrayList<>();
         this.zombieList2 = new ArrayList<>();
-        this.allZombie = Collections.synchronizedList(new ArrayList<Zombie>());
-        this.allPlants = Collections.synchronizedList(new ArrayList<Plant>());
+        this.allZombie = Collections.synchronizedList(new ArrayList<>());
+        this.allPlants = Collections.synchronizedList(new ArrayList<>());
         GameEntity gamelevel = new GameEntity(level);
         zombieList1 = gamelevel.getZombieList1();
         zombieList2 = gamelevel.getZombieList2();

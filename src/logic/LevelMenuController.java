@@ -1,17 +1,14 @@
 package logic;
 
-import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.effect.Glow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class LevelMenuController {
     @FXML
@@ -37,9 +34,6 @@ public class LevelMenuController {
     public static boolean status = true;
 
     public void initialize() {
-        nightTheme = new ImageView(new Image("/images/menu_dark_mode.png"));
-        levelRoot.getChildren().add(nightTheme);
-        nightTheme.setDisable(true);
         if (status) {
             nightTheme.setVisible(false);
             nightMode.setVisible(false);
