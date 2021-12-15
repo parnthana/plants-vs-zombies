@@ -7,8 +7,8 @@ import logic.GameController;
 public class Wallnut extends Plant {
 
     // Constructor
-    public Wallnut(int x, int y, int row, int col) {
-        super(x, y, 60, 75, "/gif/walnut_full_life.gif", 400, row, col);
+    public Wallnut(int x, int y, int column, int row) {
+        super(x, y, 60, 75, "/gif/walnut_full_life.gif", 400, column, row);
     }
 
     // Methods
