@@ -26,7 +26,7 @@ Use Java, JavaFX
 ### Executing JAR file.
   1. Clone this repository using `git clone https://github.com/parntt/prog-meth-project.git`
   2. `cd` into the directory.
-  3. Use the command `java -jar --module-path "path_to_fx/lib" --add-modules javafx.controls,javafx.media,javafx.fxml"`
+  3. Use the command `java -jar --module-path "path_to_fx/lib" --add-modules javafx.controls,javafx.media,javafx.fxml`
   4. Have Fun :D 
 
 
