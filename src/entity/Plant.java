@@ -43,6 +43,7 @@ public abstract class Plant extends Entity implements Attackable {
             image.setDisable(true);
         }
     }
+    public abstract void checkHealthPoint();
 
     public void endAnimation(Timeline t) {
         t.stop();

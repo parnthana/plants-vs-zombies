@@ -92,6 +92,10 @@ public class ChilliPepper extends Plant {
         setHealthpoint(0);
     }
 
+    @Override
+    public void checkHealthPoint() {
+    }
+
     public ArrayList<Zombie> getRoastedZombies() {
         return roastedZombies;
     }

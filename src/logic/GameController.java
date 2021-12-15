@@ -81,13 +81,13 @@ public class GameController {
     public void initializeData(int level, GameData gameData) {
         wonGame = 0;
         animationTimelines = new ArrayList<>();
-        zombieList1 =  gameData.getZombieList1();
-        zombieList2 =  gameData.getZombieList2();
-        allPlants =  gameData.getAllPlants();
-        allZombies =  gameData.getAllZombie();
-        sunCount =  gameData.getSunCount();
-        timeElapsed =  gameData.getTimeElapsed();
-        LevelMenuController.status =  gameData.getStatus();
+        zombieList1 = gameData.getZombieList1();
+        zombieList2 = gameData.getZombieList2();
+        allPlants = gameData.getAllPlants();
+        allZombies = gameData.getAllZombie();
+        sunCount = gameData.getSunCount();
+        timeElapsed = gameData.getTimeElapsed();
+        LevelMenuController.status = gameData.getStatus();
         levelNumber = level;
         this.level = new GameEntity(level);
         Random rand = new Random();
@@ -95,7 +95,7 @@ public class GameController {
         shovel = Shovel.getInstance();
         shovel.buildImage(GamePlayRoot);
         sunCountDisplay.setText(String.valueOf(sunCount));
-        this.data =  gameData;
+        this.data = gameData;
         SideElement.getSideElements(level, GamePlayRoot);
         gameProgress();
         if (LevelMenuController.status) {
@@ -103,7 +103,7 @@ public class GameController {
             zombieSpawner1(rand, 25);
             zombieSpawner2(rand, 40);
         } else {
-            String lawnPath = getClass().getResource( "/images/lawn_night.png").toString();
+            String lawnPath = getClass().getResource("/images/lawn_night.png").toString();
             Image lawn = new Image(lawnPath, 1068, 600, false, false);
             lawnImage.setImage(lawn);
             zombieSpawner1(rand, 25);
@@ -208,7 +208,14 @@ public class GameController {
     }
 
     public static void removePlant(Plant plant) {
-        plant.getImage().setVisible(false);
+        plant.setHealthpoint(0);
+        if (plant instanceof SunFlower) {
+            ((SunFlower) plant).checkHealthPoint();
+        } else if (plant instanceof Wallnut) {
+            ((Wallnut) plant).checkHealthPoint();
+        } else {
+            ((Shooter) plant).checkHealthPoint();
+        }
         allPlants.remove(plant);
     }
 
@@ -218,7 +225,7 @@ public class GameController {
     }
 
     public void fallingSuns(Random ran) {
-        Timeline sunDrop = new Timeline(new KeyFrame(Duration.seconds(12), event -> {
+        Timeline sunDrop = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
             int sunPosition = ran.nextInt(950);
             Sun sun = new Sun(sunPosition, 0, true);
             sun.buildImage(GamePlayRoot);
@@ -314,33 +321,27 @@ public class GameController {
         Integer rowIndex = lawn_grid.getRowIndex(source);
         Integer colIndex = lawn_grid.getColumnIndex(source);
         if (!shovel.IsDisabled()) {
-            shovel.disable();
             if (colIndex != null && rowIndex != null) {
                 Media jostle = new Media(getClass().getResource("/sounds/plant.wav").toString());
                 MediaPlayer mediaPlayer = new MediaPlayer(jostle);
                 mediaPlayer.setAutoPlay(true);
                 mediaPlayer.play();
                 synchronized (allPlants) {
-                    for (Plant plant : (Iterable<Plant>)allPlants) {
+                    for (Plant plant : (Iterable<Plant>) allPlants) {
                         if (plant.getColumn() == colIndex && plant.getRow() == rowIndex) {
-                            plant.getImage().setVisible(false);
-                            plant.getImage().setDisable(true);
-                            plant.setHealthpoint(0);
-                            allPlants.remove(plant);
-                            ((SunFlower) plant).checkHealthPoint();
-                            ((Shooter) plant).checkHealthPoint();
-                            ((Wallnut) plant).checkHealthPoint();
+                            removePlant(plant);
                             break;
                         }
                     }
                 }
+                shovel.disable();
             }
         }
         if (SideElement.getCardSelected() != -1) {
             if (colIndex != null && rowIndex != null) {
                 boolean drop = true;
                 synchronized (allPlants) {
-                    for (Plant plant : (Iterable<Plant>)allPlants) {
+                    for (Plant plant : (Iterable<Plant>) allPlants) {
                         if (plant.getColumn() == colIndex && plant.getRow() == rowIndex) {
                             drop = false;
                             break;
@@ -368,7 +369,7 @@ public class GameController {
         mediaPlayer.play();
         switch (value) {
             case 1 -> {
-                plant = new SunFlower(x, y,col, row);
+                plant = new SunFlower(x, y, col, row);
                 allPlants.add(plant);
                 plant.buildImage(lawn_grid);
                 plant.attacking(GamePlayRoot);
