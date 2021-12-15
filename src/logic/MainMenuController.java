@@ -11,18 +11,18 @@ public class MainMenuController {
 
 
     @FXML
-    void exitGame() {
+    public void exitGame() {
         System.exit(0);
     }
 
     @FXML
-    void showLevelMenu() throws Exception {
+    public void showLevelMenu() throws Exception {
         AnchorPane Apane = FXMLLoader.load(getClass().getResource("LevelMenu.fxml"));
         mainRoot.getChildren().setAll(Apane);
     }
 
     @FXML
-    void startGame() throws Exception {
+    public void startGame() throws Exception {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
         AnchorPane Apane = gamePlayfxml.load();
         GameController controller = gamePlayfxml.getController();

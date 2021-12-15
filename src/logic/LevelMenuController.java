@@ -52,7 +52,7 @@ public class LevelMenuController {
     }
 
     @FXML
-    void shineImage(MouseEvent event) {
+    public void shineImage(MouseEvent event) {
         Node source = (Node) event.getSource();
         Glow shine = new Glow();
         source.setEffect(shine);
@@ -60,7 +60,7 @@ public class LevelMenuController {
     }
 
     @FXML
-    void stopShining(MouseEvent event) {
+    public void stopShining(MouseEvent event) {
         Node source = (Node) event.getSource();
         Glow shine = (Glow) source.getEffect();
         source.setEffect(shine);
@@ -68,7 +68,7 @@ public class LevelMenuController {
     }
 
     @FXML
-    void startLevel1() throws IOException {
+    public void startLevel1() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
         AnchorPane Apane = gamePlayfxml.load();
         GameController controller = gamePlayfxml.getController();
@@ -78,7 +78,7 @@ public class LevelMenuController {
     }
 
     @FXML
-    void startLevel2() throws IOException {
+    public void startLevel2() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
         AnchorPane Apane = gamePlayfxml.load();
         GameController controller = gamePlayfxml.getController();
@@ -88,7 +88,7 @@ public class LevelMenuController {
     }
 
     @FXML
-    void startLevel3() throws IOException {
+    public void startLevel3() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
         AnchorPane Apane = gamePlayfxml.load();
         GameController controller = gamePlayfxml.getController();
@@ -98,7 +98,7 @@ public class LevelMenuController {
     }
 
     @FXML
-    void startLevel4() throws IOException {
+    public void startLevel4() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
         AnchorPane Apane = gamePlayfxml.load();
         GameController controller = gamePlayfxml.getController();
@@ -108,7 +108,7 @@ public class LevelMenuController {
     }
 
     @FXML
-    void startLevel5() throws IOException {
+    public void startLevel5() throws IOException {
         FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
         AnchorPane Apane = gamePlayfxml.load();
         GameController controller = gamePlayfxml.getController();
@@ -117,13 +117,13 @@ public class LevelMenuController {
     }
 
     @FXML
-    void PrevMenuLoader() throws IOException {
+    public void PrevMenuLoader() throws IOException {
         AnchorPane Apane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
         levelRoot.getChildren().setAll(Apane);
     }
 
     @FXML
-    void changeGameTheme() {
+    public void changeGameTheme() {
         if (!dayMode.isVisible()) {
             nightMode.setVisible(false);
             nightMode.setDisable(true);

@@ -27,13 +27,13 @@ public class EndGameController {
     private ImageView plantImage;
 
     @FXML
-    void ToMainMenu() throws IOException {
+    public void ToMainMenu() throws IOException {
         AnchorPane Apane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
         endGame.getChildren().setAll(Apane);
     }
 
     @FXML
-    void ToNextLevel() throws IOException {
+    public void ToNextLevel() throws IOException {
         AnchorPane Apane = FXMLLoader.load(getClass().getResource("LevelMenu.fxml"));
         endGame.getChildren().setAll(Apane);
     }
