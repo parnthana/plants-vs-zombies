@@ -19,8 +19,8 @@ public class CherryBomb extends Plant {
     private ArrayList<Zombie> roastedZombies;
 
     // Constructor
-    public CherryBomb(int x, int y, int row, int col) {
-        super(x, y, 68, 90, "/gif/anim_cherrybomb.gif", 4, row, col);
+    public CherryBomb(int x, int y, int col, int row) {
+        super(x, y, 90, 68, "/gif/anim_cherrybomb.gif", 4,col,row);
     }
 
     // Methods
@@ -31,10 +31,7 @@ public class CherryBomb extends Plant {
     @Override
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
-        Image img = new Image("/gif/powie.gif");
-        cherry = new ImageView(img);
-        cherry.setFitHeight(180);
-        cherry.setFitWidth(160);
+        cherry = new ImageView(new Image("/gif/powie.gif",180,160,false,false));
         cherry.setX(x - 40);
         cherry.setY(y - 20);
         cherry.setVisible(false);
@@ -47,7 +44,7 @@ public class CherryBomb extends Plant {
         pane.getChildren().add(cherry);
         new Thread(() -> {
             try {
-                Thread.sleep(1700);
+                Thread.sleep(1800);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -88,13 +85,13 @@ public class CherryBomb extends Plant {
     public void removeCherry() {
         new Thread(() -> {
             try {
-                Thread.sleep(1200);
+                Thread.sleep(1250);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             cherry.setVisible(false);
         }).start();
-        this.setHealthpoint(0);
+        setHealthpoint(0);
     }
 
     public ArrayList<Zombie> getRoastedZombies() {

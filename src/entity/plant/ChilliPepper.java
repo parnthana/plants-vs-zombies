@@ -19,8 +19,8 @@ public class ChilliPepper extends Plant {
     private ImageView[] fires;
 
     // Constructor
-    public ChilliPepper(int x, int y, int row, int col) {
-        super(x, y, 100, 100, "/gif/chillipepper.gif", 4, row, col);
+    public ChilliPepper(int x, int y, int col, int row) {
+        super(x, y, 100, 100, "/gif/chillipepper.gif", 4, col, row);
         fires = new ImageView[9];
     }
 
@@ -36,16 +36,16 @@ public class ChilliPepper extends Plant {
             fires[i] = new ImageView(new Image(getClass().getResource("/gif/chillipepperFire.gif").toString(), 100, 100, false, false));
             fires[i].setDisable(true);
             fires[i].setVisible(false);
-            lawn.add(fires[i], i, this.row, 1, 1);
+            lawn.add(fires[i], i,row, 1, 1);
         }
-        this.roastedZombies = new ArrayList<Zombie>();
+        roastedZombies = new ArrayList<>();
     }
 
     @Override
     public void attacking(Pane pane) {
         new Thread(() -> {
             try {
-                Thread.sleep(1700);
+                Thread.sleep(1650);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -66,7 +66,7 @@ public class ChilliPepper extends Plant {
                 }
             }
             GameController.allPlants.removeIf(plant -> this == plant);
-            for (Zombie roastedZombie : this.roastedZombies) {
+            for (Zombie roastedZombie : roastedZombies) {
                 for (int j = 0; j < GameController.allZombies.size(); j++) {
                     if (roastedZombie == GameController.allZombies.get(j)) {
                         GameController.allZombies.remove(j);
@@ -80,7 +80,7 @@ public class ChilliPepper extends Plant {
     public void removeFire() {
         new Thread(() -> {
             try {
-                Thread.sleep(1400);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -89,7 +89,7 @@ public class ChilliPepper extends Plant {
                 fires[i].setDisable(true);
             }
         }).start();
-        this.setHealthpoint(0);
+        setHealthpoint(0);
     }
 
     public ArrayList<Zombie> getRoastedZombies() {

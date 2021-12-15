@@ -19,9 +19,9 @@ public class Shooter extends Plant {
     protected int lane;
 
     // Constructor
-    public Shooter(int x, int y, String path, int healthpoint, int width, int height, int row, int column) {
+    public Shooter(int x, int y, String path, int healthpoint, int width, int height, int column, int row) {
         super(x, y, width, height, path, healthpoint, column, row);
-        this.lane = column;
+        this.lane = row;
     }
 
     // Methods
@@ -31,8 +31,7 @@ public class Shooter extends Plant {
             @Override
             public void handle(ActionEvent event) {
                 synchronized (GameController.allZombies) {
-                    for (Object zombie : GameController.allZombies) {
-                        Zombie z = (Zombie) zombie;
+                    for (Zombie z : (Iterable<Zombie>)GameController.allZombies) {
                         if (z.getLane() == getShooterLane() && getX() <= z.getX()) {
                             int peaStartX = getX() + 50;
                             int peaStartY = getY() + 25;
