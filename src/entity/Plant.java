@@ -45,8 +45,8 @@ public abstract class Plant extends Entity implements Attackable {
     }
     public abstract void checkHealthPoint();
 
-    public void endAnimation(Timeline t) {
-        t.stop();
+    public void endAnimation(Timeline timeline) {
+        timeline.stop();
     }
 
     public int getRow() {
@@ -56,5 +56,6 @@ public abstract class Plant extends Entity implements Attackable {
     public int getColumn() {
         return column;
     }
+
 
 }
