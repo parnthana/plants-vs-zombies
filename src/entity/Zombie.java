@@ -24,7 +24,6 @@ public abstract class Zombie extends Entity implements Attackable {
     protected int dx;
     private Timeline zombieAnimation;
     protected Timeline eating;
-    protected boolean reachedPlant = false;
 
     // Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
@@ -116,16 +115,12 @@ public abstract class Zombie extends Entity implements Attackable {
     }
 
     public void actEat(Plant plant) {
-        if (!reachedPlant) {
-            reachedPlant = true;
-        }
         dx = 0;
         plant.setHealthpoint(plant.getHealthpoint() - attackPower);
         if (plant.getHealthpoint() <= 0) {
             plant.setHealthpoint(0);
             GameController.allPlants.remove(plant);
             dx = -1;
-            reachedPlant = false;
             eating.stop();
         }
     }
@@ -136,8 +131,6 @@ public abstract class Zombie extends Entity implements Attackable {
                 if (plant.getRow() == getLane()) {
                     if (Math.abs(plant.getX() - getImage().getX()) <= 50) {
                         actEat(plant);
-                    } else {
-                        reachedPlant = false;
                     }
                 }
             }
