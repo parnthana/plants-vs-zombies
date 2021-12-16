@@ -28,7 +28,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
     public void addMusic() {
         Media sound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/background.wav")).toString());
         mediaPlayer = new MediaPlayer(sound);

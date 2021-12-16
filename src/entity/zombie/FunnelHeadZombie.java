@@ -27,12 +27,12 @@ public class FunnelHeadZombie extends Zombie {
     }
 
     @Override
-    public void eatPlant(){
+    public void eatPlant() {
         synchronized (GameController.allPlants) {
             for (Plant plant : GameController.allPlants) {
                 if (plant.getRow() == getLane()) {
                     if (Math.abs(plant.getX() - getImage().getX()) <= 20) {
-                       super.actEat(plant);
+                        super.actEat(plant);
                     } else {
                         reachedPlant = false;
                         if (eating != null) {

@@ -126,7 +126,7 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
-    public void actEat(Plant plant){
+    public void actEat(Plant plant) {
         if (!reachedPlant) {
             reachedPlant = true;
             isEating = true;

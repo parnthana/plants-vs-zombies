@@ -28,7 +28,7 @@ public class Entity {
     // Methods
     public void buildImage(Pane pane) {
         image = new ImageView();
-        image.setImage(new Image(path,width,height,false,false));
+        image.setImage(new Image(path, width, height, false, false));
         image.setX(x);
         image.setY(y);
         pane.getChildren().add(image);

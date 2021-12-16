@@ -38,6 +38,7 @@ public abstract class Plant extends Entity implements Attackable {
         this.healthpoint = healthpoint;
         checkHealthPoint();
     }
+
     public abstract void checkHealthPoint();
 
     public void endAnimation(Timeline timeline) {

@@ -17,6 +17,6 @@ public class BucketHeadZombie extends Zombie {
 
     @Override
     public void attacking() {
-       super.eatPlant();
+        super.eatPlant();
     }
 }

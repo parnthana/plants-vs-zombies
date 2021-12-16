@@ -37,7 +37,7 @@ public class ChilliPepper extends Plant {
             fires[idx] = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/gif/chillipepperFire.gif")).toString(), 100, 100, false, false));
             fires[idx].setDisable(true);
             fires[idx].setVisible(false);
-            lawn.add(fires[idx], idx,row, 1, 1);
+            lawn.add(fires[idx], idx, row, 1, 1);
         }
         roastedZombies = new ArrayList<>();
     }
