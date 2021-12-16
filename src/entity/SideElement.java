@@ -1,7 +1,6 @@
-package logic;
+package entity;
 
-import entity.Entity;
-import entity.Shovel;
+import entity.base.Entity;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;

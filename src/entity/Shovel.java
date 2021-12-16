@@ -1,8 +1,8 @@
 package entity;
 
+import entity.base.Entity;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
-import logic.SideElement;
 
 // Singleton class
 public class Shovel extends Entity {
