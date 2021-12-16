@@ -2,7 +2,6 @@ package entity.plant;
 
 import entity.Plant;
 import javafx.scene.layout.Pane;
-import logic.GameController;
 
 public class Wallnut extends Plant {
 
