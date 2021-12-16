@@ -113,11 +113,11 @@ public class SideElement extends Entity {
         return cardSelected;
     }
 
-    private static void setCardSelected(int i) {
-        cardSelected = i;
+    private static void setCardSelected(int cardSelected) {
+        SideElement.cardSelected = cardSelected;
         selectedBorder.setVisible(true);
-        selectedBorder.setX(allElements.get(cardSelected).getX() - 5);
-        selectedBorder.setY(allElements.get(cardSelected).getY() - 5);
+        selectedBorder.setX(allElements.get(SideElement.cardSelected).getX() - 5);
+        selectedBorder.setY(allElements.get(SideElement.cardSelected).getY() - 5);
     }
 
     public static void setCardSelectedToNull() {
@@ -125,16 +125,16 @@ public class SideElement extends Entity {
         selectedBorder.setVisible(false);
     }
 
-    public static SideElement getElement(int x) {
-        return allElements.getOrDefault(x, null);
+    public static SideElement getElement(int element) {
+        return allElements.getOrDefault(element, null);
     }
 
     public void setDisabledOn(Pane pane) {
         isDisabled = true;
-        ImageView im = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/images/lock.png")).toString(), 50.0, 50.0, false, false));
-        im.setX(getX() + 20);
-        im.setY(getY());
-        pane.getChildren().add(im);
+        ImageView image = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/images/lock.png")).toString(), 50.0, 50.0, false, false));
+        image.setX(getX() + 20);
+        image.setY(getY());
+        pane.getChildren().add(image);
         new Thread(() -> {
             try {
                 Thread.sleep(cooldownTime);
@@ -142,8 +142,8 @@ public class SideElement extends Entity {
                 e.printStackTrace();
             }
             isDisabled = false;
-            im.setVisible(false);
-            im.setDisable(true);
+            image.setVisible(false);
+            image.setDisable(true);
         }).start();
     }
 }

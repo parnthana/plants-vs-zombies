@@ -29,8 +29,8 @@ public class Shovel extends Entity {
     }
 
     @Override
-    public void buildImage(Pane p) {
-        super.buildImage(p);
+    public void buildImage(Pane pane) {
+        super.buildImage(pane);
         shovel.getImage().setOnMouseClicked(e -> {
             isDisabled = false;
             shovel.enable();
