@@ -23,7 +23,6 @@ public abstract class Zombie extends Entity implements Attackable {
     private int lane;
     protected int dx;
     private Timeline zombieAnimation;
-    protected Timeline eating;
 
     // Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
@@ -32,7 +31,6 @@ public abstract class Zombie extends Entity implements Attackable {
         setAttackPower(attackPower);
         setLane(lane);
         setDx(-1);
-        eating = new Timeline();
     }
 
     // Methods
@@ -44,9 +42,6 @@ public abstract class Zombie extends Entity implements Attackable {
                 getImage().setVisible(false);
                 getImage().setDisable(true);
                 getZombieAnimation().stop();
-                if (eating != null) {
-                    eating.stop();
-                }
                 for (Object zombie : GameController.allZombies) {
                     if (this == zombie) {
                         Media yuckSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/yuck.wav")).toString());
@@ -70,7 +65,6 @@ public abstract class Zombie extends Entity implements Attackable {
         getImage().setImage(new Image(Objects.requireNonNull(getClass().getResource("/gif/burntZombie.gif")).toString(), 65, 115, false, false));
         health = 0;
         dx = 0;
-        eating.stop();
         ++GameController.numKilledZombies;
         new Thread(() -> {
             try {
@@ -121,7 +115,6 @@ public abstract class Zombie extends Entity implements Attackable {
             plant.setHealthpoint(0);
             GameController.allPlants.remove(plant);
             dx = -1;
-            eating.stop();
         }
     }
 
