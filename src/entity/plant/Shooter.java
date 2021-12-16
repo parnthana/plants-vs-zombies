@@ -26,9 +26,9 @@ public class Shooter extends Plant {
     @Override
     public void attacking(Pane pane) {
         Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
-            synchronized (GameController.allZombies) {
-                for (Zombie z : GameController.allZombies) {
-                    if (z.getLane() == getShooterLane() && getX() <= z.getX()) {
+            //synchronized (GameController.allZombies) {
+                for (Zombie zombie : GameController.allZombies) {
+                    if (zombie.getLane() == getShooterLane() && getX() <= zombie.getX()) {
                         int peaStartX = getX() + 50;
                         int peaStartY = getY() + 25;
                         Pea p = new Pea(peaStartX, peaStartY, getX() + 50, row);
@@ -37,7 +37,7 @@ public class Shooter extends Plant {
                         checkHealthPoint();
                     }
                 }
-            }
+            //}
         }));
         peaShooter.setCycleCount(Timeline.INDEFINITE);
         peaShooter.play();
