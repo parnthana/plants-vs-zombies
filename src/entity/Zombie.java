@@ -25,7 +25,6 @@ public abstract class Zombie extends Entity implements Attackable {
     private Timeline zombieAnimation;
     protected Timeline eating;
     protected boolean reachedPlant = false;
-    protected boolean isEating = false;
 
     // Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
@@ -96,16 +95,6 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
-    public void chompPlant() {
-        Media chomp = new Media(Objects.requireNonNull(getClass().getResource("/sounds/chomp.wav")).toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(chomp);
-        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setStartTime(Duration.seconds(0));
-        mediaPlayer.setStopTime(Duration.seconds(1));
-        mediaPlayer.setCycleCount(1);
-        mediaPlayer.play();
-    }
-
     public void moveZombie() {
         Timeline animation = new Timeline(new KeyFrame(Duration.millis(70), e -> zombieWalk()));
         animation.setCycleCount(Animation.INDEFINITE);
@@ -129,16 +118,6 @@ public abstract class Zombie extends Entity implements Attackable {
     public void actEat(Plant plant) {
         if (!reachedPlant) {
             reachedPlant = true;
-            isEating = true;
-        }
-        if (isEating) {
-            Timeline eat = new Timeline(new KeyFrame(Duration.millis(1000), e -> chompPlant()));
-            eat.setCycleCount(1000);
-            eat.play();
-            dx = 0;
-            eating = eat;
-            GameController.animationTimelines.add(eat);
-            isEating = false;
         }
         dx = 0;
         plant.setHealthpoint(plant.getHealthpoint() - attackPower);
@@ -159,9 +138,6 @@ public abstract class Zombie extends Entity implements Attackable {
                         actEat(plant);
                     } else {
                         reachedPlant = false;
-                        if (eating != null) {
-                            eating.stop();
-                        }
                     }
                 }
             }

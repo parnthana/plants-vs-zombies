@@ -35,9 +35,6 @@ public class FunnelHeadZombie extends Zombie {
                         super.actEat(plant);
                     } else {
                         reachedPlant = false;
-                        if (eating != null) {
-                            eating.stop();
-                        }
                     }
                 }
             }
