@@ -132,7 +132,6 @@ public abstract class Zombie extends Entity implements Attackable {
             for (Plant plant : GameController.allPlants) {
                 if (plant.getRow() == getLane()) {
                     if (Math.abs(plant.getX() - getImage().getX()) <= 50) {
-                        foundPlant = true;
                         if (!reachedPlant) {
                             reachedPlant = true;
                             isEating = true;
@@ -156,23 +155,13 @@ public abstract class Zombie extends Entity implements Attackable {
                             eating.stop();
                         }
                     } else {
-                        dx = -1;
                         reachedPlant = false;
                         if (eating != null) {
                             eating.stop();
                         }
                     }
-                } else {
-                    dx = -1;
                 }
             }
-        }
-        if (!foundPlant) {
-            dx = -1;
-            if (eating != null) {
-                eating.stop();
-            }
-            reachedPlant = false;
         }
     }
 
