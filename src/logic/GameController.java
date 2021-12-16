@@ -191,6 +191,7 @@ public class GameController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameMenu.fxml"));
         Stage stage = new Stage();
         stage.setResizable(false);
+        stage.setTitle("Game Menu");
         stage.setScene(new Scene(fxmlLoader.load()));
         GameMenuController controller = fxmlLoader.getController();
         controller.initializeData(GamePlayRoot, levelNumber, data, allPlants);
