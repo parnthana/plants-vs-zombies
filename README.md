@@ -31,6 +31,8 @@ Use Java, JavaFX
 ## Sceenshots
 
 ![alt_text](./screenshots/MainMenu.PNG)
+![alt_text](./screenshots/GamePlay_day.PNG)
+![alt_text](./screenshots/GamePlay_night.PNG)
 
 ## Related content Topics 
 
