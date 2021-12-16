@@ -6,7 +6,6 @@ import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import logic.GameController;
 
 public abstract class Plant extends Entity implements Attackable {
 
