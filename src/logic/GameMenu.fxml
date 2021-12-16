@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="GameMenuRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.GameMenuController">
    <children>
-      <ImageView fitHeight="652.0" fitWidth="695.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="652.0" fitWidth="695.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../assets/images/pause_background.jpg" />
          </image>
