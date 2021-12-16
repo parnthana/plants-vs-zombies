@@ -7,7 +7,7 @@
 
 #### Create by **[Thanaphum Thepwan](https://www.github.com/tnptw)** and **[Akkharawat Burachokviwat](https://www.github.com/EarthAkkharawat)**.
 
-Made as a part of project in 2110215 PROG METH I, Academic Year 2021.
+Made as part of final project in 2110215 PROG METH I, Academic Year 2021.
 
 Use Java, JavaFX
 
@@ -19,6 +19,8 @@ Use Java, JavaFX
 - Zombies Available: Normal Zombie, Funnelhead Zombie and Buckethead Zombie
 - Shovel
 - Cool sounds like original game
+- Cool effects
+- Lot of Fun :P
 
 ## How to Play
 ### Executing JAR file.
