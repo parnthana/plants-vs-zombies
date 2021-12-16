@@ -31,9 +31,9 @@ public class Shooter extends Plant {
                     if (zombie.getLane() == getShooterLane() && getX() <= zombie.getX()) {
                         int peaStartX = getX() + 50;
                         int peaStartY = getY() + 25;
-                        Pea p = new Pea(peaStartX, peaStartY, getX() + 50, row);
-                        p.buildImage(pane);
-                        p.shootPea();
+                        Pea pea = new Pea(peaStartX, peaStartY, getX() + 50, row);
+                        pea.buildImage(pane);
+                        pea.shootPea();
                         checkHealthPoint();
                     }
                 }
