@@ -1,8 +1,10 @@
-package entity;
+package entity.base;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
+import java.util.Objects;
 
 public class Entity {
 
@@ -20,7 +22,7 @@ public class Entity {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.path = getClass().getResource(path).toString(); // Url of image
+        this.path = Objects.requireNonNull(getClass().getResource(path)).toString(); // Url of image
     }
 
     // Methods

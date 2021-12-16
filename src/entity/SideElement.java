@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class SideElement extends Entity {
 
@@ -26,7 +27,7 @@ public class SideElement extends Entity {
 
     // Methods
     public int getCost() {
-        return this.cost;
+        return cost;
     }
 
     public static void getSideElements(int level, Pane pane) {
@@ -44,9 +45,7 @@ public class SideElement extends Entity {
             sunflowerCard.buildImage(pane);
             sunflowerCard.cooldownTime = 5000;
             SideElement.allElements.put(1, sunflowerCard);
-            sunflowerCard.image.setOnMouseClicked(e -> {
-                handler(sunflowerCard, 1);
-            });
+            sunflowerCard.getImage().setOnMouseClicked(e -> handler(sunflowerCard, 1));
         }
         x = 22;
         if (level >= 1) {
@@ -56,9 +55,7 @@ public class SideElement extends Entity {
             peashooterCard.buildImage(pane);
             peashooterCard.cooldownTime = 6000;
             SideElement.allElements.put(2, peashooterCard);
-            peashooterCard.image.setOnMouseClicked(e -> {
-                handler(peashooterCard, 2);
-            });
+            peashooterCard.getImage().setOnMouseClicked(e -> handler(peashooterCard, 2));
         }
         if (level >= 2) {
             path = "/images/wallnutCard.png";
@@ -67,9 +64,7 @@ public class SideElement extends Entity {
             wallnutCard.buildImage(pane);
             wallnutCard.cooldownTime = 7000;
             SideElement.allElements.put(3, wallnutCard);
-            wallnutCard.image.setOnMouseClicked(e -> {
-                handler(wallnutCard, 3);
-            });
+            wallnutCard.getImage().setOnMouseClicked(e -> handler(wallnutCard, 3));
         }
         if (level >= 3) {
             path = "/images/cherrybombCard.png";
@@ -78,9 +73,7 @@ public class SideElement extends Entity {
             cherrybombCard.buildImage(pane);
             cherrybombCard.cooldownTime = 15000;
             SideElement.allElements.put(4, cherrybombCard);
-            cherrybombCard.image.setOnMouseClicked(e -> {
-                handler(cherrybombCard, 4);
-            });
+            cherrybombCard.getImage().setOnMouseClicked(e -> handler(cherrybombCard, 4));
         }
         if (level >= 4) {
             path = "/images/repeaterCard.png";
@@ -90,9 +83,7 @@ public class SideElement extends Entity {
             repeaterCard.buildImage(pane);
             repeaterCard.cooldownTime = 10000;
             SideElement.allElements.put(5, repeaterCard);
-            repeaterCard.image.setOnMouseClicked(e -> {
-                handler(repeaterCard, 5);
-            });
+            repeaterCard.getImage().setOnMouseClicked(e -> handler(repeaterCard, 5));
         }
         if (level >= 5) {
             path = "/images/chilliPepperCard.png";
@@ -102,12 +93,10 @@ public class SideElement extends Entity {
             chilliPepperCard.buildImage(pane);
             chilliPepperCard.cooldownTime = 12000;
             SideElement.allElements.put(6, chilliPepperCard);
-            chilliPepperCard.image.setOnMouseClicked(e -> {
-                handler(chilliPepperCard, 6);
-            });
+            chilliPepperCard.getImage().setOnMouseClicked(e -> handler(chilliPepperCard, 6));
 
         }
-        String border_path = SideElement.class.getResource("/images/selectedCardBorder.png").toString();
+        String border_path = Objects.requireNonNull(SideElement.class.getResource("/images/selectedCardBorder.png")).toString();
         selectedBorder = new ImageView(new Image(border_path, 110.0, 72.0, false, false));
         pane.getChildren().add(selectedBorder);
         selectedBorder.setVisible(false);
@@ -142,22 +131,20 @@ public class SideElement extends Entity {
     }
 
     public void setDisabledOn(Pane pane) {
-        this.isDisabled = true;
-        ImageView im = new ImageView(new Image(getClass().getResource("/images/lock.png").toString(), 50.0, 50.0, false, false));
-        im.setX(this.getX() + 20);
-        im.setY(this.getY());
+        isDisabled = true;
+        ImageView im = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/images/lock.png")).toString(), 50.0, 50.0, false, false));
+        im.setX(getX() + 20);
+        im.setY(getY());
         pane.getChildren().add(im);
-        Thread t = new Thread(() -> {
+        new Thread(() -> {
             try {
-                Thread.sleep(this.cooldownTime);
+                Thread.sleep(cooldownTime);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            this.isDisabled = false;
+            isDisabled = false;
             im.setVisible(false);
             im.setDisable(true);
-        });
-        t.start();
-
+        }).start();
     }
 }
