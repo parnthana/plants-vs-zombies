@@ -11,6 +11,7 @@ import javafx.scene.media.MediaPlayer;
 import logic.GameController;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CherryBomb extends Plant {
 
@@ -48,7 +49,7 @@ public class CherryBomb extends Plant {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Media blast = new Media(getClass().getResource("/sounds/cherrybomb.wav").toString());
+            Media blast = new Media(Objects.requireNonNull(getClass().getResource("/sounds/cherrybomb.wav")).toString());
             MediaPlayer mediaPlayer = new MediaPlayer(blast);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();

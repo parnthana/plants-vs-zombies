@@ -13,7 +13,6 @@ public class Main extends Application {
 
     // Fields
     public static MediaPlayer mediaPlayer;
-    private static int maxLevel;
 
     // Methods
     @Override
@@ -36,16 +35,6 @@ public class Main extends Application {
         mediaPlayer.setStartTime(Duration.seconds(0));
         mediaPlayer.setStopTime(Duration.seconds(50));
         mediaPlayer.play();
-    }
-
-    public static int getMaxLevel() {
-        return maxLevel;
-    }
-
-    public void setMaxLevel(int maxlevel) {
-        if (Main.maxLevel < maxlevel) {
-            Main.maxLevel = maxlevel;
-        }
     }
 
     public static void main(String[] args) {

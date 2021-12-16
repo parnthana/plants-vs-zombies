@@ -11,12 +11,13 @@ import javafx.scene.media.MediaPlayer;
 import logic.GameController;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ChilliPepper extends Plant {
 
     // Fields
     private ArrayList<Zombie> roastedZombies;
-    private ImageView[] fires;
+    private final ImageView[] fires;
 
     // Constructor
     public ChilliPepper(int x, int y, int column, int row) {
@@ -33,7 +34,7 @@ public class ChilliPepper extends Plant {
     public void buildImage(GridPane lawn) {
         super.buildImage(lawn);
         for (int i = 0; i < 9; i++) {
-            fires[i] = new ImageView(new Image(getClass().getResource("/gif/chillipepperFire.gif").toString(), 100, 100, false, false));
+            fires[i] = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/gif/chillipepperFire.gif")).toString(), 100, 100, false, false));
             fires[i].setDisable(true);
             fires[i].setVisible(false);
             lawn.add(fires[i], i,row, 1, 1);
@@ -51,7 +52,7 @@ public class ChilliPepper extends Plant {
             }
             image.setVisible(false);
             image.setDisable(true);
-            Media blast = new Media(getClass().getResource("/sounds/chillipepper.wav").toString());
+            Media blast = new Media(Objects.requireNonNull(getClass().getResource("/sounds/chillipepper.wav")).toString());
             MediaPlayer mediaPlayer = new MediaPlayer(blast);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.play();
@@ -59,9 +60,9 @@ public class ChilliPepper extends Plant {
                 fires[i].setVisible(true);
             }
             synchronized (GameController.allZombies) {
-                for (Object zombie : GameController.allZombies) {
-                    if (row == ((Zombie) zombie).getLane()) {
-                        ((Zombie) zombie).burntZombie();
+                for (Zombie zombie : GameController.allZombies) {
+                    if (row == zombie.getLane()) {
+                        zombie.burntZombie();
                     }
                 }
             }

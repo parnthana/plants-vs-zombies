@@ -21,8 +21,7 @@ public class Repeater extends Shooter {
     public void attacking(Pane pane) {
         Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
             synchronized (GameController.allZombies) {
-                for (Object zombie : GameController.allZombies) {
-                    Zombie z = (Zombie) zombie;
+                for (Zombie z : GameController.allZombies) {
                     if (z.getLane() == getShooterLane() && getX() <= z.getX()) {
                         int pea1StartX = getX() + 50;
                         int pea2StartX = getX() - 20;

@@ -14,8 +14,6 @@ public class Wallnut extends Plant {
     // Methods
     public void checkHealthPoint() {
         if (getHealthpoint() <= 0) {
-            setHealthpoint(0);
-            GameController.allPlants.remove(this);
             getImage().setVisible(false);
             getImage().setDisable(true);
         }

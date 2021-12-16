@@ -205,13 +205,6 @@ public class GameController {
 
     public static void removePlant(Plant plant) {
         plant.setHealthpoint(0);
-        if (plant instanceof SunFlower) {
-            plant.checkHealthPoint();
-        } else if (plant instanceof Wallnut) {
-            plant.checkHealthPoint();
-        } else {
-            plant.checkHealthPoint();
-        }
         allPlants.remove(plant);
     }
 
