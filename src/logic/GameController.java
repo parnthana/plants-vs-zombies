@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class GameController {
+
+    // Fields
     @FXML
     private AnchorPane GamePlayRoot;
     @FXML
@@ -62,6 +64,7 @@ public class GameController {
     private Shovel shovel;
     private int spawnedZombies = 0;
 
+    // Methods
     public void initialize() {
         Media wave = new Media(Objects.requireNonNull(getClass().getResource("/sounds/zombies_are_coming.wav")).toString());
         MediaPlayer mediaPlayer = new MediaPlayer(wave);

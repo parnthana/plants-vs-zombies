@@ -7,9 +7,12 @@ import javafx.scene.layout.AnchorPane;
 import java.util.Objects;
 
 public class MainMenuController {
+
+    // Fields
     @FXML
     private AnchorPane mainRoot;
 
+    // Methods
     @FXML
     public void exitGame() {
         System.exit(0);

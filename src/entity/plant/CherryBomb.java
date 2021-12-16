@@ -57,7 +57,7 @@ public class CherryBomb extends Plant {
             image.setDisable(true);
             cherry.setVisible(true);
             synchronized (GameController.allZombies) {
-                for (Zombie x : (Iterable<Zombie>) GameController.allZombies) {
+                for (Zombie x : GameController.allZombies) {
                     if (x.getX() <= (getX() + 250) && x.getX() >= (getX() - 150)) {
                         if (x.getY() <= (getY() + 250) && x.getY() >= (getY() - 150)) {
                             getRoastedZombies().add(x);

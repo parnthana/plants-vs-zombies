@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class LevelMenuController {
+
+    // Fields
     @FXML
     private AnchorPane levelRoot;
     @FXML
@@ -22,6 +24,7 @@ public class LevelMenuController {
     public ImageView dayMode;
     public static boolean status = true;
 
+    // Methods
     public void initialize() {
         if (status) {
             nightTheme.setVisible(false);
@@ -37,7 +40,6 @@ public class LevelMenuController {
             dayMode.setDisable(true);
             GameController.theme = "night";
         }
-
     }
 
     @FXML

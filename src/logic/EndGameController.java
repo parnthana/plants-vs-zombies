@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class EndGameController {
+
+    // Fields
     @FXML
     public Button mainMenuButton;
     @FXML
@@ -26,6 +28,7 @@ public class EndGameController {
     @FXML
     private ImageView plantImage;
 
+    // Methods
     @FXML
     public void ToMainMenu() throws IOException {
         AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));

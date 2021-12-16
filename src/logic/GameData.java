@@ -8,6 +8,8 @@ import entity.Plant;
 import entity.Zombie;
 
 public class GameData {
+
+    // Fields
     private final List<Zombie> allZombie;
     private final List<Plant> allPlants;
     private ArrayList<Integer> zombieList1;
@@ -15,6 +17,7 @@ public class GameData {
     private final boolean status;
     private final int sunCount;
 
+    // Methods
     public GameData(int level) {
         sunCount = 50;
         zombieList1 = new ArrayList<>();
