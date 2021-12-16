@@ -9,6 +9,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     // Fields
@@ -18,7 +20,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         addMusic();
-        Parent mainPage = FXMLLoader.load(getClass().getResource("/logic/MainMenu.fxml"));
+        Parent mainPage = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/logic/MainMenu.fxml")));
         Scene scene = new Scene(mainPage, 1024, 600);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Plants VS Zombies");
@@ -28,7 +30,7 @@ public class Main extends Application {
 
 
     public void addMusic() {
-        Media sound = new Media(getClass().getResource("/sounds/background.wav").toString());
+        Media sound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/background.wav")).toString());
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
