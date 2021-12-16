@@ -1,4 +1,4 @@
-<h1 align="center">Plants VS. Zombies</h1>
+<h1 align="center">🌱 Plants VS. Zombies 🧟‍♂️</h1>
 <p align="center">
   <img width="500" src="./assets/images/Pvz_logo.png">
 </p>
