@@ -9,22 +9,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LevelMenuController {
     @FXML
     private AnchorPane levelRoot;
-    @FXML
-    private ImageView level1button;
-    @FXML
-    private ImageView level2button;
-    @FXML
-    private ImageView level3button;
-    @FXML
-    private ImageView level4button;
-    @FXML
-    private ImageView level5button;
-    @FXML
-    private ImageView backbutton;
     @FXML
     private ImageView nightTheme;
     @FXML
@@ -118,7 +107,7 @@ public class LevelMenuController {
 
     @FXML
     public void PrevMenuLoader() throws IOException {
-        AnchorPane Apane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         levelRoot.getChildren().setAll(Apane);
     }
 

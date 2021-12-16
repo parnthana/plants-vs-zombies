@@ -5,10 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.Objects;
+
 public class MainMenuController {
     @FXML
     private AnchorPane mainRoot;
-
 
     @FXML
     public void exitGame() {
@@ -17,18 +18,8 @@ public class MainMenuController {
 
     @FXML
     public void showLevelMenu() throws Exception {
-        AnchorPane Apane = FXMLLoader.load(getClass().getResource("LevelMenu.fxml"));
-        mainRoot.getChildren().setAll(Apane);
-    }
-
-    @FXML
-    public void startGame() throws Exception {
-        FXMLLoader gamePlayfxml = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
-        AnchorPane Apane = gamePlayfxml.load();
-        GameController controller = gamePlayfxml.getController();
-        controller.initializeData(Main.getMaxLevel(), new GameData(Main.getMaxLevel()));
+        AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LevelMenu.fxml")));
         mainRoot.getChildren().setAll(Apane);
     }
 
 }
-

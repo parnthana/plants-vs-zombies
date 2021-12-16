@@ -11,7 +11,7 @@
             <Image url="@../assets/images/menu3-01.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="startGame" fitHeight="181.0" fitWidth="357.0" layoutX="334.0" layoutY="140.0" onMouseClicked="#showLevelMenu" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="playGame" fitHeight="181.0" fitWidth="357.0" layoutX="334.0" layoutY="140.0" onMouseClicked="#showLevelMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/buttonPlay.png" />
          </image>
