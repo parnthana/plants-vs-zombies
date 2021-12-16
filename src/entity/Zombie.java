@@ -19,13 +19,13 @@ public abstract class Zombie extends Entity implements Attackable {
 
     // Fields
     private int health;
-    private int attackPower;
+    protected int attackPower;
     private int lane;
-    private int dx;
+    protected int dx;
     private Timeline zombieAnimation;
-    private Timeline eating;
-    private boolean reachedPlant = false;
-    private boolean isEating = false;
+    protected Timeline eating;
+    protected boolean reachedPlant = false;
+    protected boolean isEating = false;
 
     // Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
@@ -126,33 +126,37 @@ public abstract class Zombie extends Entity implements Attackable {
         }
     }
 
+    public void actEat(Plant plant){
+        if (!reachedPlant) {
+            reachedPlant = true;
+            isEating = true;
+        }
+        if (isEating) {
+            Timeline eat = new Timeline(new KeyFrame(Duration.millis(1000), e -> chompPlant()));
+            eat.setCycleCount(1000);
+            eat.play();
+            dx = 0;
+            eating = eat;
+            GameController.animationTimelines.add(eat);
+            isEating = false;
+        }
+        dx = 0;
+        plant.setHealthpoint(plant.getHealthpoint() - attackPower);
+        if (plant.getHealthpoint() <= 0) {
+            plant.setHealthpoint(0);
+            GameController.allPlants.remove(plant);
+            dx = -1;
+            reachedPlant = false;
+            eating.stop();
+        }
+    }
+
     public void eatPlant() {
         synchronized (GameController.allPlants) {
             for (Plant plant : GameController.allPlants) {
                 if (plant.getRow() == getLane()) {
                     if (Math.abs(plant.getX() - getImage().getX()) <= 50) {
-                        if (!reachedPlant) {
-                            reachedPlant = true;
-                            isEating = true;
-                        }
-                        if (isEating) {
-                            Timeline eat = new Timeline(new KeyFrame(Duration.millis(1000), e -> chompPlant()));
-                            eat.setCycleCount(1000);
-                            eat.play();
-                            dx = 0;
-                            eating = eat;
-                            GameController.animationTimelines.add(eat);
-                            isEating = false;
-                        }
-                        dx = 0;
-                        plant.setHealthpoint(plant.getHealthpoint() - attackPower);
-                        if (plant.getHealthpoint() <= 0) {
-                            plant.setHealthpoint(0);
-                            GameController.allPlants.remove(plant);
-                            dx = -1;
-                            reachedPlant = false;
-                            eating.stop();
-                        }
+                        actEat(plant);
                     } else {
                         reachedPlant = false;
                         if (eating != null) {
