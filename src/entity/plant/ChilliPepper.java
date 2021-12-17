@@ -13,13 +13,24 @@ import logic.GameController;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * The type Chilli pepper.
+ */
 public class ChilliPepper extends Plant {
 
     // Fields
     private ArrayList<Zombie> roastedZombies;
     private final ImageView[] fires;
 
-    // Constructor
+    /**
+     * Instantiates a new Chilli pepper.
+     *
+     * @param x      the x
+     * @param y      the y
+     * @param column the column
+     * @param row    the row
+     */
+// Constructor
     public ChilliPepper(int x, int y, int column, int row) {
         super(x, y, 100, 100, "/gif/chillipepper.gif", 4, column, row);
         fires = new ImageView[9];
@@ -78,6 +89,9 @@ public class ChilliPepper extends Plant {
         }).start();
     }
 
+    /**
+     * Remove fire.
+     */
     public void removeFire() {
         new Thread(() -> {
             try {
@@ -97,6 +111,11 @@ public class ChilliPepper extends Plant {
     public void checkHealthPoint() {
     }
 
+    /**
+     * Gets roasted zombies.
+     *
+     * @return the roasted zombies
+     */
     public ArrayList<Zombie> getRoastedZombies() {
         return roastedZombies;
     }

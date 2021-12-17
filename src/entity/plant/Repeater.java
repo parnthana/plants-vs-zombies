@@ -9,9 +9,20 @@ import javafx.util.Duration;
 import logic.GameController;
 
 
+/**
+ * The type Repeater.
+ */
 public class Repeater extends Shooter {
 
-    // Constructor
+    /**
+     * Instantiates a new Repeater.
+     *
+     * @param x      the x
+     * @param y      the y
+     * @param column the column
+     * @param row    the row
+     */
+// Constructor
     public Repeater(int x, int y, int column, int row) {
         super(x, y, "/gif/repeater.gif", 150, 60, 62, column, row);
     }

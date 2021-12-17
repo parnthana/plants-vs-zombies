@@ -7,6 +7,9 @@ import java.util.List;
 import entity.Plant;
 import entity.Zombie;
 
+/**
+ * The type Game data.
+ */
 public class GameData {
 
     // Fields
@@ -17,7 +20,12 @@ public class GameData {
     private final boolean status;
     private final int sunCount;
 
-    // Methods
+    /**
+     * Instantiates a new Game data.
+     *
+     * @param level the level
+     */
+// Methods
     public GameData(int level) {
         sunCount = 75;
         zombieList1 = new ArrayList<>();
@@ -30,26 +38,56 @@ public class GameData {
         status = LevelMenuController.status;
     }
 
+    /**
+     * Gets all zombie.
+     *
+     * @return the all zombie
+     */
     public List<Zombie> getAllZombie() {
         return allZombie;
     }
 
+    /**
+     * Gets all plants.
+     *
+     * @return the all plants
+     */
     public List<Plant> getAllPlants() {
         return allPlants;
     }
 
+    /**
+     * Gets zombie list 1.
+     *
+     * @return the zombie list 1
+     */
     public ArrayList<Integer> getZombieList1() {
         return zombieList1;
     }
 
+    /**
+     * Gets zombie list 2.
+     *
+     * @return the zombie list 2
+     */
     public ArrayList<Integer> getZombieList2() {
         return zombieList2;
     }
 
+    /**
+     * Gets status.
+     *
+     * @return the status
+     */
     public boolean getStatus() {
         return status;
     }
 
+    /**
+     * Gets sun count.
+     *
+     * @return the sun count
+     */
     public int getSunCount() {
         return sunCount;
     }

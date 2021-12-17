@@ -4,6 +4,9 @@ import entity.base.Entity;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.Pane;
 
+/**
+ * The type Shovel.
+ */
 // Singleton class
 public class Shovel extends Entity {
 
@@ -16,11 +19,21 @@ public class Shovel extends Entity {
         super(680, 10, 58, 58, "/images/Shovel.png");
     }
 
-    // Methods
+    /**
+     * Is disabled boolean.
+     *
+     * @return the boolean
+     */
+// Methods
     public boolean IsDisabled() {
         return isDisabled;
     }
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static Shovel getInstance() {
         if (shovel == null) {
             shovel = new Shovel();
@@ -38,12 +51,18 @@ public class Shovel extends Entity {
         });
     }
 
+    /**
+     * Enable.
+     */
     public void enable() {
         Glow glow = new Glow();
         shovel.getImage().setEffect(glow);
         glow.setLevel(0.4);
     }
 
+    /**
+     * Disable.
+     */
     public void disable() {
         if (!isDisabled) {
             Glow glow = (Glow) shovel.getImage().getEffect();

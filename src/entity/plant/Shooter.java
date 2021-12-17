@@ -10,13 +10,34 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import logic.GameController;
 
+/**
+ * The type Shooter.
+ */
 public class Shooter extends Plant {
 
-    // Fields
+    /**
+     * The Shooter timeline.
+     */
+// Fields
     protected Timeline shooterTimeline;
+    /**
+     * The Lane.
+     */
     protected int lane;
 
-    // Constructor
+    /**
+     * Instantiates a new Shooter.
+     *
+     * @param x           the x
+     * @param y           the y
+     * @param path        the path
+     * @param healthpoint the healthpoint
+     * @param width       the width
+     * @param height      the height
+     * @param column      the column
+     * @param row         the row
+     */
+// Constructor
     public Shooter(int x, int y, String path, int healthpoint, int width, int height, int column, int row) {
         super(x, y, width, height, path, healthpoint, column, row);
         this.lane = row;
@@ -49,10 +70,20 @@ public class Shooter extends Plant {
     public void attacking() {
     }
 
+    /**
+     * Gets shooter timeline.
+     *
+     * @return the shooter timeline
+     */
     public Timeline getShooterTimeline() {
         return shooterTimeline;
     }
 
+    /**
+     * Gets shooter lane.
+     *
+     * @return the shooter lane
+     */
     public int getShooterLane() {
         return lane;
     }

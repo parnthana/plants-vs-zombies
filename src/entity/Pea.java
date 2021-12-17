@@ -10,6 +10,9 @@ import logic.GameController;
 
 import java.util.Objects;
 
+/**
+ * The type Pea.
+ */
 public class Pea extends Entity {
 
     // Fields
@@ -18,7 +21,15 @@ public class Pea extends Entity {
     private Timeline peaAnimation;
     private boolean bombed;
 
-    // Constructor
+    /**
+     * Instantiates a new Pea.
+     *
+     * @param x             the x
+     * @param y             the y
+     * @param plantPosition the plant position
+     * @param lane          the lane
+     */
+// Constructor
     public Pea(int x, int y, int plantPosition, int lane) {
         super(x, y, 20, 20, "/images/pea.png");
         this.path = Objects.requireNonNull(getClass().getResource("/images/pea.png")).toString();
@@ -27,7 +38,10 @@ public class Pea extends Entity {
         setBombed(false);
     }
 
-    // Methods
+    /**
+     * Move pea.
+     */
+// Methods
     public void movePea() {
         if (x <= 1050) {
             setX(getX() + 1);
@@ -36,6 +50,9 @@ public class Pea extends Entity {
         checkZombieCollision();
     }
 
+    /**
+     * Shoot pea.
+     */
     public void shootPea() {
         Timeline animation = new Timeline(new KeyFrame(Duration.millis(5), e -> movePea()));
         animation.setCycleCount(1050);
@@ -44,6 +61,9 @@ public class Pea extends Entity {
         GameController.animationTimelines.add(animation);
     }
 
+    /**
+     * Check zombie collision.
+     */
     public void checkZombieCollision() {
         synchronized (GameController.allZombies) {
             for (Zombie zombie : GameController.allZombies) {
@@ -64,14 +84,29 @@ public class Pea extends Entity {
         }
     }
 
+    /**
+     * Sets lane.
+     *
+     * @param lane the lane
+     */
     public void setLane(int lane) {
         this.lane = lane;
     }
 
+    /**
+     * Sets plant position.
+     *
+     * @param plantPosition the plant position
+     */
     public void setPlantPosition(int plantPosition) {
         this.plantPosition = plantPosition;
     }
 
+    /**
+     * Sets bombed.
+     *
+     * @param bombed the bombed
+     */
     public void setBombed(boolean bombed) {
         this.bombed = bombed;
     }

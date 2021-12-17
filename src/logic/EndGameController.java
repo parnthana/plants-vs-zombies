@@ -10,9 +10,15 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * The type End game controller.
+ */
 public class EndGameController {
 
-    // Fields
+    /**
+     * The Main menu button.
+     */
+// Fields
     @FXML
     public Button mainMenuButton;
     @FXML
@@ -28,19 +34,32 @@ public class EndGameController {
     @FXML
     private ImageView plantImage;
 
-    // Methods
+    /**
+     * To main menu.
+     *
+     * @throws IOException the io exception
+     */
+// Methods
     @FXML
     public void ToMainMenu() throws IOException {
         AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         endGame.getChildren().setAll(Apane);
     }
 
+    /**
+     * To next level.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
     public void ToNextLevel() throws IOException {
         AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LevelMenu.fxml")));
         endGame.getChildren().setAll(Apane);
     }
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         zombiesAteYourBrains.setVisible(false);
@@ -51,6 +70,12 @@ public class EndGameController {
         nextLevelButton.setDisable(true);
     }
 
+    /**
+     * End game ui.
+     *
+     * @param level   the level
+     * @param gameWin the game win
+     */
     @FXML
     public void endGameUI(int level, boolean gameWin) {
         if (!gameWin) {
