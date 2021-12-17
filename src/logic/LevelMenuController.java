@@ -16,7 +16,6 @@ import java.util.Objects;
  */
 public class LevelMenuController {
 
-    // Fields
     @FXML
     private AnchorPane levelRoot;
     @FXML
@@ -39,7 +38,6 @@ public class LevelMenuController {
     /**
      * Initialize.
      */
-// Methods
     public void initialize() {
         if (status) {
             nightTheme.setVisible(false);

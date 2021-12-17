@@ -13,7 +13,6 @@ import java.util.Objects;
  */
 public class SideElement extends Entity {
 
-    // Fields
     private static int cardSelected = -1;
     private int cooldownTime;
     private boolean isDisabled = false;
@@ -31,7 +30,6 @@ public class SideElement extends Entity {
      * @param height the height
      * @param cost   the cost
      */
-// Constructor
     public SideElement(int x, int y, String path, int width, int height, int cost) {
         super(x, y, width, height, path);
         this.cost = cost;
@@ -42,7 +40,6 @@ public class SideElement extends Entity {
      *
      * @return the cost
      */
-// Methods
     public int getCost() {
         return cost;
     }

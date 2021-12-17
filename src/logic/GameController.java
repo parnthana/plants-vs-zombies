@@ -28,7 +28,6 @@ import java.util.*;
  */
 public class GameController {
 
-    // Fields
     @FXML
     private AnchorPane GamePlayRoot;
     @FXML
@@ -121,7 +120,6 @@ public class GameController {
     /**
      * Initialize.
      */
-// Methods
     public void initialize() {
         Media wave = new Media(Objects.requireNonNull(getClass().getResource("/sounds/zombies_are_coming.wav")).toString());
         MediaPlayer mediaPlayer = new MediaPlayer(wave);

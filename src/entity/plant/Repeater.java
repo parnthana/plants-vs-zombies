@@ -22,12 +22,10 @@ public class Repeater extends Shooter {
      * @param column the column
      * @param row    the row
      */
-// Constructor
     public Repeater(int x, int y, int column, int row) {
         super(x, y, "/gif/repeater.gif", 150, 60, 62, column, row);
     }
 
-    // Methods
     @Override
     public void attacking(Pane pane) {
         Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), event -> {

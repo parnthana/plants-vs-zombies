@@ -7,14 +7,11 @@ import javafx.scene.layout.Pane;
 /**
  * The type Shovel.
  */
-// Singleton class
 public class Shovel extends Entity {
 
-    // Fields
     private static boolean isDisabled = true;
     private static Shovel shovel;
 
-    // Singleton class Constructor
     private Shovel() {
         super(680, 10, 58, 58, "/images/Shovel.png");
     }
@@ -24,7 +21,6 @@ public class Shovel extends Entity {
      *
      * @return the boolean
      */
-// Methods
     public boolean IsDisabled() {
         return isDisabled;
     }

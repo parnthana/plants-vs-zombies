@@ -15,7 +15,6 @@ import java.util.Objects;
  */
 public class Pea extends Entity {
 
-    // Fields
     private int lane;
     private int plantPosition;
     private Timeline peaAnimation;
@@ -29,7 +28,6 @@ public class Pea extends Entity {
      * @param plantPosition the plant position
      * @param lane          the lane
      */
-// Constructor
     public Pea(int x, int y, int plantPosition, int lane) {
         super(x, y, 20, 20, "/images/pea.png");
         this.path = Objects.requireNonNull(getClass().getResource("/images/pea.png")).toString();
@@ -41,7 +39,6 @@ public class Pea extends Entity {
     /**
      * Move pea.
      */
-// Methods
     public void movePea() {
         if (x <= 1050) {
             setX(getX() + 1);

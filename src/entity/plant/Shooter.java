@@ -18,7 +18,6 @@ public class Shooter extends Plant {
     /**
      * The Shooter timeline.
      */
-// Fields
     protected Timeline shooterTimeline;
     /**
      * The Lane.
@@ -37,13 +36,11 @@ public class Shooter extends Plant {
      * @param column      the column
      * @param row         the row
      */
-// Constructor
     public Shooter(int x, int y, String path, int healthpoint, int width, int height, int column, int row) {
         super(x, y, width, height, path, healthpoint, column, row);
         this.lane = row;
     }
 
-    // Methods
     @Override
     public void attacking(Pane pane) {
         Timeline peaShooter = new Timeline(new KeyFrame(Duration.seconds(2), event -> {

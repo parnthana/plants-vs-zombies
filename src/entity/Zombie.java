@@ -20,7 +20,6 @@ import java.util.Objects;
  */
 public abstract class Zombie extends Entity implements Attackable {
 
-    // Fields
     private int health;
     /**
      * The Attack power.
@@ -45,7 +44,6 @@ public abstract class Zombie extends Entity implements Attackable {
      * @param lane        the lane
      * @param path        the path
      */
-// Constructor
     public Zombie(int health, int attackPower, int x, int y, int width, int height, int lane, String path) {
         super(x, y, width, height, path);
         this.health = health;
@@ -59,7 +57,6 @@ public abstract class Zombie extends Entity implements Attackable {
      *
      * @param health the health
      */
-// Methods
     public void setHealthPoint(int health) {
         this.health = health;
         Platform.runLater(() -> {

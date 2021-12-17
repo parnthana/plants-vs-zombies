@@ -18,7 +18,6 @@ public class EndGameController {
     /**
      * The Main menu button.
      */
-// Fields
     @FXML
     public Button mainMenuButton;
     @FXML
@@ -39,7 +38,6 @@ public class EndGameController {
      *
      * @throws IOException the io exception
      */
-// Methods
     @FXML
     public void ToMainMenu() throws IOException {
         AnchorPane Apane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));

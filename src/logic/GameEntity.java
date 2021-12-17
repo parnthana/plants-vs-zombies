@@ -13,7 +13,6 @@ import java.util.Collections;
  */
 public class GameEntity {
 
-    // Fields
     private final int level;
     private final int numDefaultZombie;
     private final int numFunnelHeadZombie;
@@ -28,7 +27,6 @@ public class GameEntity {
      *
      * @param level the level
      */
-// Methods
     public GameEntity(int level) {
         this.level = level;
         zombieList1 = new ArrayList<>();

@@ -14,7 +14,6 @@ public class Entity {
     /**
      * The X.
      */
-// Fields
     protected int x;
     /**
      * The Y.
@@ -46,7 +45,6 @@ public class Entity {
      * @param height the height
      * @param path   the path
      */
-// Constructor
     public Entity(int x, int y, int width, int height, String path) {
         this.x = x;
         this.y = y;

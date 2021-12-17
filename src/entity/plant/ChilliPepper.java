@@ -18,7 +18,6 @@ import java.util.Objects;
  */
 public class ChilliPepper extends Plant {
 
-    // Fields
     private ArrayList<Zombie> roastedZombies;
     private final ImageView[] fires;
 
@@ -30,13 +29,11 @@ public class ChilliPepper extends Plant {
      * @param column the column
      * @param row    the row
      */
-// Constructor
     public ChilliPepper(int x, int y, int column, int row) {
         super(x, y, 100, 100, "/gif/chillipepper.gif", 4, column, row);
         fires = new ImageView[9];
     }
 
-    // Methods
     @Override
     public void attacking() {
     }

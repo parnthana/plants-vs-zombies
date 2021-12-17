@@ -16,7 +16,6 @@ import java.util.Objects;
  */
 public class GameMenuController {
 
-    // Fields
     @FXML
     private AnchorPane GamePlayRoot;
     @FXML
@@ -38,7 +37,6 @@ public class GameMenuController {
      * @param d            the d
      * @param allPlant     the all plant
      */
-// Methods
     @FXML
     public void initializeData(AnchorPane gamePlayRoot, int levelNumber, GameData d, List<Plant> allPlant) {
         this.GamePlayRoot = gamePlayRoot;

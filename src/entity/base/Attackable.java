@@ -12,7 +12,6 @@ public interface Attackable {
      *
      * @param pane the pane
      */
-// Methods
     void attacking(Pane pane);
 
     /**

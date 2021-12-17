@@ -21,7 +21,6 @@ public class CherryBomb extends Plant {
     /**
      * The Cherry.
      */
-// Fields
     protected ImageView cherry;
     private ArrayList<Zombie> roastedZombies;
 
@@ -33,12 +32,10 @@ public class CherryBomb extends Plant {
      * @param column the column
      * @param row    the row
      */
-// Constructor
     public CherryBomb(int x, int y, int column, int row) {
         super(x, y, 90, 68, "/gif/anim_cherrybomb.gif", 4, column, row);
     }
 
-    // Methods
     @Override
     public void attacking() {
     }

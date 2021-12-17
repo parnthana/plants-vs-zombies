@@ -12,7 +12,6 @@ import logic.GameController;
  */
 public class Sun extends Entity {
 
-    // Fields
     private final int timeout_time;
 
     /**
@@ -22,7 +21,6 @@ public class Sun extends Entity {
      * @param y         the y
      * @param isFalling the is falling
      */
-// Constructor
     public Sun(int x, int y, boolean isFalling) {
         super(x, y, 50, 50, "/images/sun.png");
         if (isFalling) {
@@ -36,7 +34,6 @@ public class Sun extends Entity {
     /**
      * Disappear.
      */
-// Methods
     public void disappear() {
         new Thread(() -> {
             try {

@@ -14,7 +14,6 @@ import logic.GameController;
  */
 public class SunFlower extends Plant {
 
-    // Field
     private Timeline sunProducer;
 
     /**
@@ -25,12 +24,10 @@ public class SunFlower extends Plant {
      * @param column the column
      * @param row    the row
      */
-// Constructor
     public SunFlower(int x, int y, int column, int row) {
         super(x, y, 73, 74, "/gif/sunflower.gif", 100, column, row);
     }
 
-    // Methods
     @Override
     public void attacking(Pane pane) {
         produceSun(pane);

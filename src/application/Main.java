@@ -19,10 +19,8 @@ public class Main extends Application {
     /**
      * The constant mediaPlayer.
      */
-// Fields
     public static MediaPlayer mediaPlayer;
 
-    // Methods
     @Override
     public void start(Stage primaryStage) throws Exception {
         addMusic();

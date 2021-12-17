@@ -15,7 +15,6 @@ public abstract class Plant extends Entity implements Attackable {
     /**
      * The Row.
      */
-// Fields
     protected int row;
     /**
      * The Column.
@@ -38,7 +37,6 @@ public abstract class Plant extends Entity implements Attackable {
      * @param column      the column
      * @param row         the row
      */
-// Constructor
     public Plant(int x, int y, int width, int height, String path, int healthpoint, int column, int row) {
         super(x, y, width, height, path);
         this.healthpoint = healthpoint;
@@ -51,7 +49,6 @@ public abstract class Plant extends Entity implements Attackable {
      *
      * @param lawn the lawn
      */
-// Methods
     public void buildImage(GridPane lawn) {
         image = new ImageView();
         image.setImage(new Image(path, width, height, false, false));
